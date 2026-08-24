@@ -1,0 +1,146 @@
+[
+ {
+  "spacer": "GGCGTGGGCGGCGTCGTCGC",
+  "pbs": "ACGACGCCG",
+  "L": 9,
+  "wallace": 32
+ },
+ {
+  "spacer": "AGCTGCCGCAGACGCCTTGC",
+  "pbs": "AGGCGTCTG",
+  "L": 9,
+  "wallace": 30
+ },
+ {
+  "spacer": "GATGACATGGTCAACTACAA",
+  "pbs": "TAGTTGACCAT",
+  "L": 11,
+  "wallace": 30
+ },
+ {
+  "spacer": "CAATGGGTGGATTGGATCTT",
+  "pbs": "ATCCAATCCAC",
+  "L": 11,
+  "wallace": 32
+ },
+ {
+  "spacer": "TTTCCACAGGCTTTCTTGAA",
+  "pbs": "AAGAAAGCCTG",
+  "L": 11,
+  "wallace": 32
+ },
+ {
+  "spacer": "CTGGTGCTCCGCCTCCGTGG",
+  "pbs": "CGGAGGC",
+  "L": 7,
+  "wallace": 26
+ },
+ {
+  "spacer": "CTGGTGCTCCGCCTCCGTGG",
+  "pbs": "CGGAGGC",
+  "L": 7,
+  "wallace": 26
+ },
+ {
+  "spacer": "CTGGTGCTCCGCCTCCGTGG",
+  "pbs": "CGGAGGC",
+  "L": 7,
+  "wallace": 26
+ },
+ {
+  "spacer": "GAGAATGAGGATGGCGATGA",
+  "pbs": "TCGCCATC",
+  "L": 8,
+  "wallace": 26
+ },
+ {
+  "spacer": "GAGAATGAGGATGGCGATGA",
+  "pbs": "TCGCCATC",
+  "L": 8,
+  "wallace": 26
+ },
+ {
+  "spacer": "GAGAATGAGGATGGCGATGA",
+  "pbs": "TCGCCATC",
+  "L": 8,
+  "wallace": 26
+ },
+ {
+  "spacer": "CTGGCCCATCCATTGTGCAC",
+  "pbs": "CACAATGGATG",
+  "L": 11,
+  "wallace": 32
+ },
+ {
+  "spacer": "CTGGTGCTCCGCCTCCGTGG",
+  "pbs": "CGGAGGC",
+  "L": 7,
+  "wallace": 26
+ },
+ {
+  "spacer": "ATACTTGACGAACAGAGGCT",
+  "pbs": "CTCTGTTCGT",
+  "L": 10,
+  "wallace": 30
+ },
+ {
+  "spacer": "CTGGTGCTCCGCCTCCGTGG",
+  "pbs": "CGGAGGC",
+  "L": 7,
+  "wallace": 26
+ },
+ {
+  "spacer": "ATACTTGACGAACAGAGGCT",
+  "pbs": "CTCTGTTCGT",
+  "L": 10,
+  "wallace": 30
+ },
+ {
+  "spacer": "GAGAATGAGGATGGCGATGA",
+  "pbs": "TCGCCATC",
+  "L": 8,
+  "wallace": 26
+ },
+ {
+  "spacer": "ACTCCACACTGGCAGATCAT",
+  "pbs": "ATCTGCCAG",
+  "L": 9,
+  "wallace": 28
+ },
+ {
+  "spacer": "GAGAATGAGGATGGCGATGA",
+  "pbs": "TCGCCATC",
+  "L": 8,
+  "wallace": 26
+ },
+ {
+  "spacer": "AAATCACAAGTGAGAACCAC",
+  "pbs": "GTTCTCACTT",
+  "L": 10,
+  "wallace": 28
+ },
+ {
+  "spacer": "CTGGCCCATCCATTGTGCAC",
+  "pbs": "CACAATGGAT",
+  "L": 10,
+  "wallace": 28
+ },
+ {
+  "spacer": "AAATCACAAGTGAGAACCAC",
+  "pbs": "GTTCTCACTT",
+  "L": 10,
+  "wallace": 28
+ },
+ {
+  "spacer": "CTGGCCCATCCATTGTGCAC",
+  "pbs": "CACAATGGAT",
+  "L": 10,
+  "wallace": 28
+ },
+ {
+  "spacer": "AAATCACAAGTGAGAACCAC",
+  "pbs": "GTTCTCACTT",
+  "L": 10,
+  "wallace": 28
+ }
+]

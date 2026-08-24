@@ -1,0 +1,56 @@
+[
+  {
+    "target": "TaGW2",
+    "gene": "TaGW2",
+    "source": "Lin2020_S1",
+    "pbs": "TGGTGGATTTT",
+    "length": 11,
+    "wallace_tm_C": 30,
+    "nn_tm_C": 19.5
+  },
+  {
+    "target": "TaUbi10-T1",
+    "gene": "TaUbi10",
+    "source": "Lin2020_S1",
+    "pbs": "CAGTTTCATACAT",
+    "length": 13,
+    "wallace_tm_C": 34,
+    "nn_tm_C": 22.3
+  },
+  {
+    "target": "TaUbi10-T2",
+    "gene": "TaUbi10",
+    "source": "Lin2020_S1",
+    "pbs": "CCACCAGTTGCA",
+    "length": 12,
+    "wallace_tm_C": 38,
+    "nn_tm_C": 32.6
+  },
+  {
+    "target": "TaMLO",
+    "gene": "TaMLO",
+    "source": "Lin2020_S1",
+    "pbs": "CGCAGGACCCAA",
+    "length": 12,
+    "wallace_tm_C": 40,
+    "nn_tm_C": 35.9
+  },
+  {
+    "target": "TaDME",
+    "gene": "TaDME",
+    "source": "Lin2020_S1",
+    "pbs": "GTCCTGAAACCAT",
+    "length": 13,
+    "wallace_tm_C": 38,
+    "nn_tm_C": 29.4
+  },
+  {
+    "target": "TaGASR7",
+    "gene": "TaGASR7",
+    "source": "Lin2020_S1",
+    "pbs": "TGCCGTAGGTGC",
+    "length": 12,
+    "wallace_tm_C": 40,
+    "nn_tm_C": 36
+  }
+]

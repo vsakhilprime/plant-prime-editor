@@ -1,0 +1,118 @@
+{
+ "nCas9-PPE": {
+  "plasmid": "pOsU3",
+  "linearised_by": "BsaI + HindIII, 121 bp excised",
+  "gibson_5arm": "TAAAAGAGTTGTGCAGATGATCCGT",
+  "gibson_3arm": "AGCTTGGCGTAATCATGGTCATAGC",
+  "arm_5_ends_at": 825,
+  "arm_3_starts_at": 947,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pSpG-PPE": {
+  "plasmid": "pOsU3",
+  "linearised_by": "BsaI + HindIII, 121 bp excised",
+  "gibson_5arm": "TAAAAGAGTTGTGCAGATGATCCGT",
+  "gibson_3arm": "AGCTTGGCGTAATCATGGTCATAGC",
+  "arm_5_ends_at": 825,
+  "arm_3_starts_at": 947,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pEPPE-mono": {
+  "plasmid": "pOsU3",
+  "linearised_by": "BsaI + HindIII, 121 bp excised",
+  "gibson_5arm": "TAAAAGAGTTGTGCAGATGATCCGT",
+  "gibson_3arm": "AGCTTGGCGTAATCATGGTCATAGC",
+  "arm_5_ends_at": 825,
+  "arm_3_starts_at": 947,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pH-nCas9-PPE": {
+  "plasmid": "pH-nCas9-PPE-V2",
+  "linearised_by": "BsaI + HindIII, 368 bp excised",
+  "gibson_5arm": "AAGCGTGCATAATAAGCCGGTCTCG",
+  "gibson_3arm": "AGCTTGCATGCCTGCAGTGCAGCGT",
+  "arm_5_ends_at": 1932,
+  "arm_3_starts_at": 2301,
+  "arms_verified": true,
+  "site_regenerated": [
+   "BsaI"
+  ],
+  "arm_note": "The assembled plasmid regenerates a BsaI site: the recognition sequence sits on the backbone side of the cut. Harmless for an exonuclease assembly, but do not then attempt a Golden Gate on it."
+ },
+ "pPPE-mono": {
+  "plasmid": "pH-nCas9-PPE-V2",
+  "linearised_by": "BsaI + HindIII, 368 bp excised",
+  "gibson_5arm": "AAGCGTGCATAATAAGCCGGTCTCG",
+  "gibson_3arm": "AGCTTGCATGCCTGCAGTGCAGCGT",
+  "arm_5_ends_at": 1932,
+  "arm_3_starts_at": 2301,
+  "arms_verified": true,
+  "site_regenerated": [
+   "BsaI"
+  ],
+  "arm_note": "The assembled plasmid regenerates a BsaI site: the recognition sequence sits on the backbone side of the cut. Harmless for an exonuclease assembly, but do not then attempt a Golden Gate on it."
+ },
+ "pH-ePPE": {
+  "plasmid": "pH-ePPE",
+  "linearised_by": "BsaI + HindIII, 368 bp excised",
+  "gibson_5arm": "AAGCGTGCATAATAAGCCGGTCTCG",
+  "gibson_3arm": "AGCTTGCATGCCTGCAGTGCAGCGT",
+  "arm_5_ends_at": 2106,
+  "arm_3_starts_at": 2475,
+  "arms_verified": true,
+  "site_regenerated": [
+   "BsaI"
+  ],
+  "arm_note": "The assembled plasmid regenerates a BsaI site: the recognition sequence sits on the backbone side of the cut. Harmless for an exonuclease assembly, but do not then attempt a Golden Gate on it."
+ },
+ "pH-2x35S-DualPE": {
+  "plasmid": "pH-2\u00d735S-DualPE",
+  "linearised_by": "TypeIIS BsaI, 126 bp excised",
+  "gibson_5arm": "GCTAAGCTTGTTCACTGCCGTATAG",
+  "gibson_3arm": "GTTCTATCTAGTTACGCGTTAAACC",
+  "arm_5_ends_at": 5474,
+  "arm_3_starts_at": 5601,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pVu2024-dicot": {
+  "plasmid": "pICH41331::pU6cm-pegR::EURb7",
+  "linearised_by": "TypeIIS BbsI, 154 bp excised",
+  "gibson_5arm": "AGACCCGGGTTCGATTCCCGGCTGG",
+  "gibson_3arm": "GTTCTATCTAGTTACGCGTTAAACC",
+  "arm_5_ends_at": 3304,
+  "arm_3_starts_at": 3459,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pH35C-epegRNA-ePPEplus": {
+  "plasmid": "pH35C-epegRNA-ePPEplus",
+  "linearised_by": "TypeIIS BsaI, 42 bp excised",
+  "gibson_5arm": "ACAGACCCGGGTTCGATTCCCGGCT",
+  "gibson_3arm": "TTCTATCTAGTTACGCGTTAAACCA",
+  "arm_5_ends_at": 1336,
+  "arm_3_starts_at": 1379,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ },
+ "pYPQ166-OsPE2": {
+  "plasmid": "pYPQ141D-peg",
+  "linearised_by": "TypeIIS BsmBI + BsaI, 147 bp excised",
+  "gibson_5arm": "TTAAAAGAGTTGTGCAGATGATCCG",
+  "gibson_3arm": "TTTCTGCAGATATCCATCACACTGG",
+  "arm_5_ends_at": 393,
+  "arm_3_starts_at": 541,
+  "arms_verified": true,
+  "site_regenerated": [],
+  "arm_note": "Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer."
+ }
+}

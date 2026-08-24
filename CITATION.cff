@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use Plant Prime Editor, please cite the software and the paper."
+copyright: "Copyright (c) 2026 V. S. Akhil, T. K. Dutta and Chanumolu H G K, and ICAR-Indian Agricultural Research Institute, New Delhi, India. All rights reserved."
+title: "Plant Prime Editor"
+version: "1.0.0"
+date-released: "2026-08-19"
+type: software
+abstract: >-
+  A browser-based platform for plant prime editing that carries a design from
+  allele comparison through pegRNA construction to a cloning-ready primer set.
+  All computation runs client-side; no sequence leaves the browser.
+authors:
+  - given-names: "Voodikala S."
+    family-names: "Akhil"
+    affiliation: "Division of Nematology, ICAR-Indian Agricultural Research Institute, New Delhi, India"
+    orcid: "https://orcid.org/0009-0002-4273-8612"
+  - given-names: "Tushar Kanti"
+    family-names: "Dutta"
+    affiliation: "Division of Nematology, ICAR-Indian Agricultural Research Institute, New Delhi, India"
+    orcid: "https://orcid.org/0000-0002-0278-1707"
+  - given-names: "H G K"
+    family-names: "Chanumolu"
+    affiliation: "Division of Plant Physiology, ICAR-Indian Agricultural Research Institute, New Delhi, India"
+    orcid: "https://orcid.org/0009-0006-8480-2706"
+url: "https://akprimeedit.com"
+repository-code: "https://github.com/vsakhilprime/plant-prime-editor"
+license-url: "https://github.com/vsakhilprime/plant-prime-editor/blob/main/LICENSE"
+# Not an open-source licence. Copyright (c) 2026 the authors and ICAR-IARI.
+# Free for academic and non-commercial use; commercial use requires a licence from ICAR-IARI.
+# After the Zenodo release, add the concept DOI here so the software citation
+# resolves to the newest version:
+#   identifiers:
+#     - type: doi
+#       value: 10.5281/zenodo.XXXXXXX
+#       description: "Concept DOI, all versions"
+keywords:
+  - prime editing
+  - pegRNA design
+  - plant genome editing
+  - rice
+  - wheat

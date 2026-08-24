@@ -1,0 +1,263 @@
+{
+ "question": "Does the primer-binding-site score predict measured editing efficiency?",
+ "data_source": "Lin Q et al. 2021 Nat Biotechnol 39:923, primer-binding-site length series, digitised in data/tm_table.csv",
+ "design": "within-target Spearman between the engine score and measured efficiency, combined across targets; null shuffles efficiencies within each target",
+ "targets_analysed": 13,
+ "designs_analysed": 70,
+ "targets_skipped": [
+  {
+   "target": "OsIPA1-T1",
+   "why": "fewer than three reproducible lengths",
+   "dropped": []
+  }
+ ],
+ "context_control": [
+  {
+   "target": "OsACC-T1",
+   "real_rho": 0.731126155013931,
+   "reconstructed_rho": 0.731126155013931,
+   "difference": 0
+  },
+  {
+   "target": "OsALS-T2",
+   "real_rho": 0.8603090020146066,
+   "reconstructed_rho": 0.8603090020146066,
+   "difference": 0
+  },
+  {
+   "target": "OsCDC48-T3",
+   "real_rho": 0.6668859288553501,
+   "reconstructed_rho": 0.6668859288553501,
+   "difference": 0
+  },
+  {
+   "target": "OsEPSPS-T1",
+   "real_rho": 0.6826469692905577,
+   "reconstructed_rho": 0.6050633809075329,
+   "difference": -0.078
+  },
+  {
+   "target": "OsEPSPS-T2",
+   "real_rho": 0.5,
+   "reconstructed_rho": 0.5,
+   "difference": 0
+  },
+  {
+   "target": "OsIPA1-T2",
+   "real_rho": 0.5,
+   "reconstructed_rho": 0.4,
+   "difference": -0.1
+  },
+  {
+   "target": "OsNRT1.1B-T1",
+   "real_rho": 1,
+   "reconstructed_rho": 0.8,
+   "difference": -0.2
+  }
+ ],
+ "per_target": [
+  {
+   "target": "OsAAT-T1",
+   "mode": "reconstructed",
+   "n": 4,
+   "dropped": [],
+   "rho": 0.31622776601683794,
+   "best_measured_len": 8,
+   "best_measured_eff": 0.275,
+   "best_of_all_measured_eff": 0.275,
+   "top_scoring_len": 8,
+   "top_scoring_eff": 0.275,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsACC-T1",
+   "mode": "real",
+   "n": 9,
+   "dropped": [],
+   "rho": 0.731126155013931,
+   "best_measured_len": 9,
+   "best_measured_eff": 1.83,
+   "best_of_all_measured_eff": 1.83,
+   "top_scoring_len": 9,
+   "top_scoring_eff": 1.83,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsALS-T2",
+   "mode": "real",
+   "n": 5,
+   "dropped": [],
+   "rho": 0.8603090020146066,
+   "best_measured_len": 8,
+   "best_measured_eff": 0.46,
+   "best_of_all_measured_eff": 0.46,
+   "top_scoring_len": 10,
+   "top_scoring_eff": 0.46,
+   "fraction_of_best": 1,
+   "length_error_nt": 2
+  },
+  {
+   "target": "OsCDC48-T3",
+   "mode": "real",
+   "n": 9,
+   "dropped": [],
+   "rho": 0.6668859288553501,
+   "best_measured_len": 10,
+   "best_measured_eff": 12.5,
+   "best_of_all_measured_eff": 12.5,
+   "top_scoring_len": 8,
+   "top_scoring_eff": 10.5,
+   "fraction_of_best": 0.84,
+   "length_error_nt": 2
+  },
+  {
+   "target": "OsEPSPS-T1",
+   "mode": "real",
+   "n": 8,
+   "dropped": [
+    "16:sequence mismatch"
+   ],
+   "rho": 0.6826469692905577,
+   "best_measured_len": 8,
+   "best_measured_eff": 3.65,
+   "best_of_all_measured_eff": 3.65,
+   "top_scoring_len": 8,
+   "top_scoring_eff": 3.65,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsEPSPS-T2",
+   "mode": "real",
+   "n": 3,
+   "dropped": [],
+   "rho": 0.5,
+   "best_measured_len": 8,
+   "best_measured_eff": 0.91,
+   "best_of_all_measured_eff": 0.91,
+   "top_scoring_len": 13,
+   "top_scoring_eff": 0.72,
+   "fraction_of_best": 0.7912087912087912,
+   "length_error_nt": 5
+  },
+  {
+   "target": "OsGAPDH-T1",
+   "mode": "reconstructed",
+   "n": 3,
+   "dropped": [],
+   "rho": 0.5,
+   "best_measured_len": 9,
+   "best_measured_eff": 4,
+   "best_of_all_measured_eff": 4,
+   "top_scoring_len": 9,
+   "top_scoring_eff": 4,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsIPA1-T2",
+   "mode": "real",
+   "n": 3,
+   "dropped": [
+    "16:sequence mismatch"
+   ],
+   "rho": 0.5,
+   "best_measured_len": 9,
+   "best_measured_eff": 2.2,
+   "best_of_all_measured_eff": 2.2,
+   "top_scoring_len": 9,
+   "top_scoring_eff": 2.2,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsLDMAR-T1",
+   "mode": "reconstructed",
+   "n": 5,
+   "dropped": [],
+   "rho": 0.6708203932499369,
+   "best_measured_len": 10,
+   "best_measured_eff": 1.2,
+   "best_of_all_measured_eff": 1.2,
+   "top_scoring_len": 10,
+   "top_scoring_eff": 1.2,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsNRT1.1B-T1",
+   "mode": "real",
+   "n": 3,
+   "dropped": [
+    "16:sequence mismatch"
+   ],
+   "rho": 1,
+   "best_measured_len": 10,
+   "best_measured_eff": 0.64,
+   "best_of_all_measured_eff": 0.64,
+   "top_scoring_len": 10,
+   "top_scoring_eff": 0.64,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsODEV-T1",
+   "mode": "reconstructed",
+   "n": 4,
+   "dropped": [],
+   "rho": 0.9486832980505138,
+   "best_measured_len": 11,
+   "best_measured_eff": 1.33,
+   "best_of_all_measured_eff": 1.33,
+   "top_scoring_len": 11,
+   "top_scoring_eff": 1.33,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsPDS-T1",
+   "mode": "reconstructed",
+   "n": 9,
+   "dropped": [],
+   "rho": 0.43780453134242986,
+   "best_measured_len": 10,
+   "best_measured_eff": 1.2,
+   "best_of_all_measured_eff": 1.2,
+   "top_scoring_len": 10,
+   "top_scoring_eff": 1.2,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  },
+  {
+   "target": "OsROC5-T1",
+   "mode": "reconstructed",
+   "n": 5,
+   "dropped": [],
+   "rho": 0.13157894736842105,
+   "best_measured_len": 10,
+   "best_measured_eff": 0.47,
+   "best_of_all_measured_eff": 0.47,
+   "top_scoring_len": 10,
+   "top_scoring_eff": 0.47,
+   "fraction_of_best": 1,
+   "length_error_nt": 0
+  }
+ ],
+ "combined": {
+  "median_rho": 0.667,
+  "positive_targets": 13,
+  "of": 13,
+  "null_median_rho": 0,
+  "null_95th": 0.386,
+  "p_value": 0.00004999750012499375,
+  "p_reported": "< 5e-5"
+ },
+ "top_pick_performance": {
+  "median_fraction_of_best_efficiency": 1,
+  "median_length_error_nt": 0,
+  "exact_length_hits": 10,
+  "within_2nt": 12
+ }
+}

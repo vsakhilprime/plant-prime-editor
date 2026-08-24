@@ -1,0 +1,302 @@
+{
+ "pH-2x35S-DualPE": {
+  "source_plasmid": "pH-2\u00d735S-DualPE Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   5495,
+   5580
+  ],
+  "stuffer_bp": 78,
+  "fwd_anchor": "GGCGGCGCTCTTGTTCATGGCGTA",
+  "fwd": {
+   "seq": "GGCGGCGCTCTTGTTCATGGCGTA",
+   "pos_1based": 4618,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 59.3,
+   "distance_from_cut_bp": 853
+  },
+  "rev_anchor": "TGTCTGGGATGCGCTTCCTGGCCT",
+  "rev_top_strand": "AGGCCAGGAAGCGCATCCCAGACA",
+  "rev": {
+   "seq": "AGGCCAGGAAGCGCATCCCAGACA",
+   "pos_1based": 6900,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 59.6,
+   "distance_from_cut_bp": 1319
+  },
+  "empty_amplicon_bp": 2306,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pVu2024-dicot": {
+  "source_plasmid": "pICH41331::pU6cm-pegR::EURb7 Addgene_NGS_Result",
+  "enzyme": "BbsI",
+  "acceptor_bp": [
+   3340,
+   3425
+  ],
+  "stuffer_bp": 78,
+  "fwd_anchor": "TGCCTCTGCCGACAGTGGTCCCAA",
+  "fwd": {
+   "seq": "TGCCTCTGCCGACAGTGGTCCCAA",
+   "pos_1based": 2567,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 59.4,
+   "distance_from_cut_bp": 749
+  },
+  "rev_anchor": "TGCTGGATCACTCCCTGGCCCTCT",
+  "rev_top_strand": "AGAGGGCCAGGGAGTGATCCAGCA",
+  "rev": {
+   "seq": "AGAGGGCCAGGGAGTGATCCAGCA",
+   "pos_1based": 3932,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 58.6,
+   "distance_from_cut_bp": 506
+  },
+  "empty_amplicon_bp": 1389,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pH35C-epegRNA-ePPEplus": {
+  "source_plasmid": "pH35C-epegRNA-ePPEplus Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   1337,
+   1378
+  ],
+  "stuffer_bp": 34,
+  "fwd_anchor": "GCGGCGAAGTATTCAGGCACGTGG",
+  "fwd": {
+   "seq": "GCGGCGAAGTATTCAGGCACGTGG",
+   "pos_1based": 1098,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 58.0,
+   "distance_from_cut_bp": 215
+  },
+  "rev_anchor": "GTCACGCTGCACTGCAGGCATGCA",
+  "rev_top_strand": "TGCATGCCTGCAGTGCAGCGTGAC",
+  "rev": {
+   "seq": "TGCATGCCTGCAGTGCAGCGTGAC",
+   "pos_1based": 1773,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.0,
+   "distance_from_cut_bp": 394
+  },
+  "empty_amplicon_bp": 699,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pYPQ166-OsPE2": {
+  "source_plasmid": "pYPQ141D-peg Addgene_NGS_Result",
+  "enzyme": "BsmBI",
+  "acceptor_bp": [
+   431,
+   434
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "TGCTGGAAGCCGGGAACACTGGGT",
+  "fwd": {
+   "seq": "TGCTGGAAGCCGGGAACACTGGGT",
+   "pos_1based": 169,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 59.8,
+   "distance_from_cut_bp": 238
+  },
+  "rev_anchor": "AACGCGCTTGCTGCTTGGATGCCC",
+  "rev_top_strand": "GGGCATCCAAGCAGCAAGCGCGTT",
+  "rev": {
+   "seq": "GGGCATCCAAGCAGCAAGCGCGTT",
+   "pos_1based": 1086,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.3,
+   "distance_from_cut_bp": 651
+  },
+  "empty_amplicon_bp": 941,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pH-nCas9-PPE": {
+  "source_plasmid": "pH-nCas9-PPE-V2 Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   1933,
+   1936
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "TGGATGGCGGCCTGAAGCCACACA",
+  "fwd": {
+   "seq": "TGGATGGCGGCCTGAAGCCACACA",
+   "pos_1based": 1102,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.2,
+   "distance_from_cut_bp": 807
+  },
+  "rev_anchor": "ACGCTGCACTGCAGGCATGCAAGC",
+  "rev_top_strand": "GCTTGCATGCCTGCAGTGCAGCGT",
+  "rev": {
+   "seq": "GCTTGCATGCCTGCAGTGCAGCGT",
+   "pos_1based": 2302,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 365
+  },
+  "empty_amplicon_bp": 1224,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pPPE-mono": {
+  "source_plasmid": "pH-nCas9-PPE-V2 Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   1933,
+   1936
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "TGGATGGCGGCCTGAAGCCACACA",
+  "fwd": {
+   "seq": "TGGATGGCGGCCTGAAGCCACACA",
+   "pos_1based": 1102,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.2,
+   "distance_from_cut_bp": 807
+  },
+  "rev_anchor": "ACGCTGCACTGCAGGCATGCAAGC",
+  "rev_top_strand": "GCTTGCATGCCTGCAGTGCAGCGT",
+  "rev": {
+   "seq": "GCTTGCATGCCTGCAGTGCAGCGT",
+   "pos_1based": 2302,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 365
+  },
+  "empty_amplicon_bp": 1224,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pH-ePPE": {
+  "source_plasmid": "pH-ePPE Whole_Plasmid_Sequence",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   2107,
+   2110
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "TGGATGGCGGCCTGAAGCCACACA",
+  "fwd": {
+   "seq": "TGGATGGCGGCCTGAAGCCACACA",
+   "pos_1based": 1276,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.2,
+   "distance_from_cut_bp": 807
+  },
+  "rev_anchor": "ACGCTGCACTGCAGGCATGCAAGC",
+  "rev_top_strand": "GCTTGCATGCCTGCAGTGCAGCGT",
+  "rev": {
+   "seq": "GCTTGCATGCCTGCAGTGCAGCGT",
+   "pos_1based": 2476,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 365
+  },
+  "empty_amplicon_bp": 1224,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "nCas9-PPE": {
+  "source_plasmid": "pOsU3 Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   850,
+   853
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "ACCGCATCAGGCGCCATTCGCCAT",
+  "fwd": {
+   "seq": "ACCGCATCAGGCGCCATTCGCCAT",
+   "pos_1based": 216,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.8,
+   "distance_from_cut_bp": 610
+  },
+  "rev_anchor": "GCGGGCAGTGAGCGCAACGCAATT",
+  "rev_top_strand": "AATTGCGTTGCGCTCACTGCCCGC",
+  "rev": {
+   "seq": "AATTGCGTTGCGCTCACTGCCCGC",
+   "pos_1based": 1078,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 224
+  },
+  "empty_amplicon_bp": 886,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pSpG-PPE": {
+  "source_plasmid": "pOsU3 Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   850,
+   853
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "ACCGCATCAGGCGCCATTCGCCAT",
+  "fwd": {
+   "seq": "ACCGCATCAGGCGCCATTCGCCAT",
+   "pos_1based": 216,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.8,
+   "distance_from_cut_bp": 610
+  },
+  "rev_anchor": "GCGGGCAGTGAGCGCAACGCAATT",
+  "rev_top_strand": "AATTGCGTTGCGCTCACTGCCCGC",
+  "rev": {
+   "seq": "AATTGCGTTGCGCTCACTGCCCGC",
+   "pos_1based": 1078,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 224
+  },
+  "empty_amplicon_bp": 886,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ },
+ "pEPPE-mono": {
+  "source_plasmid": "pOsU3 Addgene_NGS_Result",
+  "enzyme": "BsaI",
+  "acceptor_bp": [
+   850,
+   853
+  ],
+  "stuffer_bp": -4,
+  "fwd_anchor": "ACCGCATCAGGCGCCATTCGCCAT",
+  "fwd": {
+   "seq": "ACCGCATCAGGCGCCATTCGCCAT",
+   "pos_1based": 216,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.8,
+   "distance_from_cut_bp": 610
+  },
+  "rev_anchor": "GCGGGCAGTGAGCGCAACGCAATT",
+  "rev_top_strand": "AATTGCGTTGCGCTCACTGCCCGC",
+  "rev": {
+   "seq": "AATTGCGTTGCGCTCACTGCCCGC",
+   "pos_1based": 1078,
+   "len": 24,
+   "gc": 62.5,
+   "tm": 60.5,
+   "distance_from_cut_bp": 224
+  },
+  "empty_amplicon_bp": 886,
+  "note": "Both anchors occur exactly once in the deposited sequence, counting both strands."
+ }
+}

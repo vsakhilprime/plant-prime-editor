@@ -1,0 +1,52 @@
+{
+  "generated": "2026-08-23T16:34:55.308481Z",
+  "inputs": [
+    {
+      "pass": "rice_wheat",
+      "file": "scored_rice_wheat.csv",
+      "rows": 134
+    },
+    {
+      "pass": "tomato",
+      "file": "scored_tomato.csv",
+      "rows": 7
+    }
+  ],
+  "output_file": "benchmark_scored.csv",
+  "pegRNAs": 141,
+  "target_sites": 26,
+  "species": {
+    "Oryza sativa": 129,
+    "Triticum aestivum": 5,
+    "Solanum lycopersicum": 7
+  },
+  "pegRNAs_with_a_rank_percentile": 135,
+  "sites": [
+    "OsAAT",
+    "OsACC-T1",
+    "OsALS-T1",
+    "OsALS-T2",
+    "OsCDC48-T1",
+    "OsCDC48-T2",
+    "OsCDC48-T3",
+    "OsDEP1",
+    "OsEPSPS-T1",
+    "OsEPSPS-T2",
+    "OsGAPDH",
+    "OsGAPDH-T1",
+    "OsIPA1-T2",
+    "OsNRT1.1B-T1",
+    "OsROC5-T1",
+    "SlALS1",
+    "SlCENH3",
+    "SlDMR6",
+    "SlOr",
+    "SlRPS23.2",
+    "SlWH9",
+    "TaGASR7",
+    "TaGW2",
+    "TaMLO",
+    "TaUbi10-T1",
+    "TaUbi10-T2"
+  ]
+}

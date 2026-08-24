@@ -1,0 +1,226 @@
+[
+ {
+  "target": "OsALS-T2",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GAACAACCAACATTTGGGTA",
+   "rank": 4,
+   "score": 69,
+   "pbs_len": 10,
+   "pbs": "CCAAATGTTG",
+   "tm_nn": 12.9,
+   "tm_wal": 28
+  },
+  "pegfinder": {
+   "spacer": "GGGTATGGTGGTGCAATGGG",
+   "pbs_len": 12,
+   "pbs": "ATTGCACCACCA",
+   "tm_nn": 31.3,
+   "tm_wal": 36,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "GAACAACCAACATTTGGGTA",
+   "pbs_len": 12,
+   "pbs": "CCAAATGTTGGT",
+   "tm_nn": 25.1,
+   "tm_wal": 34,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "GGGTATGGTGGTGCAATGGG"
+ },
+ {
+  "target": "OsEPSPS-T1",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GCAGTCACGGCTGCTGTCAA",
+   "rank": 1,
+   "score": 80,
+   "pbs_len": 8,
+   "pbs": "ACAGCAGC",
+   "tm_nn": 11.1,
+   "tm_wal": 26
+  },
+  "pegfinder": {
+   "spacer": "GCAGTCACGGCTGCTGTCAA",
+   "pbs_len": 12,
+   "pbs": "ACAGCAGCCGTG",
+   "tm_nn": 37,
+   "tm_wal": 40,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "GCAGTCACGGCTGCTGTCAA",
+   "pbs_len": 12,
+   "pbs": "ACAGCAGCCGTG",
+   "tm_nn": 37,
+   "tm_wal": 40,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "GCAGTCACGGCTGCTGTCAA"
+ },
+ {
+  "target": "OsCDC48-T2",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GTGGGTTCGGCACCGAGTTT",
+   "rank": 9,
+   "score": 45,
+   "pbs_len": 8,
+   "pbs": "CTCGGTGC",
+   "tm_nn": 13.3,
+   "tm_wal": 28
+  },
+  "pegfinder": {
+   "spacer": "GACCAGCCAGCGTCTGGCGC",
+   "pbs_len": 9,
+   "pbs": "CCAGACGCT",
+   "tm_nn": 19.2,
+   "tm_wal": 30,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "TTCGCTGACCAGCCAGCGTC",
+   "pbs_len": 12,
+   "pbs": "GCTGGCTGGTCA",
+   "tm_nn": 35.8,
+   "tm_wal": 40,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "GACCAGCCAGCGTCTGGCGC"
+ },
+ {
+  "target": "OsCDC48-T1",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GCTAGCTTTGACATAATCTC",
+   "rank": 4,
+   "score": 64,
+   "pbs_len": 11,
+   "pbs": "ATTATGTCAAA",
+   "tm_nn": 10.4,
+   "tm_wal": 26
+  },
+  "pegfinder": {
+   "spacer": "GCTAGCTTTGACATAATCTC",
+   "pbs_len": 16,
+   "pbs": "ATTATGTCAAAGCTAG",
+   "tm_nn": 30.8,
+   "tm_wal": 42,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "GCTTTCTTCTTTCTGATTAA",
+   "pbs_len": 12,
+   "pbs": "ATCAGAAAGAAG",
+   "tm_nn": 19,
+   "tm_wal": 32,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "GCTAGCTTTGACATAATCTC"
+ },
+ {
+  "target": "OsAAT",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GACGCCGAGATTGACCTTCA",
+   "rank": 1,
+   "score": 65,
+   "pbs_len": 11,
+   "pbs": "AGGTCAATCTC",
+   "tm_nn": 19.1,
+   "tm_wal": 32
+  },
+  "pegfinder": {
+   "spacer": "GACGCCGAGATTGACCTTCA",
+   "pbs_len": 13,
+   "pbs": "AGGTCAATCTCGG",
+   "tm_nn": 32.1,
+   "tm_wal": 40,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "CAAGGATCCCAGCCCCGTGA",
+   "pbs_len": 12,
+   "pbs": "CGGGGCTGGGAT",
+   "tm_nn": 38.6,
+   "tm_wal": 42,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "CAAGGATCCCAGCCCCGTGA"
+ },
+ {
+  "target": "OsACC-T1",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "GAGCAATCTGTTCCTCGTGC",
+   "rank": 1,
+   "score": 80,
+   "pbs_len": 10,
+   "pbs": "CGAGGAACAG",
+   "tm_nn": 19.4,
+   "tm_wal": 32
+  },
+  "pegfinder": {
+   "spacer": "TTCCTCGTGCTGGACAAGTG",
+   "pbs_len": 13,
+   "pbs": "TTGTCCAGCACGA",
+   "tm_nn": 36.2,
+   "tm_wal": 40,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "GAGCAATCTGTTCCTCGTGC",
+   "pbs_len": 12,
+   "pbs": "CGAGGAACAGAT",
+   "tm_nn": 26.6,
+   "tm_wal": 36,
+   "same_spacer_as_ours": true,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "TTCCTCGTGCTGGACAAGTG"
+ },
+ {
+  "target": "TaGW2",
+  "n_candidates": 20,
+  "ours": {
+   "spacer": "ACAGCACAAGAAAATCCACC",
+   "rank": 1,
+   "score": 80,
+   "pbs_len": 11,
+   "pbs": "GGATTTTCTTG",
+   "tm_nn": 15.3,
+   "tm_wal": 30
+  },
+  "pegfinder": {
+   "spacer": "CACAAGAAAATCCACCAGGA",
+   "pbs_len": 15,
+   "pbs": "TGGTGGATTTTCTTG",
+   "tm_nn": 33.6,
+   "tm_wal": 42,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "pedesigner": {
+   "spacer": "CCTCTAGAAATACCCCATCC",
+   "pbs_len": 12,
+   "pbs": "TGGGGTATTTCT",
+   "tm_nn": 24,
+   "tm_wal": 34,
+   "same_spacer_as_ours": false,
+   "in_our_candidate_list": true
+  },
+  "published_spacer": "CACAAGAAAATCCACCAGGA"
+ }
+]

@@ -1,0 +1,233 @@
+[
+  {
+    "plasmid": "ePPE Addgene_NGS_Result",
+    "length": 11016,
+    "site_counts": {
+      "BsaI": 1,
+      "BsmBI": 8,
+      "BbsI": 5
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pH-nCas9-PPE-V2 Addgene_NGS_Result",
+    "length": 19919,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 10,
+      "BbsI": 13
+    },
+    "guide_cassette": {
+      "enzyme": "BsaI",
+      "overhang_5": "GGCG",
+      "overhang_3": "GTTT",
+      "bottom_oligo_overhang": "AAAC",
+      "stuffer_bp": 1213,
+      "upstream_site": 712,
+      "downstream_site": 1925,
+      "insert_must_carry": "5'-GGCG-[spacer]-GTTT-3'",
+      "annealed_oligos": "top 5'-GGCG-[spacer]-3'  bottom 5'-AAAC-[reverse complement]-3'"
+    },
+    "notes": [],
+    "scaffold_pos": 1932
+  },
+  {
+    "plasmid": "nCas9-PPE Addgene_NGS_Result",
+    "length": 11289,
+    "site_counts": {
+      "BsaI": 1,
+      "BsmBI": 7,
+      "BbsI": 5
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pYPQ166-OsPE2 Addgene_NGS_Result",
+    "length": 9968,
+    "site_counts": {
+      "BsaI": 0,
+      "BsmBI": 6,
+      "BbsI": 6
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pSpG-PPE Addgene_NGS_Result",
+    "length": 11314,
+    "site_counts": {
+      "BsaI": 7,
+      "BsmBI": 4,
+      "BbsI": 6
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pH-ePPE Whole_Plasmid_Sequence",
+    "length": 19642,
+    "site_counts": {
+      "BsaI": 3,
+      "BsmBI": 11,
+      "BbsI": 13
+    },
+    "guide_cassette": {
+      "enzyme": "BsaI",
+      "overhang_5": "GGCG",
+      "overhang_3": "GTTT",
+      "bottom_oligo_overhang": "AAAC",
+      "stuffer_bp": 1213,
+      "upstream_site": 886,
+      "downstream_site": 2099,
+      "insert_must_carry": "5'-GGCG-[spacer]-GTTT-3'",
+      "annealed_oligos": "top 5'-GGCG-[spacer]-3'  bottom 5'-AAAC-[reverse complement]-3'"
+    },
+    "notes": [],
+    "scaffold_pos": 2106
+  },
+  {
+    "plasmid": "ePE2 Addgene_NGS_Result",
+    "length": 19931,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 4,
+      "BbsI": 13
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pICH47742::pRPS5a-PE2max-NC::tHSP Addgene_NGS_Result",
+    "length": 12862,
+    "site_counts": {
+      "BsaI": 0,
+      "BsmBI": 2,
+      "BbsI": 2
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pICH47742::p35S-PE2max-NC::tEURb7 Addgene_NGS_Result",
+    "length": 13318,
+    "site_counts": {
+      "BsaI": 0,
+      "BsmBI": 1,
+      "BbsI": 2
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pH-2\u00d735S-DualPE Addgene_NGS_Result",
+    "length": 17684,
+    "site_counts": {
+      "BsaI": 4,
+      "BsmBI": 10,
+      "BbsI": 17
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pH35C-epegRNA-ePPEplus Addgene_NGS_Result",
+    "length": 19243,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 10,
+      "BbsI": 16
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "p35C-epegRNA-ccdB Addgene_NGS_Result",
+    "length": 4639,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 0,
+      "BbsI": 3
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  },
+  {
+    "plasmid": "pOsU3 Addgene_NGS_Result",
+    "length": 3195,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 2,
+      "BbsI": 1
+    },
+    "guide_cassette": {
+      "enzyme": "BsaI",
+      "overhang_5": "GGCG",
+      "overhang_3": "GTTT",
+      "bottom_oligo_overhang": "AAAC",
+      "stuffer_bp": 12,
+      "upstream_site": 830,
+      "downstream_site": 842,
+      "insert_must_carry": "5'-GGCG-[spacer]-GTTT-3'",
+      "annealed_oligos": "top 5'-GGCG-[spacer]-3'  bottom 5'-AAAC-[reverse complement]-3'"
+    },
+    "notes": [],
+    "scaffold_pos": 849
+  },
+  {
+    "plasmid": "pYPQ141D-peg Addgene_NGS_Result",
+    "length": 3406,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 2,
+      "BbsI": 2
+    },
+    "guide_cassette": {
+      "enzyme": "BsmBI",
+      "overhang_5": "TGGC",
+      "overhang_3": "GTTT",
+      "bottom_oligo_overhang": "AAAC",
+      "stuffer_bp": 25,
+      "upstream_site": 398,
+      "downstream_site": 423,
+      "insert_must_carry": "5'-TGGC-[spacer]-GTTT-3'",
+      "annealed_oligos": "top 5'-TGGC-[spacer]-3'  bottom 5'-AAAC-[reverse complement]-3'"
+    },
+    "notes": [],
+    "scaffold_pos": 430
+  },
+  {
+    "plasmid": "pICH41331::pU6cm-pegR::EURb7 Addgene_NGS_Result",
+    "length": 4536,
+    "site_counts": {
+      "BsaI": 2,
+      "BsmBI": 0,
+      "BbsI": 4
+    },
+    "guide_cassette": null,
+    "notes": [
+      "No sgRNA scaffold found: editor-only plasmid, or a scaffold variant. Guide overhangs cannot be read from it."
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+Nucleotide_Position,Codon_Position,Target_Codon,Reference_Codon,Target_AA,Reference_AA,Protein_Position,Reference_Sequence,Change_Type,Protein_Impact
+306,3rd codon pos,AGG,AGA,R,R,102,OsALS_Ref1,SNP,Synonymous

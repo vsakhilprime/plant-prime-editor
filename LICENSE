@@ -1,0 +1,74 @@
+PLANT PRIME EDITOR v1.0 — LICENCE AND TERMS OF USE
+
+Copyright (c) 2026 Voodikala S. Akhil, Tushar Kanti Dutta and
+Chanumolu H G K, and ICAR-Indian Agricultural Research Institute,
+New Delhi 110 012, India. All rights reserved.
+
+Plant Prime Editor ("the Software") was conceived and developed at the Division
+of Nematology, ICAR-Indian Agricultural Research Institute (ICAR-IARI), New
+Delhi. Copyright in the Software vests jointly in the authors named above and in
+ICAR-IARI. An application for registration of copyright in the Software has been
+filed with the Copyright Office, Government of India (application number
+SW-14297/2026-CO, dated 30 March 2026).
+
+This is not an open-source licence. It grants free academic use while reserving
+commercial rights to ICAR-IARI.
+
+1. GRANT — ACADEMIC AND NON-COMMERCIAL USE
+
+   Permission is granted, free of charge and without registration, login or
+   provision of an email address, to any person to use the Software for
+   academic teaching, academic research, and other non-commercial purposes,
+   and to publish results obtained with it, subject to the conditions below.
+   This grant is worldwide, non-exclusive and perpetual for the version
+   obtained.
+
+2. ATTRIBUTION
+
+   Any publication, presentation or dataset whose results were obtained using
+   the Software shall cite it as set out in CITATION.cff, together with the
+   associated publication once available.
+
+3. REDISTRIBUTION AND MODIFICATION
+
+   The Software may be copied and redistributed in unmodified form for
+   non-commercial purposes provided this notice is retained in full and no
+   charge is made beyond the cost of distribution. Modified or derivative
+   versions may not be distributed, and the Software may not be incorporated
+   into another product or service, without prior written permission from
+   ICAR-IARI. Users may modify their own copy for internal, non-commercial
+   research use.
+
+4. COMMERCIAL USE
+
+   Use of the Software for or on behalf of any commercial entity, including
+   use in fee-bearing services, contract research, or the development of
+   commercial products, requires a separate written licence from ICAR-IARI.
+   Enquiries: the Director, ICAR-Indian Agricultural Research Institute,
+   New Delhi 110 012, India, or the corresponding author.
+
+5. RESERVATION OF RIGHTS
+
+   No rights are granted other than those expressly stated. No patent licence,
+   trademark licence, or right to use the names or logos of ICAR, ICAR-IARI or
+   the authors is granted by this licence. Nothing in this licence transfers
+   ownership of the Software or of any intellectual property in it.
+
+6. NO WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. Designs produced by
+   the Software are computational predictions and must be validated
+   experimentally by the user. IN NO EVENT SHALL THE AUTHORS, ICAR-IARI OR
+   ICAR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+   ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+7. GOVERNING LAW
+
+   This licence shall be governed by and construed in accordance with the laws
+   of India, and the courts at New Delhi shall have exclusive jurisdiction.
+
+Third-party components redistributed with or loaded by the Software remain
+subject to their own licences; see THIRD_PARTY_NOTICES.md.

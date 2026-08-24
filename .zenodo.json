@@ -1,0 +1,33 @@
+{
+  "title": "Plant Prime Editor",
+  "description": "Browser-based pegRNA design and construct assembly for plant prime editing. All computation client-side.",
+  "creators": [
+    {
+      "name": "Akhil, Voodikala S.",
+      "affiliation": "Division of Nematology, ICAR-Indian Agricultural Research Institute, New Delhi, India",
+      "orcid": "0009-0002-4273-8612"
+    },
+    {
+      "name": "Dutta, Tushar Kanti",
+      "affiliation": "Division of Nematology, ICAR-Indian Agricultural Research Institute, New Delhi, India",
+      "orcid": "0000-0002-0278-1707"
+    },
+    {
+      "name": "Chanumolu, H G K",
+      "affiliation": "Division of Plant Physiology, ICAR-Indian Agricultural Research Institute, New Delhi, India",
+      "orcid": "0009-0006-8480-2706"
+    }
+  ],
+  "license": "other-nc",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "keywords": [
+    "prime editing",
+    "pegRNA",
+    "plant genome editing",
+    "rice",
+    "wheat"
+  ],
+  "access_right": "open",
+  "notes": "Copyright (c) 2026 V. S. Akhil, T. K. Dutta and Chanumolu H G K, and ICAR-Indian Agricultural Research Institute, New Delhi, India. All rights reserved. Free for academic and non-commercial use without registration; commercial use requires a written licence from ICAR-IARI. See LICENSE."
+}

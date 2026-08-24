@@ -1,0 +1,243 @@
+{
+ "_provenance": {
+  "note": "Competitor designs were obtained by submitting the same seven sequences and edits to each public web tool.",
+  "tool_versions": {
+   "Plant Prime Editor": "v1.0",
+   "PlantPegDesigner": "v1.0",
+   "pegFinder": "unversioned web tool",
+   "PE-Designer": "unversioned web tool",
+   "PRIDICT": "2.0"
+  },
+  "urls": {
+   "PlantPegDesigner": "http://www.plantgenomeediting.net",
+   "pegFinder": "http://pegfinder.sidichenlab.org",
+   "PE-Designer": "http://www.rgenome.net/pe-designer",
+   "PRIDICT": "https://pridict.it"
+  },
+  "date_accessed": "2026-08-14"
+ },
+ "OsALS-T2": {
+  "Plant Prime Editor": {
+   "sp": "GAACAACCAACATTTGGGTA",
+   "pbs": 10,
+   "wal": 28,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 10,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "GGGTATGGTGGTGCAATGGG",
+   "pbs": 12,
+   "wal": 36,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "GAACAACCAACATTTGGGTA",
+   "pbs": 12,
+   "wal": 34,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GTTTGGGTATGGTGGTGCAA",
+   "pbs": 8,
+   "wal": null,
+   "n": 7
+  }
+ },
+ "OsEPSPS-T1": {
+  "Plant Prime Editor": {
+   "sp": "GCAGTCACGGCTGCTGTCAA",
+   "pbs": 8,
+   "wal": 26,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 9,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "GCAGTCACGGCTGCTGTCAA",
+   "pbs": 12,
+   "wal": 40,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "GCAGTCACGGCTGCTGTCAA",
+   "pbs": 12,
+   "wal": 40,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GCAGTCACGGCTGCTGTCAA",
+   "pbs": 13,
+   "wal": null,
+   "n": 3
+  }
+ },
+ "OsCDC48-T2": {
+  "Plant Prime Editor": {
+   "sp": "GTGGGTTCGGCACCGAGTTT",
+   "pbs": 8,
+   "wal": 28,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 9,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "GACCAGCCAGCGTCTGGCGC",
+   "pbs": 9,
+   "wal": 30,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "TTCGCTGACCAGCCAGCGTC",
+   "pbs": 12,
+   "wal": 40,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GACCAGCCAGCGTCTGGCGC",
+   "pbs": 11,
+   "wal": null,
+   "n": 8
+  }
+ },
+ "OsCDC48-T1": {
+  "Plant Prime Editor": {
+   "sp": "GCTAGCTTTGACATAATCTC",
+   "pbs": 11,
+   "wal": 26,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 12,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "GCTAGCTTTGACATAATCTC",
+   "pbs": 16,
+   "wal": 42,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "GCTTTCTTCTTTCTGATTAA",
+   "pbs": 12,
+   "wal": 32,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GTTGACATAATCTCCGGCTC",
+   "pbs": 7,
+   "wal": null,
+   "n": 4
+  }
+ },
+ "OsAAT": {
+  "Plant Prime Editor": {
+   "sp": "GACGCCGAGATTGACCTTCA",
+   "pbs": 11,
+   "wal": 32,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 8,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "GACGCCGAGATTGACCTTCA",
+   "pbs": 13,
+   "wal": 40,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "CAAGGATCCCAGCCCCGTGA",
+   "pbs": 12,
+   "wal": 42,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GACGCCGAGATTGACCTTCA",
+   "pbs": 7,
+   "wal": null,
+   "n": 3
+  }
+ },
+ "OsACC-T1": {
+  "Plant Prime Editor": {
+   "sp": "GAGCAATCTGTTCCTCGTGC",
+   "pbs": 10,
+   "wal": 32,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 10,
+   "wal": 32,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "TTCCTCGTGCTGGACAAGTG",
+   "pbs": 13,
+   "wal": 40,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "GAGCAATCTGTTCCTCGTGC",
+   "pbs": 12,
+   "wal": 36,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GTCCTCGTGCTGGACAAGTG",
+   "pbs": 14,
+   "wal": null,
+   "n": 4
+  }
+ },
+ "TaGW2": {
+  "Plant Prime Editor": {
+   "sp": "ACAGCACAAGAAAATCCACC",
+   "pbs": 11,
+   "wal": 30,
+   "n": 20
+  },
+  "PlantPegDesigner": {
+   "sp": null,
+   "pbs": 11,
+   "wal": 30,
+   "n": null
+  },
+  "pegFinder": {
+   "sp": "CACAAGAAAATCCACCAGGA",
+   "pbs": 15,
+   "wal": 42,
+   "n": null
+  },
+  "PE-Designer": {
+   "sp": "CCTCTAGAAATACCCCATCC",
+   "pbs": 12,
+   "wal": 34,
+   "n": null
+  },
+  "PRIDICT": {
+   "sp": "GCAGCACAAGAAAATCCACC",
+   "pbs": 15,
+   "wal": null,
+   "n": 3
+  }
+ }
+}

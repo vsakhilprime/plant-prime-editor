@@ -1,0 +1,2640 @@
+{
+ "generated": "2026-08-24T01:57:36.903Z",
+ "build": "Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 96e270bb)",
+ "controlled": {
+  "locus": "OsALS-T2",
+  "results": [
+   {
+    "architecture": "PE2",
+    "locus": "OsALS-T2",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 19
+   },
+   {
+    "architecture": "PE2max",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19
+   },
+   {
+    "architecture": "PE3",
+    "locus": "OsALS-T2",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22
+   },
+   {
+    "architecture": "PE3b",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22
+   },
+   {
+    "architecture": "PE4",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19
+   },
+   {
+    "architecture": "PE5",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22
+   },
+   {
+    "architecture": "PE5b",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22
+   },
+   {
+    "architecture": "twinPE",
+    "locus": "OsALS-T2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23
+   },
+   {
+    "architecture": "ePPE",
+    "locus": "OsALS-T2",
+    "vector": "pEPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19
+   },
+   {
+    "architecture": "PPE",
+    "locus": "OsALS-T2",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23
+   },
+   {
+    "architecture": "ePPE3",
+    "locus": "OsALS-T2",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 19.8"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GGGTATGGTGGTGCAATGGG",
+     "pbs": "ATTGCACCAC",
+     "rt": "GTAAAACCTATTCTCCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 19.8,
+     "pbs_score": 80,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23
+   }
+  ],
+  "summary": {
+   "total": 11,
+   "passing": 11,
+   "failing": []
+  }
+ },
+ "spread": {
+  "results": [
+   {
+    "architecture": "PE2",
+    "locus": "OsCDC48-T1",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 19,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE2max",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE3",
+    "locus": "OsCDC48-T1",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE3b",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE4",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE5",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE5b",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "twinPE",
+    "locus": "OsCDC48-T1",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "ePPE",
+    "locus": "OsCDC48-T1",
+    "vector": "pEPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PPE",
+    "locus": "OsCDC48-T1",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "ePPE3",
+    "locus": "OsCDC48-T1",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "128 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "15 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 10.4"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "GCTAGCTTTGACATAATCTC",
+     "pbs": "ATTATGTCAAA",
+     "rt": "TTTCTGATTAATGGCACGGAG",
+     "pbs_len": 11,
+     "rt_len": 21,
+     "pbs_tm": 10.4,
+     "pbs_score": 55,
+     "rt_score": 99,
+     "homology_beyond_edit": 15,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Oryza sativa"
+   },
+   {
+    "architecture": "PE2",
+    "locus": "TaGW2",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 19,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE2max",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE3",
+    "locus": "TaGW2",
+    "vector": "pYPQ166-OsPE2",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "TGGC/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE3b",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE4",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE5",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE5b",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 22,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "twinPE",
+    "locus": "TaGW2",
+    "vector": "ePE2-rice",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "ePPE",
+    "locus": "TaGW2",
+    "vector": "pEPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PPE",
+    "locus": "TaGW2",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "ePPE3",
+    "locus": "TaGW2",
+    "vector": "pPPE-mono",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "11 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "10 nt, Tm 15.2"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "CACAAGAAAATCCACCAGGA",
+     "pbs": "TGGTGGATTT",
+     "rt": "CTAGAAATACCACATCC",
+     "pbs_len": 10,
+     "rt_len": 17,
+     "pbs_tm": 15.2,
+     "pbs_score": 85,
+     "rt_score": 99,
+     "homology_beyond_edit": 11,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 23,
+    "species": "Triticum aestivum"
+   },
+   {
+    "architecture": "PE2",
+    "locus": "SlOr",
+    "vector": "pHEE401E",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE2max",
+    "locus": "SlOr",
+    "vector": "pHEE401E",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE3",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE3b",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE4",
+    "locus": "SlOr",
+    "vector": "pHEE401E",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE5",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PE5b",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "nicking sgRNA cassette present",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 22,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "twinPE",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 absent, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 23,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "ePPE",
+    "locus": "SlOr",
+    "vector": "pEPPE-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsaI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "GGCG/AAAC"
+     },
+     {
+      "name": "single cassette, as expected",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsaI"
+    },
+    "primer_count": 19,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "PPE",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 23,
+    "species": "Solanum lycopersicum"
+   },
+   {
+    "architecture": "ePPE3",
+    "locus": "SlOr",
+    "vector": "pCE3-BsmBI-dicot",
+    "checks": [
+     {
+      "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
+      "pass": true,
+      "detail": "123 nt"
+     },
+     {
+      "name": "homology beyond the edit ≥ 5 nt",
+      "pass": true,
+      "detail": "10 nt"
+     },
+     {
+      "name": "RT template encodes the edit",
+      "pass": true,
+      "detail": "1 base differ from wild-type"
+     },
+     {
+      "name": "PBS length within the searched window",
+      "pass": true,
+      "detail": "11 nt, Tm 19.6"
+     },
+     {
+      "name": "no internal BsmBI site",
+      "pass": true
+     },
+     {
+      "name": "product cuts back out",
+      "pass": true,
+      "detail": "ACCG/AAAC"
+     },
+     {
+      "name": "second pegRNA found by the tool",
+      "pass": true
+     },
+     {
+      "name": "tevopreQ1 present, as the architecture requires",
+      "pass": true
+     }
+    ],
+    "ok": true,
+    "design": {
+     "spacer": "TCAGTACCAATCATCCTCCT",
+     "pbs": "AGGATGATTGG",
+     "rt": "AGGTCAAGTGACAAGG",
+     "pbs_len": 11,
+     "rt_len": 16,
+     "pbs_tm": 19.6,
+     "pbs_score": 85,
+     "rt_score": 94,
+     "homology_beyond_edit": 10,
+     "enzyme": "BsmBI"
+    },
+    "primer_count": 23,
+    "species": "Solanum lycopersicum"
+   }
+  ],
+  "summary": {
+   "total": 33,
+   "passing": 33,
+   "failing": []
+  }
+ },
+ "negative_controls": [
+  {
+   "control": "internal cloning site planted in the RT template",
+   "expectation": "the restriction screen reports it",
+   "detected": true
+  },
+  {
+   "control": "P3 rebuilt in its pre-fix orientation",
+   "expectation": "the enzyme no longer faces into the insert, so it is not released",
+   "detected": true,
+   "detail": "sites face ++"
+  },
+  {
+   "control": "edit passed to genRT under the pre-fix field names",
+   "expectation": "the template comes back as genomic wild-type and the new check reports it",
+   "detected": true,
+   "detail": "wrong-field template 14 nt is identical to wild-type; correct-field template 17 nt differs from it"
+  },
+  {
+   "control": "homology beyond the edit",
+   "expectation": "not falsifiable through genRT: the pool is capped and ranked on this term first, so nothing below 5 nt is ever offered",
+   "not_applicable": true,
+   "detected": null,
+   "detail": "{\"returned\":6,\"min_homology_offered\":10}"
+  },
+  {
+   "control": "unmodified baseline case",
+   "expectation": "all checks pass",
+   "positive": true,
+   "detected": true
+  }
+ ]
+}

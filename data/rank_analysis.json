@@ -1,0 +1,92 @@
+[
+ {
+  "t": "OsALS-T2",
+  "n": 20,
+  "pubRank": 5,
+  "pubPct": 80,
+  "top": "CAACCAACATTTGGGTATGG",
+  "topScore": 80,
+  "clean": "GAACAACCAACATTTGGGTA",
+  "pfN": 4,
+  "pdN": 5,
+  "pfHasPub": true,
+  "pdHasPub": false
+ },
+ {
+  "t": "OsEPSPS-T1",
+  "n": 20,
+  "pubRank": 1,
+  "pubPct": 100,
+  "top": "GCAGTCACGGCTGCTGTCAA",
+  "topScore": 80,
+  "clean": "GCAGTCACGGCTGCTGTCAA",
+  "pfN": 4,
+  "pdN": 1,
+  "pfHasPub": true,
+  "pdHasPub": true
+ },
+ {
+  "t": "OsCDC48-T2",
+  "n": 20,
+  "pubRank": 5,
+  "pubPct": 80,
+  "top": "TTCGCTGACCAGCCAGCGTC",
+  "topScore": 69,
+  "clean": "GTGGGTTCGGCACCGAGTTT",
+  "pfN": 4,
+  "pdN": 4,
+  "pfHasPub": true,
+  "pdHasPub": false
+ },
+ {
+  "t": "OsCDC48-T1",
+  "n": 20,
+  "pubRank": 4,
+  "pubPct": 85,
+  "top": "GCTTTCTTCTTTCTGATTAA",
+  "topScore": 62,
+  "clean": "GCTAGCTTTGACATAATCTC",
+  "pfN": 3,
+  "pdN": 3,
+  "pfHasPub": true,
+  "pdHasPub": false
+ },
+ {
+  "t": "OsAAT",
+  "n": 20,
+  "pubRank": 3,
+  "pubPct": 90,
+  "top": "GACGCCGAGATTGACCTTCA",
+  "topScore": 65,
+  "clean": "GACGCCGAGATTGACCTTCA",
+  "pfN": 4,
+  "pdN": 2,
+  "pfHasPub": false,
+  "pdHasPub": true
+ },
+ {
+  "t": "OsACC-T1",
+  "n": 20,
+  "pubRank": 2,
+  "pubPct": 95,
+  "top": "GAGCAATCTGTTCCTCGTGC",
+  "topScore": 80,
+  "clean": "GAGCAATCTGTTCCTCGTGC",
+  "pfN": 4,
+  "pdN": 3,
+  "pfHasPub": true,
+  "pdHasPub": false
+ },
+ {
+  "t": "TaGW2",
+  "n": 20,
+  "pubRank": 3,
+  "pubPct": 90,
+  "top": "ACAGCACAAGAAAATCCACC",
+  "topScore": 80,
+  "pfN": 3,
+  "pdN": 3,
+  "pfHasPub": true,
+  "pdHasPub": false
+ }
+]

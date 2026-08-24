@@ -1,0 +1,8 @@
+# Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 96e270bb)
+Name,Sequence,Scale,Purification
+"P1_SpacerFwd","CACCCGTCTCNTGGCGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC","25nm","Standard Desalting"
+"P2_ScaffoldRev","GCACCGACTCGGTGCCACTT","25nm","Standard Desalting"
+"P3_RT_PBS_Rev","TTTTCGTCTCNAAACAAAAAAGTGGTGCAATGGGAGAATAGGTTTTACGCACCGACTCGGTGC","25nm","Standard Desalting"
+"P4_RT_PBS_Fwd_overlap","GCACCGAGTCGGTGCGTAAAACCTATTCTC","25nm","Standard Desalting"
+"P5_Verify_Fwd","TGCTGGAAGCCGGGAACACTGGGT","25nm","Standard Desalting"
+"P6_Verify_Rev","AACGCGCTTGCTGCTTGGATGCCC","25nm","Standard Desalting"

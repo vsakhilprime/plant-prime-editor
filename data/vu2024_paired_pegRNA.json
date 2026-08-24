@@ -1,0 +1,82 @@
+{
+ "source": "Vu TV, Nguyen NT, Kim J, Song YJ, Nguyen TH, Kim J-Y (2024) Nat Plants 10:1502-1513, Supplementary Table 10, \"Improvement of PE performance using paired pegRNAs\"",
+ "measure": "desired prime editing (%), mean of three replicates",
+ "note": "The comparator is the better of the two single-pegRNA orientations at each locus, which is Forward at SlALS1 and Reverse at SlCENH3 and SlEPSPS1.",
+ "loci": {
+  "SlALS1": {
+   "replicates": {
+    "Forward": [
+     5.433,
+     4.87,
+     5.844
+    ],
+    "Pair": [
+     5.628,
+     6.005,
+     6.94
+    ],
+    "Reverse": [
+     1.448,
+     2.13,
+     2.068
+    ]
+   },
+   "mean_forward": 5.382,
+   "mean_pair": 6.191,
+   "mean_reverse": 1.882,
+   "better_single": "Forward",
+   "mean_better_single": 5.382,
+   "pair_exceeds_better_single": true
+  },
+  "SlCENH3": {
+   "replicates": {
+    "Forward": [
+     0.105,
+     0.115,
+     0.321
+    ],
+    "Pair": [
+     1.105,
+     0.92,
+     1.048
+    ],
+    "Reverse": [
+     1.071,
+     0.715,
+     0.321
+    ]
+   },
+   "mean_forward": 0.18,
+   "mean_pair": 1.024,
+   "mean_reverse": 0.702,
+   "better_single": "Reverse",
+   "mean_better_single": 0.702,
+   "pair_exceeds_better_single": true
+  },
+  "SlEPSPS1": {
+   "replicates": {
+    "Forward": [
+     0.368,
+     0.321,
+     0.482
+    ],
+    "Pair": [
+     2.715,
+     2.847,
+     1.876
+    ],
+    "Reverse": [
+     1.952,
+     3.217,
+     2.218
+    ]
+   },
+   "mean_forward": 0.39,
+   "mean_pair": 2.479,
+   "mean_reverse": 2.462,
+   "better_single": "Reverse",
+   "mean_better_single": 2.462,
+   "pair_exceeds_better_single": true
+  }
+ }
+}
