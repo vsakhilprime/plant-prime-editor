@@ -68,6 +68,11 @@
     (13 published + 2 in-house derived)" to avoid overclaiming for
     pCE3-BsmBI and pEPPE3-Dual, which are derived from published architectures
     but are not themselves independently published.
+    CORRECTED 24 Aug 2026: the split is 12 + 3, not 13 + 2. pEPPE (Dicot) is
+    the third in-house construct — VECTORS records it with in_house:true and
+    addgene:null, and its own card on the vectors page carries an "in house"
+    badge — but the summary counted it as published. Twelve of the fifteen
+    carry an Addgene ID; three do not.
  7. Key References panel rebuilt: 16 references, every one carrying a resolvable
     DOI, including two additions relevant to stated limitations
     (Jin 2021 genome-wide PE specificity in plants; Haeussler 2016 CRISPOR).
@@ -1816,7 +1821,7 @@ function closeMobileNav() {
         A comprehensive bioinformatics tool for designing, validating and preparing
         <strong>pegRNA constructs</strong> optimised for plant prime editing systems —
         supporting all eleven architectures — <strong>PE2, PE2max, PE3, PE3b, PE4, PE5, PE5b, ePPE, PPE, ePPE3 and twinPE</strong>
-        with 15 profiled binary vectors (13 published + 2 in-house derived), ΔG thermodynamic scoring, and 6 core cloning strategies.
+        with 15 profiled binary vectors (12 published + 3 in-house derived), ΔG thermodynamic scoring, and 6 core cloning strategies.
       </p>
       <div class="hero-actions">
         <button onclick="launchTool()" class="btn-primary">
@@ -1836,7 +1841,11 @@ function closeMobileNav() {
         </button>
       </div>
       <div class="hero-stats">
-        <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">PE Systems</div></div>
+        <!-- FIX HERO-COUNT (24 Aug 2026). This tile read 10 while PE_SYSTEMS has held eleven
+             entries — PE2, PE2max, PE3, PE3b, PE4, PE5, PE5b, twinPE, ePPE, PPE, ePPE3 — and
+             while the paragraph above it, the feature card below it and the manuscript all say
+             eleven. It was the first number a visitor read, and it undercounted the tool. -->
+        <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">PE Systems</div></div>
         <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Profiled Vectors</div></div>
         <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Cloning Methods</div></div>
         <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Module Pipeline</div></div>
@@ -1944,7 +1953,7 @@ function closeMobileNav() {
           <div class="seg seg-polyt" style="background:rgba(251,191,36,.25);color:#fbbf24;font-size:9px;padding:0 5px">PolyT</div>
         </div>
         <div class="pe-seg-row"><div class="pe-seg-label">Nick sgRNA</div>
-          <div class="seg seg-nick">Nick Spacer (40–80 nt optimal; 30–100 nt acceptable)</div>
+          <div class="seg seg-nick">Nick Spacer (40–90 nt optimal; 30–100 nt acceptable)</div>
           <div class="seg seg-scaf">Scaffold</div>
         </div>
         <div class="pe-sys-desc">PE3: second nick on the <em>non-edited</em> strand (any nearby PAM). PE3b: second nick on the <em>edited</em> strand (same as pegRNA) — PAM must be disrupted by the edit, making the nick conditional (2–4× fewer indels). 1.5–2× efficiency gain. Anzalone 2019.</div>
@@ -2064,7 +2073,7 @@ function closeMobileNav() {
           <div class="pe-row"><div class="pe-label">Spacer</div><div class="pe-bar bar-spacer" style="flex:2">5′ — Spacer (20 nt)</div></div>
           <div class="pe-row"><div class="pe-label">Scaffold</div><div class="pe-bar bar-scaffold" style="flex:4.5">sgRNA Scaffold (76 nt)</div></div>
           <div class="pe-row"><div class="pe-label">RT Tmpl</div><div class="pe-bar bar-rt" style="flex:3">RT Template (encodes edit)</div></div>
-          <div class="pe-row"><div class="pe-label">PBS</div><div class="pe-bar bar-pbs" style="flex:1.5">PBS (13–17 nt)</div></div>
+          <div class="pe-row"><div class="pe-label">PBS</div><div class="pe-bar bar-pbs" style="flex:1.5">PBS (8&ndash;17 nt; 8&ndash;11 optimal)</div></div>
           <div class="pe-row"><div class="pe-label">Linker</div><div class="pe-bar bar-linker" style="flex:.6">Lnk</div></div>
           <div class="pe-row"><div class="pe-label">tevopreQ1</div><div class="pe-bar bar-tevo" style="flex:2.5">tevopreQ1 (PE2max / ePPE / PPE / ePPE3)</div></div>
         </div>
@@ -2131,7 +2140,7 @@ function closeMobileNav() {
       <div class="step-icon">🧪</div>
       <div class="step-name">Module 3</div>
       <div class="step-title">Cloning &amp; Primers</div>
-      <div class="step-desc">Select from 15 profiled plant PE binary vectors (13 published + 2 in-house derived) with cassette badges. Smart ranking by PE system, plant type, and Addgene availability. RE site conflict scan prevents BsaI/BsmBI sites in insert. Six core cloning strategies generate primer sets P1–P12 / PT1–PT4 with full thermodynamic QC and PCR cycling conditions. Direct Assembly mode accepts manual pegRNA sequences without needing Module 2.</div>
+      <div class="step-desc">Select from 15 profiled plant PE binary vectors (12 published + 3 in-house derived) with cassette badges. Smart ranking by PE system, plant type, and Addgene availability. RE site conflict scan prevents BsaI/BsmBI sites in insert. Six core cloning strategies generate primer sets P1–P12 / PT1–PT4 with full thermodynamic QC and PCR cycling conditions. Direct Assembly mode accepts manual pegRNA sequences without needing Module 2.</div>
       <div class="step-outputs">
         <div class="step-out-item">15 binary vectors — smart recommendation</div>
         <div class="step-out-item">RE site conflict scan (BsaI, BsmBI, BbsI, Esp3I)</div>
@@ -2160,7 +2169,7 @@ function closeMobileNav() {
     <div class="feat-card reveal reveal-delay-1">
       <span class="feat-icon">🔬</span>
       <div class="feat-title">11 PE Systems Supported</div>
-      <div class="feat-desc">Full support for PE2, PE2max, PE3, PE3b, PE4/PE5 (MLH1dn), ePPE (Zong 2022), PPE, ePPE3 (Lin 2021), and twinPE (Anzalone 2022) — 11 systems total — each with a tailored primer pipeline, vector filter, and complete protocol.</div>
+      <div class="feat-desc">Full support for PE2, PE2max, PE3, PE3b, PE4/PE5/PE5b (MLH1dn), ePPE (Zong 2022), PPE, ePPE3 (Lin 2021), and twinPE (Anzalone 2022) — 11 systems total — each with a tailored primer pipeline, vector filter, and complete protocol.</div>
       <div class="feat-tag">All Major Systems</div>
     </div>
     <div class="feat-card reveal reveal-delay-2">
@@ -2202,7 +2211,7 @@ function closeMobileNav() {
     <div class="feat-card reveal reveal-delay-2">
       <span class="feat-icon">🌡️</span>
       <div class="feat-title">Thermodynamic ΔG Scoring</div>
-      <div class="feat-desc">Every pegRNA component is evaluated using the <strong>SantaLucia 1998 nearest-neighbour model</strong>. The PBS ΔG heatmap (8–22 nt) scores three interaction channels simultaneously — PBS↔Spacer 5′ (×1.2), PBS↔Scaffold 3′ (×1.0) and PBS self-fold (×0.8) — exactly the partners and weights the candidate table uses, so the two panels cannot disagree. PBS↔RT template is reported in each cell's tooltip but not scored here: the PBS is chosen before any RT template exists. That interaction is scored from the other side, in the RT template ranking, where RT↔PBS carries a 1.5× weight (this work). The linker is auto-selected from 19 candidates by minimising 3′-extension ΔG. Cells below −12 kcal/mol flag critical risk in red. Spacer structural scoring integrates ΔG alongside nick distance, GC%, seed GC, G-start, and poly-T penalty for a unified ranking score.</div>
+      <div class="feat-desc">Every pegRNA component is evaluated using the <strong>SantaLucia 1998 nearest-neighbour model</strong>. The PBS ΔG heatmap (8–22 nt) scores three interaction channels simultaneously — PBS↔Spacer 5′ (×1.2), PBS↔Scaffold 3′ (×1.0) and PBS self-fold (×0.8) — exactly the partners and weights the candidate table uses, so the two panels cannot disagree. PBS↔RT template is reported in each cell's tooltip but not scored here: the PBS is chosen before any RT template exists. That interaction is scored from the other side, in the RT template ranking, where RT↔PBS carries a 1.5× weight (this work). The linker is auto-selected from 19 candidates by minimising 3′-extension ΔG. Cells below −12 kcal/mol flag critical risk in red. Spacer structural scoring integrates ΔG alongside nick distance, GC%, seed GC and the poly-T penalty for a unified ranking score; G-start is carried as a pass/fail checklist item rather than a weighted term.</div>
       <div class="feat-tag">SantaLucia NN Model</div>
     </div>
   </div>
@@ -2226,7 +2235,7 @@ function closeMobileNav() {
     </div>
     <div class="sys-card reveal reveal-delay-2">
       <div class="sys-name">PE3</div>
-      <div class="sys-desc">PE2 + nick sgRNA on non-edited strand (30–100 nt range, 40–80 nt optimal). pegRNA has no tevopreQ1. 1.5–2× efficiency. Requires dual-cassette vector. Anzalone 2019.</div>
+      <div class="sys-desc">PE2 + nick sgRNA on non-edited strand (30–100 nt range, 40–90 nt optimal). pegRNA has no tevopreQ1. 1.5–2× efficiency. Requires dual-cassette vector. Anzalone 2019.</div>
       <div class="sys-badge">Nick sgRNA</div>
     </div>
     <div class="sys-card reveal reveal-delay-3">
@@ -2259,17 +2268,21 @@ function closeMobileNav() {
 
 <!-- ═══════════════════════════════════════════════════════════════════
      PROFILED VECTORS SECTION
-     15 vectors total — 6 dicot, 9 monocot (13 published + 2 in-house derived)
+     15 vectors total — 6 dicot, 9 monocot (12 published + 3 in-house derived)
      Each badge links to Addgene (if available) or the primary paper DOI
      ═══════════════════════════════════════════════════════════════════ -->
 <section id="vectors" class="vectors-home-section reveal">
   <div class="section-tag reveal">Expression Vectors</div>
   <h2 class="section-title reveal">15 Profiled <em>Binary Vectors</em></h2>
   <p class="section-lead reveal">
-    13 are deposited at Addgene and can be ordered directly. For 13 of 15,
+    11 are deposited at Addgene as prime editing constructs and can be ordered directly; a twelfth
+    Addgene entry, #71287, is the base CRISPR backbone of pHEE401E rather than its prime editor,
+    which the Gao lab supplies on request. For 10 of the 15,
     the Golden Gate overhangs below were read off the deposited sequence rather than taken from a
-    paper&rsquo;s Methods &mdash; those four bases decide whether a cloning primer ligates. Click a badge
-    to open the map or the source publication.
+    paper&rsquo;s Methods &mdash; those four bases decide whether a cloning primer ligates. Of the
+    remaining five, three are in-house constructs whose overhangs are the ones they were designed
+    with, and two are marked &ldquo;overhangs assumed&rdquo; on the card itself: confirm those on the map
+    before ordering primers. Click a badge to open the map or the source publication.
   </p>
 
   <!-- DICOT -->
@@ -2288,6 +2301,7 @@ function closeMobileNav() {
         <div class="vec-home-desc">PE2, PE2max, PE4 &middot; AtU6-26 &middot; Hygromycin B (HPT) &middot; BsaI &middot; overhangs ACCG / AAAC</div>
         <div class="vec-home-org">Arabidopsis thaliana, N. benthamiana, tomato</div>
         <div class="vec-home-org" style="color:#fbbf24;opacity:.9">&#9888; overhangs assumed &mdash; confirm on the map</div>
+        <div class="vec-home-org" style="color:#fbbf24;opacity:.9">&#9888; #71287 is the base CRISPR backbone; the prime editor itself is not deposited &mdash; request it from the Gao lab</div>
       </div>
       <div class="vec-home-card reveal reveal-delay-1">
         <div class="vec-home-top">
@@ -2315,7 +2329,7 @@ function closeMobileNav() {
         </div>
         <div class="vec-home-desc">PE3, PE3b, PE4, PE5, PE5b, ePPE3, twinPE, PPE &middot; AtU6-26 (pegRNA cassette 1) + AtU6-7 (nick sgRNA cassette 2) &middot; Hygromycin B (HPT) &middot; BsmBI &middot; overhangs ACCG / AAAC</div>
         <div class="vec-home-org">Arabidopsis thaliana, N. tabacum (tobacco), Brassica napus (canola), N. benthamiana, tomato</div>
-        <div class="vec-home-org" style="color:#4ade80;opacity:.9">&#10003; overhangs read from the deposited sequence</div>
+        <div class="vec-home-org" style="color:#94a3b8;opacity:.9">&#9679; built in house &mdash; overhangs are the ones this construct was designed with</div>
       </div>
       <div class="vec-home-card reveal reveal-delay-1">
         <div class="vec-home-top">
@@ -2324,7 +2338,7 @@ function closeMobileNav() {
         </div>
         <div class="vec-home-desc">PPE, ePPE3, twinPE &middot; AtU6-26 (pegRNA-1) + AtU6-7 (pegRNA-2) &middot; Hygromycin B (HPT) &middot; BsaI &middot; overhangs ACCG / AAAC</div>
         <div class="vec-home-org">Arabidopsis thaliana, N. benthamiana, tomato, potato, tobacco</div>
-        <div class="vec-home-org" style="color:#4ade80;opacity:.9">&#10003; overhangs read from the deposited sequence</div>
+        <div class="vec-home-org" style="color:#94a3b8;opacity:.9">&#9679; built in house &mdash; overhangs are the ones this construct was designed with</div>
       </div>
       <div class="vec-home-card reveal reveal-delay-2">
         <div class="vec-home-top">
@@ -2441,7 +2455,7 @@ function closeMobileNav() {
       carry no guide cassette; for those the overhangs come from the matching guide vector
       &mdash; pOsU3 (#170132) for the Lin monocot series, pYPQ141D-peg for pYPQ166-OsPE2,
       p35C-epegRNA-ccdB (#246791) for pH35C, and pICH41331 (#227695) for the Vu 2024 modules.
-      <strong>pCE3-BsmBI</strong> and <strong>pEPPE3-Dual</strong> are in-house constructs derived from
+      <strong>pEPPE (Dicot)</strong>, <strong>pCE3-BsmBI</strong> and <strong>pEPPE3-Dual</strong> are in-house constructs derived from
       published architectures. Species scope follows the primary publication; adaptation to other
       species is reasonable but may need promoter optimisation.
     </span>
@@ -2519,7 +2533,7 @@ function closeMobileNav() {
       </div>
       <div class="doc-entry">
         <div class="doc-entry-title">G-start</div>
-        <div class="doc-note">+8 pts if spacer begins with G (U3/U6 Pol III requirement). Ma 2015.</div>
+        <div class="doc-note">Checklist item, not a scored term &mdash; the weight is 0, so a G-start neither raises nor lowers the composite score. A spacer not beginning with G raises the warning &ldquo;No G-start &mdash; suboptimal for plant U3/U6&rdquo;, and the cloning primers prepend the +1 base the promoter needs (G for U6, A for U3). Ma 2015.</div>
       </div>
       <div class="doc-entry">
         <div class="doc-entry-title">Poly-T penalty</div>
@@ -2800,7 +2814,7 @@ function closeMobileNav() {
         <div class="guide-step-title">Design Your pegRNA — Module 2</div>
         <div class="guide-step-desc">Module 2 automatically scans the genomic sequence for PAM sites and generates ranked pegRNA components.</div>
         <div class="guide-substeps">
-          <div class="guide-substep"><span class="guide-substep-num">2a</span><span>Select your <strong>PE system</strong> from the card row: PE2, PE2max, PE3, PE3b, PE4/PE5, ePPE, PPE/ePPE3, or twinPE. The tool adjusts all scoring rules accordingly.</span></div>
+          <div class="guide-substep"><span class="guide-substep-num">2a</span><span>Select your <strong>PE system</strong> from the card row: PE2, PE2max, PE3, PE3b, PE4/PE5/PE5b, ePPE, PPE/ePPE3, or twinPE. The tool adjusts all scoring rules accordingly.</span></div>
           <div class="guide-substep"><span class="guide-substep-num">2b</span><span>Choose your <strong>PAM</strong>: NGG (SpCas9, default), NG, NGA, NNGRRT (SaCas9), NRN / NYN (SpRY near-PAMless). The IUPAC-aware scanner covers both strands.</span></div>
           <div class="guide-substep"><span class="guide-substep-num">2c</span><span>Review the <strong>spacer table</strong>. Spacers are ranked by nick-to-edit distance (primary), structural ΔG (secondary), and GC% (tertiary). The distance column shows near/far distances for multi-edit designs. Select the best spacer.</span></div>
           <div class="guide-substep"><span class="guide-substep-num">2d</span><span>Use the <strong>PBS ΔG Heatmap</strong> to select PBS length. Cells are colour-coded by the worst weighted ΔG of the three scored channels; PBS↔RT is shown in the tooltip but not scored here. ★ marks lengths in the candidate table. Click a cell to jump to that length below.</span></div>
@@ -2848,7 +2862,7 @@ function closeMobileNav() {
 
           <div class="guide-substep">
             <span class="guide-substep-num" style="background:rgba(167,139,250,.15);color:var(--purple)">A2</span>
-            <span>Select your <strong>PE system</strong> from the 10-card grid that appears: PE2, PE2max, PE3, PE3b, PE4, PE5, ePPE, PPE, ePPE3, or twinPE. The field layout below automatically adjusts based on your choice — different fields appear for single-pegRNA systems vs. paired systems vs. nick-requiring systems.</span>
+            <span>Select your <strong>PE system</strong> from the 11-card grid that appears: PE2, PE2max, PE3, PE3b, PE4, PE5, PE5b, ePPE, PPE, ePPE3, or twinPE. The field layout below automatically adjusts based on your choice — different fields appear for single-pegRNA systems vs. paired systems vs. nick-requiring systems.</span>
           </div>
 
           <div class="guide-substep">
@@ -3033,16 +3047,20 @@ function closeMobileNav() {
 
       <!-- APA -->
       <div id="cite-apa" style="font-family:var(--mono);font-size:.82rem;color:var(--text-dim);line-height:1.85;background:rgba(0,0,0,.25);border:1px solid var(--border2);border-radius:8px;padding:18px 20px;word-break:break-word;">
-        Voodikala S Akhil, Tushar K Dutta, &amp; Chanumolu, H. G. K. (2026). <em style="color:#4ade80;font-style:italic;">Plant Prime Editor v1.0</em>. Retrieved August 9, 2026, from pegRNA Design Platform website: <a href="https://akprimeedit.com" target="_blank" style="color:var(--teal);text-decoration:underline;text-underline-offset:3px;">https://akprimeedit.com</a>
+        Akhil, V. S., Dutta, T. K., &amp; Chanumolu, H. G. K. (2026). <em style="color:#4ade80;font-style:italic;">Plant Prime Editor</em> (Version 1.0) [Computer software]. Zenodo. <a href="https://doi.org/10.5281/zenodo.22076360" target="_blank" style="color:var(--teal);text-decoration:underline;text-underline-offset:3px;">https://doi.org/10.5281/zenodo.22076360</a>
       </div>
 
       <!-- BibTeX (hidden by default) -->
-      <div id="cite-bibtex" style="display:none;font-family:var(--mono);font-size:.78rem;color:var(--text-dim);line-height:1.85;background:rgba(0,0,0,.25);border:1px solid var(--border2);border-radius:8px;padding:18px 20px;white-space:pre-wrap;word-break:break-all;">@misc{akhil2026plantprime,
-  author    = {Voodikala S Akhil and Tushar K Dutta and Chanumolu H G K},
-  title     = {Plant Prime Editor v1.0},
+      <div id="cite-bibtex" style="display:none;font-family:var(--mono);font-size:.78rem;color:var(--text-dim);line-height:1.85;background:rgba(0,0,0,.25);border:1px solid var(--border2);border-radius:8px;padding:18px 20px;white-space:pre-wrap;word-break:break-all;">@software{akhil2026plantprime,
+  author    = {Akhil, Voodikala S. and Dutta, Tushar Kanti and Chanumolu, H. G. K.},
+  title     = {Plant Prime Editor},
+  version   = {1.0},
   year      = {2026},
-  url       = {https://akprimeedit.com},
-  note      = {pegRNA Design Platform. Retrieved August 9, 2026}
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22076360},
+  url       = {https://doi.org/10.5281/zenodo.22076360},
+  note      = {Concept DOI, resolves to the most recent version.
+               Live server https://akprimeedit.com}
 }</div>
 
       <!-- Copy button -->
@@ -3053,6 +3071,16 @@ function closeMobileNav() {
           <span id="cite-copy-icon">⎘</span> <span id="cite-copy-lbl">Copy Citation</span>
         </button>
       </div>
+
+      <p style="font-size:.78rem;color:var(--text-muted);line-height:1.75;margin:18px 0 0;border-top:1px solid var(--border2);padding-top:16px;">
+        <strong style="color:var(--text-dim);">Which DOI.</strong>
+        <code style="color:#4ade80;">10.5281/zenodo.22076360</code> is the concept DOI: it always
+        resolves to the most recent version, and it is the one to cite in a paper. To pin the exact
+        build you ran, cite the version DOI printed on that release&rsquo;s Zenodo record instead
+        &mdash; <code>10.5281/zenodo.22076361</code> for v1.0 &mdash; and quote the design-parameter
+        fingerprint from the footer alongside it. Two builds with the same fingerprint rank designs
+        identically, which is what a reader needs in order to reproduce a result.
+      </p>
     </div>
   </div>
 </section>
@@ -3060,8 +3088,13 @@ function closeMobileNav() {
 <script>
 (function(){
   var _fmt = 'apa';
-  var _apa = 'Voodikala S Akhil, Tushar K Dutta, & Chanumolu, H. G. K. (2026). Plant Prime Editor v1.0. Retrieved August 9, 2026, from pegRNA Design Platform website: https://akprimeedit.com';
-  var _bib = '@misc{akhil2026plantprime,\n  author    = {Voodikala S Akhil and Tushar K Dutta and Chanumolu H G K},\n  title     = {Plant Prime Editor v1.0},\n  year      = {2026},\n  url       = {https://akprimeedit.com},\n  note      = {pegRNA Design Platform. Retrieved August 9, 2026}\n}';
+  // FIX CITE-DOI (24 Aug 2026). The Copy button is what people actually paste, and it was
+  // handing out a website-retrieval citation with no DOI and a retrieval date of 9 August 2026.
+  // The deposit now has one: concept DOI 10.5281/zenodo.22076360, which resolves to the newest
+  // version. These two strings and the two rendered blocks above are kept identical on purpose —
+  // a Copy button that copies something other than what is displayed is worse than none.
+  var _apa = 'Akhil, V. S., Dutta, T. K., & Chanumolu, H. G. K. (2026). Plant Prime Editor (Version 1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22076360';
+  var _bib = '@software{akhil2026plantprime,\n  author    = {Akhil, Voodikala S. and Dutta, Tushar Kanti and Chanumolu, H. G. K.},\n  title     = {Plant Prime Editor},\n  version   = {1.0},\n  year      = {2026},\n  publisher = {Zenodo},\n  doi       = {10.5281/zenodo.22076360},\n  url       = {https://doi.org/10.5281/zenodo.22076360},\n  note      = {Concept DOI, resolves to the most recent version. Live server https://akprimeedit.com}\n}';
 
   window.setCiteFormat = function(fmt) {
     _fmt = fmt;
@@ -7490,7 +7523,14 @@ function downloadAllResultsReport() {
       qc:p.qc&&p.qc.overallStatus, phospho:p.needs_phospho?'YES':'no', role:p.role,
       warnings:p.qc&&(p.qc.warnings||[]).join(' | ') }))) +
     '<h2>Full genomic window used</h2><div class="seq">' + esc(d.genomic.sequence || '') + '</div>' +
-    '<p class="meta">Generated by Plant Prime Editor v1.0. All computation client-side; no sequence left the browser.</p>' +
+    // FIX CITE-DOI-2 (24 Aug 2026). An exported report is the artefact that outlives the browser
+    // session and gets pasted into a thesis or a supplementary file, so it should carry the same
+    // identifiers as the citation panel: the concept DOI and the build fingerprint.
+    '<p class="meta">Generated by Plant Prime Editor v1.0 (build ' +
+      ((typeof PPE_BUILD !== 'undefined' && PPE_BUILD.fingerprint) || 'unstamped') +
+      '). All computation client-side; no sequence left the browser.<br>' +
+      'Cite: Akhil VS, Dutta TK, Chanumolu HGK (2026) Plant Prime Editor (Version 1.0) ' +
+      '[Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22076360</p>' +
     '</body></html>';
   _ppeDL(html, 'text/html', 'PlantPrimeEditor_report_' + _ppeStamp() + '.html');
 }

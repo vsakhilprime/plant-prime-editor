@@ -2493,3 +2493,212 @@ Recomputed from the deposited data, panel by panel:
 table parity clean on all eleven · **100,547 computed fields across 411 cases, 0 differing** ·
 main text **6,983 / 7,000** · fingerprint **`96e270bb`** (unchanged — every edit here is
 figure text, document prose or a source comment, all outside the hash).
+
+
+---
+
+# Addendum 33 — deposited, and the DOI wired in (24 August 2026)
+
+The repository is public at `github.com/vsakhilprime/plant-prime-editor`, tagged **v1.0**, and
+archived on Zenodo. This addendum records the four edits that closing the DOI required, and one
+correction to something I had told the author.
+
+## The concept DOI is 22076360, not 22076361
+
+Zenodo reserves the concept and version DOIs as a consecutive pair and prints the **version**
+one on the repository row in `zenodo.org/account/settings/github/`. I read that row and reported
+`10.5281/zenodo.22076361` as the concept DOI. It is not. The record page states the concept DOI
+explicitly — *"You can cite all versions by using the DOI 10.5281/zenodo.22076360"* — and that is
+the one the paper cites, because it resolves to whichever version is newest at the time a reader
+follows it. The version DOI is right only for pinning an exact build.
+
+| | |
+|---|---|
+| Concept DOI — cited in the paper | `10.5281/zenodo.22076360` |
+| Version DOI — v1.0 | `10.5281/zenodo.22076361` |
+| Record | `zenodo.org/records/22076361` |
+| Licence as Zenodo recorded it | Other (Non-Commercial) |
+
+The licence line matters. `.zenodo.json` declared `other-nc`; had Zenodo rejected it the record
+would have fallen back to a permissive default, and an open licence printed on the archive of a
+non-commercial deposit would misstate the terms. It was checked on the published record rather
+than assumed from the file.
+
+## Version string: 1.0.0 → 1.0
+
+The tag is `v1.0`, and so are `plant_prime_editor_v1.0.html`, `Supplementary_Tables_v1.0.xlsx`
+and every mention in the manuscript. `CITATION.cff` and `.zenodo.json` were the only two files
+that said `1.0.0`, so they were the ones out of step, not the tag. Both now read `1.0`.
+
+The record Zenodo has already published still shows Version 1.0.0, because it was minted from the
+archive as it stood. That is cosmetic and is left alone: editing a published record to chase a
+string is a worse trade than a one-character mismatch nobody cites.
+
+## The four edits
+
+* `CITATION.cff` — an `identifiers:` block carrying both DOIs, concept first, replacing the
+  commented-out placeholder left for exactly this moment.
+* `README.md` — DOI badge under the build line, and a *Citing* paragraph saying which DOI to use
+  when, with the fingerprint named as the thing to quote alongside it.
+* `.zenodo.json` — version `1.0`.
+* **Manuscript, Data availability** — `[[DOI]]` closed: *"…archived at Zenodo under the concept
+  DOI 10.5281/zenodo.22076360 (v1.0: 10.5281/zenodo.22076361)."* Deliberately compact. The first
+  draft of this sentence spelled out what a concept DOI does and cost fourteen words against a
+  thirteen-word margin, which is how a 6,983-word manuscript becomes a 7,001-word one.
+
+## Placeholders still open
+
+Four, all needing information only the authors hold: `[[phone]]`, `[[mirror URL]]`, the funding
+statement and the CRediT contributions, plus acknowledgements. None blocks the deposition; all
+block submission.
+
+## Verified after
+
+`26 passed, 0 failed` · `68 checks, 0 disagree` · document audit clean on all seven checks ·
+table parity clean on all eleven · main text **6,987 / 7,000** (margin 13) · deposit zip
+**131 files** · fingerprint **`96e270bb`**, unchanged — nothing in this addendum touches a design
+parameter, a scoring weight or a vector record.
+
+
+---
+
+# Addendum 34 — the landing page, audited against the code it describes (24 August 2026)
+
+The author noticed the hero counter reading **10 PE Systems** while the tool has supported eleven
+architectures since v1.0 and while the paper says eleven everywhere. That one tile was the first
+number a visitor read, and it undercounted the tool. Finding it prompted a full audit of the
+landing copy against the runtime — every count, list, threshold and citation checked by querying
+the tool's own globals through the headless harness rather than by reading the prose.
+
+Eleven claims were wrong. All eleven were prose. **Not one line of executable code changed, and
+the fingerprint is still `96e270bb`** — which is the point of hashing the parameters rather than
+the file.
+
+## Counts
+
+| Where | Said | Says now | Ground truth |
+|---|---|---|---|
+| hero stat tile | 10 PE Systems | **11** | `Object.keys(PE_SYSTEMS).length === 11` |
+| hero paragraph, step card, vectors heading | 13 published + 2 in-house | **12 + 3** | 12 records carry an Addgene ID; 3 do not |
+| vectors lead | 13 deposited at Addgene | **11 as prime editing constructs** | see below |
+| vectors lead | overhangs read off the deposit for 13 of 15 | **10 of 15** | per-card count |
+| direct-assembly guide | 10-card grid | **11-card grid** | `_DA_PE_SYSTEMS.length === 11` |
+
+## The in-house constructs were undercounted, and two of them overclaimed
+
+`pEPPE (Dicot)` is recorded `in_house: true, addgene: null`, and its own card carries an "in house"
+badge — yet every summary counted it among the published vectors, and the closing note named only
+`pCE3-BsmBI` and `pEPPE3-Dual` as in-house. All three are now named.
+
+Worse, the cards for `pCE3-PE3 BsmBI` and `pEPPE3-Dual` both stated *"✓ overhangs read from the
+deposited sequence"* while their own records say `cloning_note: 'built in-house; overhangs are
+those the authors designed'` and carry no Addgene entry. A card cannot simultaneously be an
+in-house construct and have its overhangs read off a deposit that does not exist. Both now say
+what is true: built in house, overhangs as designed. That is not a downgrade — those four bases
+are just as usable — but it is the difference between a checkable claim and an unearned one.
+
+The Addgene count needed the manuscript's own precision. Twelve records carry an Addgene ID, but
+`#71287` is the **base CRISPR backbone** of pHEE401E, not its prime editor, which `addgene_note`
+has always said is not publicly deposited. The landing page now states eleven prime editing
+constructs, explains the twelfth entry, and the pHEE401E card carries the caveat directly, where
+someone about to order a plasmid will actually see it.
+
+## PE5b had been dropped from three enumerations
+
+The feature card, the Module 2 guide and the Direct Assembly guide all listed the architectures by
+name and all three omitted **PE5b** — the feature card while asserting "11 systems total" two words
+later. `PE_SYSTEMS` and `_DA_PE_SYSTEMS` both contain it and both render a card for it, so users
+saw a system the documentation denied existed. Restored in all three.
+
+## Two design parameters were quoted wrong
+
+* **PE3 nick distance.** The architecture diagram and the PE3 system card said *40–80 nt optimal*.
+  `genNickSgRNA` bands `dist >= 40 && dist <= 90 → 30 points` on both strands, and warns outside
+  40–90 citing Anzalone 2019. Three other places in the tool already said 40–90. Corrected to
+  40–90; the 30–100 acceptable band was right.
+* **PBS length in the architecture diagram.** It read *PBS (13–17 nt)*, which matches nothing:
+  `genPBS` scores 8–11 nt at 25 points, `PBS_ABS_MIN` is 8, the UI defaults to 8–17, and the same
+  page says 8–11 in two other places. Now *8–17 nt; 8–11 optimal*.
+
+## G-start was documented as worth points it does not carry
+
+The scoring doc card said *"+8 pts if spacer begins with G"*. `findSpacers` and `genNickSgRNA` both
+set `const gStart = 0;` before summing — with a FIX comment saying it is retained as a pass/fail
+checklist item. So a G-start has been worth nothing for some time and the documentation never
+followed. The card now says so, and explains what does happen: the warning fires, and the cloning
+primers prepend the +1 base the promoter needs (G for U6, A for U3).
+
+**The code was left alone deliberately.** Restoring +8 would change every composite spacer score in
+the paper, move the fingerprint and invalidate the benchmark. Where documentation and code
+disagreed, the documentation was wrong about what the tool does, and that is what was fixed.
+
+## Checked and found correct
+
+Scaffold 76 nt · tevopreQ1 37 nt · linker 9 nt and 19 candidates · polyT `TTTTTT` · ΔG channel
+weights ×1.2 / ×1.0 / ×0.8 and RT↔PBS ×1.5 · heatmap 8–22 nt · critical below −12 kcal/mol ·
+spacer distance, GC, seed and poly-T bands · PBS Tm bands 16 °C / 14–20 / 10–24 · Pol III +1 base ·
+twinPE ≤700 bp and internick 30–80 · multi-edit 25 nt advisory and 34 nt ceiling · 6 cloning
+strategies · 8 genomic databases · 15 vectors, 6 dicot / 9 monocot · all 15 cards' enzyme, promoter,
+selection, overhang and Addgene fields · every author-year in the landing copy resolves to a
+matching entry with the same year in the tool's own reference list.
+
+One apparent contradiction was chased down and is not one: `genRT` holds two length-scoring bands,
+20–50/14–60 and one derived from `idealLenMin`. The first sits inside the twinPE large-edit fast
+path, which returns at its own `sort`; the second governs standard RT templates. They never both
+run, and the doc card's "14–20 nt plant optimal" describes the second.
+
+## Verified after
+
+`26 passed, 0 failed` · `68 checks, 0 disagree` · fingerprint **`96e270bb`**, unchanged · `<div>`
+balance unchanged from the pre-edit file (the pre-existing +2 delta comes from fragments inside
+template literals, not from these edits) · all six script blocks load clean in the harness.
+
+
+---
+
+# Addendum 35 — the tool's own citation panel (24 August 2026)
+
+The author asked what happens to the tool citation now that a DOI exists. It had not been touched,
+and it was the one place a user would go to find out how to cite the software.
+
+## What it said
+
+> Voodikala S Akhil, Tushar K Dutta, & Chanumolu, H. G. K. (2026). *Plant Prime Editor v1.0*.
+> Retrieved August 9, 2026, from pegRNA Design Platform website: https://akprimeedit.com
+
+A website-retrieval citation. No DOI — there was none to give when it was written — a retrieval
+date of **9 August 2026** that had been stale for a fortnight, an author list formatted three
+different ways in one line ("Voodikala S Akhil" surname-last, "Chanumolu, H. G. K." surname-first),
+and `@misc` rather than `@software` in the BibTeX. A reader following it lands on a live server
+whose contents can change, with nothing to pin what they ran.
+
+## What it says now
+
+> Akhil, V. S., Dutta, T. K., & Chanumolu, H. G. K. (2026). *Plant Prime Editor* (Version 1.0)
+> [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22076360
+
+Which is Zenodo's own rendering of the record, so the tool, the record, `CITATION.cff` and the
+paper now all say the same thing. BibTeX became `@software` with `doi`, `version` and `publisher`
+fields.
+
+## Four strings, not two
+
+The panel holds the APA and BibTeX blocks **twice** — once as rendered HTML, once as the `_apa`
+and `_bib` JavaScript strings that the Copy button puts on the clipboard. Only the rendered pair
+is visible, so an edit to the display alone would have left the button silently handing out the
+old citation, which is worse than not having a button. All four were changed together, and a check
+now confirms the displayed text and the copied text are character-identical in both formats.
+
+## Two additions
+
+* A note under the box explaining **which DOI to use**: the concept DOI for a paper, the version
+  DOI to pin an exact build, and the fingerprint quoted alongside either.
+* The **exported HTML report** footer, which previously read only "Generated by Plant Prime Editor
+  v1.0", now carries the build fingerprint and the full citation. That file is the artefact that
+  outlives the browser session and gets pasted into a thesis or a supplementary; it should be able
+  to say what produced it.
+
+## Verified after
+
+`26 passed, 0 failed` (including *the four export builders run*, which exercises the report path) ·
+displayed citation == copied citation in both formats · fingerprint **`96e270bb`**, unchanged.
