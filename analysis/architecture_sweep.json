@@ -1,0 +1,183 @@
+{
+  "generated": "2026-09-28",
+  "loci": 26,
+  "architectures": 11,
+  "combinations": 286,
+  "complete": 257,
+  "incomplete": 29,
+  "locus_list": [
+    "OsAAT-T1",
+    "OsACC-T1",
+    "OsALS-T2 (Lin 2020)",
+    "OsALS-T2 (Lin 2021)",
+    "OsCDC48-T1",
+    "OsCDC48-T2",
+    "OsCDC48-T3 (site A)",
+    "OsCDC48-T3 (site B)",
+    "OsDEP1",
+    "OsEPSPS-T1",
+    "OsEPSPS-T2",
+    "OsGAPDH",
+    "OsIPA1-T2",
+    "OsNRT1.1B-T1",
+    "SlALS1",
+    "SlCENH3",
+    "SlDMR6",
+    "SlOr (site A)",
+    "SlOr (site B)",
+    "SlRPS23.2",
+    "SlWH9 (site B)",
+    "TaGASR7",
+    "TaGW2",
+    "TaMLO",
+    "TaUbi10-T1",
+    "TaUbi10-T2"
+  ],
+  "failures": [
+    {
+      "locus": "OsALS-T2 (Lin 2021)",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsALS-T2 (Lin 2021)",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsCDC48-T3 (site A)",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsCDC48-T3 (site A)",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsCDC48-T3 (site B)",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsCDC48-T3 (site B)",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsDEP1",
+      "arch": "ePPE3",
+      "why": "no opposite-strand pegRNA whose flap can meet the first"
+    },
+    {
+      "locus": "OsDEP1",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsDEP1",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsDEP1",
+      "arch": "PPE",
+      "why": "no opposite-strand pegRNA whose flap can meet the first"
+    },
+    {
+      "locus": "OsDEP1",
+      "arch": "twinPE",
+      "why": "no opposite-strand pegRNA whose flap can meet the first"
+    },
+    {
+      "locus": "OsEPSPS-T1",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsEPSPS-T1",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsNRT1.1B-T1",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "OsNRT1.1B-T1",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlALS1",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlALS1",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlCENH3",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlCENH3",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlDMR6",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlDMR6",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlOr (site A)",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlOr (site A)",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlRPS23.2",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlRPS23.2",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlWH9 (site B)",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "SlWH9 (site B)",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "TaUbi10-T1",
+      "arch": "PE3b",
+      "why": "no nicking sgRNA"
+    },
+    {
+      "locus": "TaUbi10-T1",
+      "arch": "PE5b",
+      "why": "no nicking sgRNA"
+    }
+  ]
+}

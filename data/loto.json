@@ -1,4 +1,40 @@
 {
+ "generated_by": "analysis/loto_lengths.py",
+ "source": "data/tm_table.csv, rows with a measured efficiency and status OK",
+ "cohort": {
+  "targets_with_measurements": 14,
+  "targets_in_argmax_test": 13,
+  "targets_in_ranking_test": 10,
+  "excluded_too_few_lengths": [
+   "OsIPA1-T1"
+  ],
+  "targets_with_a_non_OK_row": [
+   "OsODEV-T1"
+  ],
+  "lengths_tested_nt": [
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "n_distinct_lengths": 12,
+  "min_lengths_for_argmax": 3,
+  "min_lengths_for_ranking": 4
+ },
+ "loto_optimum_rule": "median of the best lengths of the other targets, rounded up",
+ "loto_window_rule": "narrowest window retaining every other target, i.e. [min, max] of their best lengths",
+ "published_window_nt": [
+  8,
+  11
+ ],
  "argmax": [
   [
    "OsAAT-T1",
@@ -13,7 +49,7 @@
    9
   ],
   [
-   "OsALS-T2",
+   "OsALS-T2 (Lin 2021)",
    8,
    10,
    5
@@ -64,7 +100,7 @@
    "OsODEV-T1",
    11,
    9,
-   4
+   3
   ],
   [
    "OsPDS-T1",
@@ -79,6 +115,96 @@
    5
   ]
  ],
+ "loto_windows": {
+  "OsAAT-T1": [
+   8,
+   11
+  ],
+  "OsACC-T1": [
+   8,
+   11
+  ],
+  "OsALS-T2 (Lin 2021)": [
+   8,
+   11
+  ],
+  "OsCDC48-T3": [
+   8,
+   11
+  ],
+  "OsEPSPS-T1": [
+   8,
+   11
+  ],
+  "OsEPSPS-T2": [
+   8,
+   11
+  ],
+  "OsGAPDH-T1": [
+   8,
+   11
+  ],
+  "OsIPA1-T2": [
+   8,
+   11
+  ],
+  "OsLDMAR-T1": [
+   8,
+   11
+  ],
+  "OsNRT1.1B-T1": [
+   8,
+   11
+  ],
+  "OsODEV-T1": [
+   8,
+   10
+  ],
+  "OsPDS-T1": [
+   8,
+   11
+  ],
+  "OsROC5-T1": [
+   8,
+   11
+  ]
+ },
+ "tests": {
+  "inside_published_window": {
+   "k": 13,
+   "n": 13,
+   "binomial_P": 6.272254743863065e-07,
+   "out_of_sample": false,
+   "note": "the published window is the narrowest one retaining every target, so this count is what the window was selected to achieve, not a test of it"
+  },
+  "within_2nt_of_leave_one_out_optimum": {
+   "k": 13,
+   "n": 13,
+   "max_deviation_nt": 2,
+   "binomial_P": 1.140916491542712e-05,
+   "out_of_sample": true
+  },
+  "inside_leave_one_out_window": {
+   "k": 12,
+   "n": 13,
+   "P": 1.3171734962112442e-05,
+   "targets_outside": [
+    "OsODEV-T1"
+   ],
+   "out_of_sample": true
+  },
+  "ranking": {
+   "n_targets": 10,
+   "n_positive": 10,
+   "median_rho": 0.7382167573820722,
+   "min_rho": 0.19999999999999996,
+   "max_rho": 0.9210526315789476,
+   "pooled_n": 63,
+   "sign_test_P_one_sided": 0.0009765625,
+   "sign_test_P_two_sided": 0.001953125,
+   "out_of_sample": true
+  }
+ },
  "ranking": [
   [
    "OsAAT-T1",
@@ -91,8 +217,8 @@
    9
   ],
   [
-   "OsALS-T2",
-   0.9210526315789475,
+   "OsALS-T2 (Lin 2021)",
+   0.9210526315789476,
    5
   ],
   [
@@ -102,37 +228,32 @@
   ],
   [
    "OsEPSPS-T1",
-   0.7764335147641445,
+   0.7764335147641444,
    9
   ],
   [
    "OsIPA1-T2",
-   0.7999999999999999,
+   0.7999999999999998,
    4
   ],
   [
    "OsLDMAR-T1",
-   0.7,
+   0.6999999999999998,
    5
   ],
   [
    "OsNRT1.1B-T1",
-   0.19999999999999998,
-   4
-  ],
-  [
-   "OsODEV-T1",
-   0.7378647873726218,
+   0.19999999999999996,
    4
   ],
   [
    "OsPDS-T1",
-   0.8220338983050847,
+   0.8220338983050849,
    9
   ],
   [
    "OsROC5-T1",
-   0.5526315789473686,
+   0.5526315789473685,
    5
   ]
  ],

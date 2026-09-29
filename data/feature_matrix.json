@@ -1,1 +1,302 @@
-[["Feature", "Plant Prime Editor", "PlantPeg-Designer", "Prime-Design", "peg-Finder", "PE-Designer", "Easy-Prime", "PRIDICT2.0"], ["Entry point is allele comparison (WT vs reference CDS)", "Yes", "No", "No", "No", "No", "No", "No"], ["Amino-acid consequence prediction per variant", "Yes", "No", "No", "No", "No", "No", "No"], ["CDS to genomic coordinate mapping through introns", "Yes", "No", "No", "No", "No", "No", "No"], ["Plant-calibrated PBS Tm and length rules", "Yes", "Yes", "No", "No", "No", "No", "No"], ["PE2 / PE2max", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"], ["PE3 / PE3b", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"], ["PE4 / PE5 / PE5b (MLH1dn)", "Yes", "No", "No", "No", "No", "No", "Yes"], ["ePPE (engineered plant RT)", "Yes", "No", "No", "No", "No", "No", "No"], ["PPE / ePPE3 (paired pegRNAs)", "Yes", "Yes", "No", "No", "No", "No", "No"], ["twinPE", "Yes", "No", "Yes", "No", "No", "No", "No"], ["Multi-channel PBS free-energy landscape (3 scored channels)", "Yes", "No", "No", "No", "No", "No", "No"], ["Free-energy-selected 3\u2032 linker from a candidate pool", "Yes", "No", "No", "No", "No", "No", "No"], ["Pol III promoter constraints (5\u2032 G, poly-T)", "Yes", "Yes", "No", "No", "No", "No", "No"], ["Plant binary vector library", "Yes (15)", "No", "No", "No", "No", "No", "No"], ["Restriction-site conflict scan of the insert", "Yes", "No", "No", "No", "No", "No", "No"], ["Multiple assembly chemistries with strategy switching", "Yes (6)", "No", "No", "No", "No", "No", "No"], ["Cloning primers with per-primer thermodynamic QC", "Yes", "No", "No", "No", "No", "No", "No"], ["PCR cycling conditions from actual primer Tm", "Yes", "No", "No", "No", "No", "No", "No"], ["Bench protocol export", "Yes", "No", "No", "No", "No", "No", "No"], ["Synthesis-vendor order file export", "Yes", "No", "No", "No", "No", "No", "No"], ["Reports PBS Tm on both nearest-neighbour and Wallace scales", "Yes", "No", "No", "No", "No", "No", "No"], ["Machine-learning predicted editing efficiency", "No", "No", "No", "No", "No", "Yes", "Yes"], ["Genome-wide off-target search", "No (one-click handoff to CRISPOR / CRISPR-P)", "No", "No", "No", "Yes", "No", "No"], ["Design record can be re-imported and re-verified", "Yes", "No", "No", "No", "No", "No", "No"], ["Published automated test suite against known designs", "Yes", "No", "No", "No", "No", "No", "No"], ["Complete design record export (all candidates, all sub-scores)", "Yes", "No", "No", "No", "No", "No", "No"], ["Spacer candidates returned per target (this study, n = 7)", "20", "1 ranked", "\u2014", "3\u20134", "1\u20135", "\u2014", "3\u20138"], ["All computation client-side; sequences never uploaded", "Yes", "No", "No", "No", "No", "No", "No"], ["No login or registration required", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"]]
+[
+ [
+  "Feature",
+  "Plant Prime Editor",
+  "PlantPeg-Designer",
+  "Prime-Design",
+  "peg-Finder",
+  "PE-Designer",
+  "Easy-Prime",
+  "PRIDICT2.0"
+ ],
+ [
+  "Entry point is allele comparison (WT vs reference CDS)",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Amino-acid consequence prediction per variant",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "CDS to genomic coordinate mapping through introns",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Plant-calibrated PBS Tm and length rules",
+  "Yes",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "PE2 / PE2max",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes"
+ ],
+ [
+  "PE3 / PE3b",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes"
+ ],
+ [
+  "PE4 / PE5 / PE5b (MLH1dn)",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "Yes"
+ ],
+ [
+  "ePPE (engineered plant RT)",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "PPE / ePPE3 (paired pegRNAs)",
+  "Yes",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "twinPE",
+  "Yes",
+  "No",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Multi-channel PBS free-energy landscape (3 scored channels)",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Free-energy-selected 3′ linker from a candidate pool",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Pol III promoter constraints (5′ G, poly-T)",
+  "Yes",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Plant vector library (deposited, orderable plasmids)",
+  "Yes (11)",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Restriction-site conflict scan of the insert",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Multiple assembly chemistries with strategy switching",
+  "Yes (6)",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Cloning primers with per-primer thermodynamic QC",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "PCR cycling conditions from actual primer Tm",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Bench protocol export",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Synthesis-vendor order file export",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Reports PBS Tm on both nearest-neighbour and Wallace scales",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Machine-learning predicted editing efficiency",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "Yes",
+  "Yes"
+ ],
+ [
+  "Genome-wide off-target search",
+  "No (one-click handoff to CRISPOR / CRISPR-P)",
+  "No",
+  "No",
+  "No",
+  "Yes",
+  "No",
+  "No"
+ ],
+ [
+  "Design record can be re-imported and re-verified",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Published automated test suite against known designs",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Complete design record export (all candidates, all sub-scores)",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Spacer candidates returned per target (this study, n = 7)",
+  "20",
+  "1 ranked",
+  "—",
+  "3–4",
+  "1–5",
+  "—",
+  "3–8"
+ ],
+ [
+  "All computation client-side; sequences never uploaded",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "No login or registration required",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes"
+ ]
+]

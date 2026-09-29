@@ -102,24 +102,86 @@ function scoreRow(r) {
   // spacer is the reverse complement of the plus-strand window. Validated empirically
   // across 116 published rows: + strand direct 93%, - strand reverse-complemented 98%.
   const RCB = {A:'T',T:'A',G:'C',C:'G'};
+  let _fwdFirst = false, _fwdLast = false;   // which convention matched, set below
   if (r.edit_from) {
     const want = r.edit_from.toUpperCase().replace(/[^ACGT]/g,'');
     const fwd  = seq.slice(editPos0, editPos0 + want.length);
     const rev  = seq.slice(Math.max(0, editPos0 - want.length + 1), editPos0 + 1)
                     .split('').reverse().map(c => RCB[c] || 'N').join('');
-    if (want && fwd !== want && rev !== want) {
+    // FOURTH CONVENTION (28 Sep 2026). An edit is quoted on one of two strands and anchored
+    // at one of two ends, which is four combinations; this tested two of them. A published
+    // edit quoted in GENE orientation at a locus whose protospacer lies on the minus strand
+    // is plus-strand text anchored at its last base, and was rejected. Still an exact match,
+    // so nothing that genuinely disagrees with the genome is admitted.
+    const fwdLast = seq.slice(Math.max(0, editPos0 - want.length + 1), editPos0 + 1);
+    if (want && fwd !== want && rev !== want && fwdLast !== want) {
       out.status = `edit_from mismatch: genomic_seq[${editPos1}] reads ${fwd} (+) / ${rev} (-), expected ${want}`;
       return out;   // catching this early prevents a silently wrong benchmark
     }
-    out.edit_strand = (fwd === want) ? '+' : '-';
+    // WHICH test matched decides both the strand AND the anchor, and the two are not the
+    // same question. Setting the strand from `fwd` alone made the new plus-anchored-at-last
+    // row come out as minus-quoted, so its edit was reverse-complemented into a top-strand
+    // spelling the genome does not read there. The anchor travels with the match.
+    _fwdFirst = (fwd === want);
+    _fwdLast  = (!_fwdFirst && fwdLast === want);
+    out.edit_strand = (_fwdFirst || _fwdLast) ? '+' : '-';
   }
 
   // genRT reads ed.alt / ed.genomicPos (ed.ref is informational). Supplying 'to'
   // instead of 'alt' left the edit unapplied, so RT templates were returned as
   // wild-type. findSpacers reads only genomicPos, so spacer ranks were unaffected.
-  const edits = [{ genomicPos: editPos0, type: (r.edit_type || 'SNP').toUpperCase(),
-                   ref: (r.edit_from || '').toUpperCase(), alt: (r.edit_to || '').toUpperCase(),
-                   from: (r.edit_from || '').toUpperCase(), to: (r.edit_to || '').toUpperCase() }];
+  //
+  // ORIENTATION FIX (12 Sep 2026). The block above already establishes that edit_from is
+  // quoted on the protospacer strand, and sets out.edit_strand accordingly — and then the
+  // edit was handed to the engine UNCONVERTED. The engine's convention is the top strand:
+  // genRT splices ed.alt straight into genomicSeq for BOTH strands (see its + and - branches),
+  // and the interface only ever produces top-strand edits, because directEdits rows are
+  // validated against genomicSeq[pos]. So every minus-quoted row encoded the COMPLEMENT of
+  // the intended base in its RT template: 34 of the 103 single-base benchmark rows, six of
+  // which came out as no-ops whose "designed" pegRNA installs nothing at all. The edit is
+  // now reverse-complemented into top-strand coordinates before it reaches the engine, and
+  // both spellings are kept in the row so the benchmark says which is which.
+  const _RCS = x => (x || '').toUpperCase().split('').reverse().map(c => RCB[c] || c).join('');
+  const _minus = out.edit_strand === '-';
+  const _ref = _minus ? _RCS(r.edit_from) : (r.edit_from || '').toUpperCase();
+  const _alt = _minus ? _RCS(r.edit_to)   : (r.edit_to   || '').toUpperCase();
+  // An edit anchored at its LAST base — whether minus-quoted, which the check above matched
+  // reading leftwards, or plus-quoted in gene orientation — starts (length - 1) further left.
+  const _anchoredLast = _minus || _fwdLast;
+  const _pos = (_anchoredLast && _ref.length > 1) ? editPos0 - _ref.length + 1 : editPos0;
+  out.edit_strand_note = _minus
+      ? 'edit_from/edit_to quoted on the minus strand; reverse-complemented to '
+        + _ref + '>' + (_alt || '-') + ' at top-strand position ' + (_pos + 1)
+      : (_fwdLast
+          ? 'edit_from/edit_to quoted on the plus strand in gene orientation, anchored at '
+            + 'its last base; read as ' + _ref + '>' + (_alt || '-')
+            + ' at top-strand position ' + (_pos + 1)
+          : '');
+  out.edit_from_top = _ref;
+  out.edit_to_top   = _alt;
+  // DELETION FIX (12 Sep 2026). A deletion arrives here as one row with a multi-base
+  // edit_from and an empty edit_to, and was handed to the engine as a single edit —
+  // which removes exactly ONE base, whatever the row said. All 17 deletion rows in the
+  // benchmark are multi-base (2, 3, 6 and 11 nt), so every one of them was scored against
+  // a 1 nt deletion. The interface does not have this bug: it expands a multi-base deletion
+  // into one entry per base sharing a _multiDelGroup tag. The batch scorer now does the same,
+  // so the benchmark and the interface design the same molecule.
+  const _isDel = !_alt && _ref.length >= 1;
+  const _isIns = !_ref && _alt.length >= 1;
+  let edits;
+  if (_isDel && _ref.length > 1) {
+    edits = [];
+    for (let di = 0; di < _ref.length; di++)
+      edits.push({ genomicPos: _pos + di, type: 'DEL', ref: _ref[di], alt: '-',
+                   _multiDelGroup: _pos, _multiDelLen: _ref.length });
+  } else if (_isIns) {
+    edits = [{ genomicPos: _pos, genomicEnd: _pos, type: 'INS', ref: '-', alt: _alt,
+               _isInsertion: true, _insertionLen: _alt.length, from: _ref, to: _alt }];
+  } else {
+    edits = [{ genomicPos: _pos, type: (r.edit_type || 'SNP').toUpperCase(),
+               ref: _ref, alt: _alt || '-', from: _ref, to: _alt,
+               genomicEnd: _pos + Math.max(0, _alt.length - 1) }];
+  }
 
   let cands;
   try { cands = ctx.findSpacers(seq, pam, spacerLen, editPos0, edits) || []; }
@@ -166,6 +228,18 @@ function scoreRow(r) {
   out.spacer_strand = c.strand;
   out.nick_pos = c.nickPosGenomic;
 
+  // FIX SPECIES-BAND (12 Sep 2026). Until now this scored every row with whatever
+  // _PPE_TM_BAND_KEY happened to default to, which is 'rice'. The five Triticum rows were
+  // therefore scored against the rice melting-temperature window (14-20 C NN) rather than
+  // the wheat/barley/maize one (26-34 C), so their pbs_score and their warnings described
+  // a species they do not belong to. The band is now set per row from the species column,
+  // which is what makes a wheat row a wheat row.
+  const _sp = String(r.species || '');
+  ctx._PPE_TM_BAND_KEY = /Triticum|Hordeum|Zea|wheat|barley|maize/i.test(_sp) ? 'triticeae_maize'
+                       : /Oryza|rice/i.test(_sp)                              ? 'rice'
+                       :                                                        'default';
+  out.pbs_tm_band = ctx._PPE_TM_BAND_KEY;
+
   // PBS at the published length
   try {
     const pbsRaw = ctx.genPBS(seq, c.nickPosGenomic, c.strand, 8, 22, c.spacer);
@@ -188,9 +262,21 @@ function scoreRow(r) {
       const rpick = rtArr.find(x => x.length === wantRT) || rtArr[0];
       if (rpick) {
         out.rt_seq = rpick.seq; out.rt_len_used = rpick.length; out.rt_score = rpick.score;
-        // PBS<->RT template is the dominant failure mode (Chen 2021) and is the single
-        // most important term in the benchmark. genPBS runs before the RT template exists,
-        // so compute this channel explicitly now that both sequences are known.
+        // PBS<->RT template is the strongest single correlate of measured efficiency in
+        // this benchmark: rho = +0.457, P = 0.0018 against the 44 Lin 2020 pegRNAs that
+        // carry a digitised efficiency, ahead of PBS Tm deviation (+0.131) and level with
+        // nick-to-edit distance (+0.446). genPBS runs before the RT template exists, so
+        // compute this channel explicitly now that both sequences are known.
+        //
+        // ATTRIBUTION FIX (12 Sep 2026). This used to read "the dominant failure mode
+        // (Chen 2021)". Chen et al. 2021 Cell 184:5635 is the mismatch-repair paper -
+        // MLH1dn, PE4 and PE5 - and says nothing about pegRNA secondary structure. The
+        // documented pegRNA auto-inhibition is PBS<->SPACER, not PBS<->RT: "The PBS and
+        // spacer sequence within the pegRNA are complementary to each other and can
+        // potentially form intramolecular and intermolecular interactions through
+        // Watson-Crick base pairing" (Nucleic Acids Res 2023 51:6966), and that channel is
+        // the one genPBS already scores at its highest weight. The PBS<->RT figure above is
+        // this work, measured here, and is cited as such.
         try {
           const d = ctx.m2_maxDuplexAndDG(pick.seq, rpick.seq);
           out.pbs_rt_dG  = (d && (d.dG  !== undefined ? d.dG  : d[1])) ?? '';
@@ -207,9 +293,9 @@ function scoreRow(r) {
 const rows = parseCSV(fs.readFileSync(INPUT, 'utf8'));
 const scored = rows.map(scoreRow);
 
-const EXTRA = ['edit_strand','composite_score','raw_score','dist_term','gc_term','seed_term','gstart_term','gstart_base_ok','polyt_term',
+const EXTRA = ['edit_strand','edit_from_top','edit_to_top','edit_strand_note','composite_score','raw_score','dist_term','gc_term','seed_term','gstart_term','gstart_base_ok','polyt_term',
   'nick_edit_dist','spacer_gc','seed_gc','struct_penalty','struct_risk','ir_score','spacer_strand','nick_pos',
-  'pbs_seq','pbs_len_used','pbs_score','pbs_tm','pbs_gc','pbs_dG_worst','pbs_rt_dG','pbs_rt_run','pbs_struct_risk',
+  'pbs_tm_band','pbs_seq','pbs_len_used','pbs_score','pbs_tm','pbs_gc','pbs_dG_worst','pbs_rt_dG','pbs_rt_run','pbs_struct_risk',
   'rt_seq','rt_len_used','rt_score',
   'n_candidates','published_rank','published_rank_percentile','best_available_score','best_available_spacer','status'];
 const inputCols = Object.keys(rows[0] || {});

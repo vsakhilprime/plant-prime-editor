@@ -144,7 +144,7 @@
   "k562": 35.224018991
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "pbs": 8,
   "eff": 0.46,
   "nn": 5.2,
@@ -153,7 +153,7 @@
   "k562": 11.7309048772
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "pbs": 10,
   "eff": 0.46,
   "nn": 19.8,
@@ -162,7 +162,7 @@
   "k562": 24.9868035316
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "pbs": 12,
   "eff": 0.31,
   "nn": 31.3,
@@ -171,7 +171,7 @@
   "k562": 23.5634572804
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "pbs": 15,
   "eff": 0.15,
   "nn": 36.8,

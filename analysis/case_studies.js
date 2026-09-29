@@ -34,6 +34,10 @@
      node analysis/case_studies.js [--html path]
    Writes analysis/case_studies.json
    ══════════════════════════════════════════════════════════════════════════ */
+// The rice ALS labels are namespaced by source study (analysis/als_sites.json):
+// two different protospacers in one gene were both called OsALS-T2. The worked
+// example is site A, Lin 2021's.
+const LOCUS_WE = 'OsALS-T2 (Lin 2021)';
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const HERE = __dirname;
 const ha = process.argv.indexOf('--html');
@@ -78,28 +82,121 @@ const NEEDS_NICK  = ['PE3','PE3b','PE5','PE5b'];
 const NEEDS_PEG2  = ['twinPE','PPE','ePPE3'];
 const USES_TEVO   = ['PE2max','ePPE','PPE','ePPE3'];
 
+// ── the controlled panel runs on the WORKED EXAMPLE's own design ────────────
+// The spread panel sweeps other loci on their published spacer with a synthetic edit placed
+// 5 nt from the nick, which is the right harness for "does every architecture complete at a
+// locus". The CONTROLLED panel is different: it is the worked example, and Table S11 is read
+// beside Figure 3. Until 14 September 2026 it used the published spacer and a synthetic edit,
+// so it reported a 17 nt template where the figure reported 20 — the same site, two designs,
+// and a reader comparing them met two numbers. It uses the worked example's real spacer, nick
+// and edit now, out of analysis/worked_example.json, so the table and the figure are one
+// design. Every other locus is untouched.
+const WEX = JSON.parse(fs.readFileSync(path.join(__dirname, 'worked_example.json'), 'utf8'));
+const WEX_SEQ = fs.readFileSync(path.join(__dirname, '..', WEX.sequence_file), 'utf8')
+                  .split('\n').filter(l => !l.startsWith('>')).join('')
+                  .replace(/\s+/g, '').toUpperCase();
+// ── every design installs the locus's PUBLISHED edit ──────────────────────────────
+// Until 20 September 2026 the spread panel used each locus's published spacer with a
+// SYNTHETIC edit five bases into the template, and the controlled panel a demonstration
+// substitution that no study reports. Both are gone: every one of the 44 runs now installs
+// the substitution published at its own protospacer.
+//
+// The spacer differs between the two panels, by design and not by accident. The controlled
+// panel is the worked example, so it takes its spacer, nick and edit from
+// analysis/worked_example.json and Table S11 is one design with Figure 3, Figure 2 panel F
+// and Supplementary Data S1. The spread panel takes each locus's PUBLISHED spacer, so that
+// panel is a published protospacer carrying a published edit at every locus. Nothing is
+// typed: the spacers and the edits come out of data/benchmark_scored.csv.
+const _snp = {};
+bench.forEach(r => { if (r.edit_type === 'SNP' && !_snp[r.locus]) _snp[r.locus] = r; });
+
+function _plan(id) {
+  const r = _snp[id];
+  if (!r) throw new Error('no published substitution at ' + id);
+  const g = r.genomic_seq.toUpperCase();
+  const isWE = id === WEX.locus;
+  const sp = isWE ? WEX.spacer : r.published_spacer;
+  let strand = '+', i = g.indexOf(sp), nick;
+  if (i >= 0) nick = i + 17;
+  else {
+    const m = rc(g).indexOf(sp);
+    if (m < 0) throw new Error('spacer not in the window at ' + id);
+    strand = '-'; nick = g.length - 1 - (m + 17);
+  }
+  const editPos = parseInt(r.edit_pos, 10) - 1;
+  const to = r.edit_to_top || r.edit_to;
+  const from = r.edit_from_top || r.edit_from;
+  if (g.charAt(editPos) !== from)
+    throw new Error(id + ': the window does not read ' + from + ' at ' + (editPos + 1));
+  const reach = strand === '+' ? editPos - nick : nick - editPos;
+  if (reach < 0) throw new Error(id + ": the published edit is 5' of the nick");
+  if (isWE) {
+    const bad = [];
+    if (nick !== WEX.nick_pos0) bad.push('nick ' + nick + ' vs ' + WEX.nick_pos0);
+    if (editPos !== WEX.edit_pos0) bad.push('edit ' + editPos + ' vs ' + WEX.edit_pos0);
+    if (to !== WEX.edit_to) bad.push('alt ' + to + ' vs ' + WEX.edit_to);
+    if (bad.length)
+      throw new Error('analysis/worked_example.json disagrees with the benchmark — '
+                      + bad.join('; '));
+  }
+  return { geno: g, spacer: sp, strand, nick, editPos, to };
+}
+const _P = {};
+const _plans = id => (_P[id] || (_P[id] = _plan(id)));
+
+const _isWE   = id => id === WEX.locus;
+const _geno   = (L, id) => _plans(id).geno;
+const _nick   = (L, id) => _plans(id).nick;
+const _strand = (L, id) => _plans(id).strand;
+const _spacer = (L, id) => _plans(id).spacer;
+const _editPos= (L, id) => String(_plans(id).editPos);
+const _editTo = (L, id) => _plans(id).to;
+
+// A locus LABEL is not a site. Bare "SlOr" names two distinct published protospacers in this
+// benchmark, and analysis/target_sites.json separates them as "SlOr (site A)" and
+// "SlOr (site B)". Table S11 reported the bare label, so the tomato arm of the panel did not
+// say which of the two it ran on. Report the registry's id whenever it disambiguates.
+const SITES = (() => {
+  try {
+    const r = JSON.parse(fs.readFileSync(path.join(__dirname, 'target_sites.json'), 'utf8'));
+    const list = Array.isArray(r) ? r : (r.sites || []);
+    const m = {};
+    list.forEach(x => { if (x.spacer) m[x.spacer] = x.id; });
+    return m;
+  } catch (e) { return {}; }
+})();
+const siteName = (id, spacer) => SITES[spacer] || id;
+
 function runCase(arch, locusId, vectorId) {
   const L = loci[locusId];
-  const res = { architecture: arch, locus: locusId, vector: vectorId, checks: [], ok: false };
+  const res = { architecture: arch, locus: siteName(locusId, _plans(locusId).spacer),
+                vector: vectorId, checks: [], ok: false };
   const fail = (name, detail) => res.checks.push({ name, pass: false, detail });
   const pass = (name, detail) => res.checks.push({ name, pass: true, detail });
   if (!L) { fail('locus available', locusId + ' has no usable genomic context'); return res; }
+
+  // FIX SPECIES-BAND (12 Sep 2026). genPBS ranks on the species melting-temperature band
+  // and that band is process-global, defaulting to rice. Every case here — including the
+  // Triticum row of the species spread — was therefore designed against the rice window.
+  // Set it from the locus prefix, which is the species tag these locus ids carry.
+  vm.runInContext('_PPE_TM_BAND_KEY = ' + JSON.stringify(
+    /^Ta|^Hv|^Zm/.test(locusId) ? 'triticeae_maize' : /^Os/.test(locusId) ? 'rice' : 'default'), ctx);
 
   const built = vm.runInContext(`(function(){
     try {
       selectedVec = VECTORS.find(v => v.id === ${JSON.stringify(vectorId)});
       if (!selectedVec) return JSON.stringify({err:'vector not found'});
       selectedCloningStrategy = 'gg';
-      var g = ${JSON.stringify(L.genomic_seq.toUpperCase())};
-      var nick = ${parseInt(L.nick_pos,10)}, strand = ${JSON.stringify(L.spacer_strand)};
-      var spacer = ${JSON.stringify(L.published_spacer)};
+      var g = ${JSON.stringify(_geno(L, locusId))};
+      var nick = ${_nick(L, locusId)}, strand = ${JSON.stringify(_strand(L, locusId))};
+      var spacer = ${JSON.stringify(_spacer(L, locusId))};
       // Strand-aware: the edit must lie 3' of the nick on the strand the RT template is
       // written from, or it can never be encoded. On a minus-strand spacer that is the
       // decreasing-coordinate side. This was always nick+5, which put the edit behind the
       // nick at every minus-strand locus — invisible only because the edit was being
       // dropped before it reached genRT.
-      var editPos = (strand === '-') ? nick - 5 : nick + 5;
-      var from = g.charAt(editPos), to = (from === 'A' ? 'T' : 'A');
+      var editPos = ${_editPos(L, locusId)};
+      var from = g.charAt(editPos), to = ${JSON.stringify(_editTo(L, locusId))} || (from === 'A' ? 'T' : 'A');
       // FIX (15 Aug 2026). genRT reads ed.genomicPos and ed.alt. This previously passed
         // {pos, from, to}, so the edit never reached genRT: RT templates came back as
         // wild-type and homologyBeyondEdit degenerated to length-1, which is why every
@@ -174,6 +271,7 @@ function runCase(arch, locusId, vectorId) {
         scaffold: M3_SCAFFOLD, tevo: TEVO_preQ1, polyT: POLY_T_TERM,
         enzyme: selectedVec.enzyme, oh5: selectedVec.overhang_5, oh3: selectedVec.overhang_3,
         suppl3: !!selectedVec.supplies_3prime,
+        nickFound: !!nickSp,
         twinFound: !!twinSp,
         primers: allPrimers.map(function(p){return {name:p.name, seq:p.seq};})
       });
@@ -194,7 +292,17 @@ function runCase(arch, locusId, vectorId) {
                  && peg.indexOf(d.spacer) === 0
                  && peg.indexOf(d.scaffold) === d.spacer.length
                  && peg.endsWith(d.pbs);
-  (_asmOK ? pass : fail)('pegRNA assembles: spacer+scaffold+RT+PBS in order', peg.length + ' nt');
+  // Say which length this is. This check sums four parts; the transcript Module 2 reports
+  // carries the Pol III poly-T terminator as well, and on tevopreQ1 architectures the
+  // linker and tevopreQ1 too. Reporting the bare four-part sum unlabelled put a second
+  // number — 122 for the worked example — beside the 128 the interface, the FASTA export
+  // and the paper all print for the same pegRNA. Both are stated, each with its name.
+  const _tevoOn = USES_TEVO.indexOf(arch) >= 0;
+  const _lk     = _tevoOn ? (q('m3_linker') || 'GCAAAAAAA') : '';
+  const _txLen  = peg.length + _lk.length + (_tevoOn ? d.tevo.length : 0) + d.polyT.length;
+  (_asmOK ? pass : fail)('pegRNA assembles: spacer+scaffold+RT+PBS in order',
+    peg.length + ' nt in these four parts; ' + _txLen + ' nt as transcribed (adds' +
+    (_tevoOn ? ' linker, tevopreQ1 and' : '') + ' the poly-T terminator)');
 
   // 2 homology beyond the edit
   const hb = d.homologyBeyondEdit;
@@ -254,8 +362,25 @@ function runCase(arch, locusId, vectorId) {
 
   // 6 second component where the architecture needs one
   const names = d.primers.map(p => p.name).join(' ');
-  if (NEEDS_NICK.indexOf(arch) >= 0)
-    /P7|Nick/i.test(names) ? pass('nicking sgRNA cassette present') : fail('nicking sgRNA cassette present', names.slice(0,90));
+  if (NEEDS_NICK.indexOf(arch) >= 0) {
+    // MECHANISM NOTE (12 Sep 2026). PE3b and PE5b need a guide that can READ the edit:
+    // a protospacer on the non-edited strand containing an edited base with its own motif
+    // untouched. At many target sites no nearby motif allows that, and the engine returns
+    // nothing — which is the architecture, not a defect, and the same result the
+    // architecture sweep reports at twelve of the twenty-five benchmark loci.
+    //
+    // This is recorded as DECLINED rather than passed or failed, so it can neither be
+    // counted as a success nor read as a broken design. The check still bites where a
+    // guide does exist: a PE3b locus with a licensed guide and no cassette still fails,
+    // and PE3 and PE5, which choose their guide by distance alone, can never decline.
+    const conditional = (arch === 'PE3b' || arch === 'PE5b');
+    if (conditional && d.nickFound === false) {
+      res.declined = 'no PE3b-licensed nicking sgRNA exists at this locus — no protospacer '
+                   + 'on the non-edited strand carries the edit with its own motif intact';
+      pass('conditional nick declined, correctly', 'the architecture cannot be built here');
+    } else if (/P7|Nick/i.test(names)) pass('nicking sgRNA cassette present');
+    else fail('nicking sgRNA cassette present', names.slice(0,90));
+  }
   else if (NEEDS_PEG2.indexOf(arch) >= 0) {
     // FIX B16: the design is only valid if the tool's own opposite-strand search found a
     // second spacer. Previously the harness injected one, so this check could not fail.
@@ -288,7 +413,7 @@ const DICO = { PE2:'pHEE401E', PE2max:'pHEE401E', PE3:'pCE3-BsmBI-dicot', PE3b:'
                PE4:'pHEE401E', PE5:'pCE3-BsmBI-dicot', PE5b:'pCE3-BsmBI-dicot', twinPE:'pCE3-BsmBI-dicot',
                ePPE:'pEPPE-dicot', PPE:'pCE3-BsmBI-dicot', 'ePPE3':'pCE3-BsmBI-dicot' };
 
-const controlled = ARCH.map(a => runCase(a, 'OsALS-T2', MONO[a]));
+const controlled = ARCH.map(a => runCase(a, LOCUS_WE, MONO[a]));
 const SPREAD = [['Oryza sativa','OsCDC48-T1',MONO], ['Triticum aestivum','TaGW2',MONO], ['Solanum lycopersicum','SlOr',DICO]];
 const spread = [];
 SPREAD.forEach(([sp, loc, vmap]) => ARCH.forEach(a => { const r = runCase(a, loc, vmap[a]); r.species = sp; spread.push(r); }));
@@ -302,7 +427,7 @@ const d_oh3 = id => q(`(VECTORS.find(v=>v.id===${JSON.stringify(id)})||{}).overh
 
 function negativeControls() {
   const out = [];
-  const base = runCase('PE2', 'OsALS-T2', 'pYPQ166-OsPE2');
+  const base = runCase('PE2', LOCUS_WE, 'pYPQ166-OsPE2');
 
   // 1. plant a recognition site for the cloning enzyme inside the insert
   const planted = vm.runInContext(`(function(){
@@ -321,7 +446,7 @@ function negativeControls() {
   //    agrees with the vector record, and it is test_acceptor_overhangs.js, run against the
   //    depositor's sequence, that proves the record itself is right. The two are complementary.
   const oldStyle = (function () {
-    const b = runCase('PE2', 'OsALS-T2', 'pYPQ166-OsPE2');
+    const b = runCase('PE2', LOCUS_WE, 'pYPQ166-OsPE2');
     if (!b.design) return { detected: false, detail: 'baseline unavailable' };
     const d = b.design;
     const scaf = q('M3_SCAFFOLD'), polyT = q('POLY_T_TERM');
@@ -350,10 +475,10 @@ function negativeControls() {
   const droppedEdit = (function () {
     try {
       const r = JSON.parse(q(`(function(){
-        var g = ${JSON.stringify((loci['OsALS-T2']||{}).genomic_seq || '')}.toUpperCase();
-        var nick = ${parseInt((loci['OsALS-T2']||{}).nick_pos, 10) || 300};
-        var strand = ${JSON.stringify((loci['OsALS-T2']||{}).spacer_strand || '+')};
-        var sp = ${JSON.stringify((loci['OsALS-T2']||{}).published_spacer || '')};
+        var g = ${JSON.stringify((loci[LOCUS_WE]||{}).genomic_seq || '')}.toUpperCase();
+        var nick = ${parseInt((loci[LOCUS_WE]||{}).nick_pos, 10) || 300};
+        var strand = ${JSON.stringify((loci[LOCUS_WE]||{}).spacer_strand || '+')};
+        var sp = ${JSON.stringify((loci[LOCUS_WE]||{}).published_spacer || '')};
         var editPos = (strand === '-') ? nick - 5 : nick + 5;
         var from = g.charAt(editPos), to = (from === 'A' ? 'T' : 'A');
         var pbsC = genPBS(g, nick, strand, 8, 15, sp, false);
@@ -369,40 +494,68 @@ function negativeControls() {
                              wrong.length, wrong.length) : '';
         return JSON.stringify({wrong: wrong, right: right, wt: wt});
       })()`));
-      return { detected: !!r.wrong && r.wrong === r.wt && r.right !== r.wt,
-               detail: 'wrong-field template ' + r.wrong.length + ' nt is identical to wild-type; '
-                     + 'correct-field template ' + r.right.length + ' nt differs from it' };
+      // 27 Sep 2026: genRT now REJECTS an edit whose genomicPos is absent instead of quietly
+      // designing a wild-type template from it, so the control's expectation gets stronger — the
+      // wrong-field edit must yield no template at all, and the correct-field one must yield an
+      // edited one. Either outcome catches the field-name error; refusing to design is better
+      // than designing the wrong thing, so that is what is asserted now.
+      return { detected: !r.wrong && !!r.right && r.right !== r.wt,
+               detail: r.wrong
+                 ? 'wrong-field edit still produced a ' + r.wrong.length + ' nt template'
+                 : 'wrong-field edit is refused outright; correct-field template '
+                   + r.right.length + ' nt differs from wild type' };
     } catch (e) { return { detected: false, detail: 'control failed to run: ' + e.message }; }
   })();
   out.push({ control: 'edit passed to genRT under the pre-fix field names',
-             expectation: 'the template comes back as genomic wild-type and the new check reports it',
+             expectation: 'genRT refuses to design from it; before 27 Sep 2026 it returned a '
+                        + 'wild-type template presented as carrying the edit',
              detected: droppedEdit.detected, detail: droppedEdit.detail });
 
-  // 3. The homology check cannot be made to fail through the public interface, and that is
-  //    the finding rather than a gap in the control. genRT ranks candidates by homology
-  //    beyond the edit before anything else and returns only its top six, so a template with
-  //    under 5 nt of homology is never the one offered. Attempting to force one out through
-  //    genRT therefore says nothing. The behaviour was established directly when the ranking
-  //    was added — at a locus where the engine had been returning a zero-homology template,
-  //    the top candidate moved to 10 nt — and is asserted in tests/test_design_rules.js.
-  //    Recorded here as unfalsifiable through this route rather than counted as a control.
-  const capped = vm.runInContext(`(function(){
+  // 3. Homology beyond the edit. This was recorded for a month as "not falsifiable through
+  //    genRT", on the reasoning that the function ranks candidates on this term before
+  //    anything else and returns only its top six, so a template with under 5 nt of homology
+  //    is never the one offered. That reasoning is right about the DEFAULT search and wrong
+  //    about the function: asked for a narrow length range that admits only short templates,
+  //    genRT returns them. The control is therefore real, and it is run here as one.
+  //
+  //    Two halves, because either alone would pass for the wrong reason. First, the default
+  //    wide search must not offer anything under 5 nt — that is the protection working.
+  //    Second, a range forced down to the length that just reaches the edit must return a
+  //    template with under 5 nt of homology AND flag it critical — that is the warning
+  //    working. A silent short template would fail the second half; a function that returned
+  //    nothing at any length would fail it too.
+  const homProbe = vm.runInContext(`(function(){
     try {
-      var g = ${JSON.stringify((loci['OsALS-T2']||{}).genomic_seq || '')}.toUpperCase();
-      var nick = ${parseInt((loci['OsALS-T2']||{}).nick_pos, 10) || 300};
-      var strand = ${JSON.stringify((loci['OsALS-T2']||{}).spacer_strand || '+')};
-      var from = g.charAt(nick+5), to = (from === 'A' ? 'T' : 'A');
-      var c = genRT(g, nick, [{genomicPos:nick+5, type:'SNP', ref:from, alt:to}], strand, 10, 40, '', '');
-      return JSON.stringify({returned: c.length,
-        min_homology_offered: Math.min.apply(null, c.map(function(x){return x.homologyBeyondEdit||0;}))});
+      var g = ${JSON.stringify((loci[LOCUS_WE]||{}).genomic_seq || '')}.toUpperCase();
+      var nick = ${parseInt((loci[LOCUS_WE]||{}).nick_pos, 10) || 300};
+      var strand = ${JSON.stringify((loci[LOCUS_WE]||{}).spacer_strand || '+')};
+      var ep = (strand === '-') ? nick - 5 : nick + 5;
+      var from = g.charAt(ep), to = (from === 'A' ? 'T' : 'A');
+      var ed = [{genomicPos: ep, type:'SNP', ref: from, alt: to}];
+      // the default search: nothing under 5 nt of homology may be offered
+      var wide = genRT(g, nick, ed, strand, 10, 40, '', '');
+      var minWide = wide.length ? Math.min.apply(null, wide.map(function(x){return x.homologyBeyondEdit||0;})) : null;
+      // a range forced to the length that just reaches the edit
+      var need = Math.abs(ep - nick) + 1;
+      var tight = genRT(g, nick, ed, strand, need, need, '', '');
+      var short = tight.length ? tight[0] : null;
+      return JSON.stringify({
+        wide_returned: wide.length, min_homology_wide: minWide,
+        forced_len: need, forced_returned: tight.length,
+        forced_homology: short ? short.homologyBeyondEdit : null,
+        forced_warns_critical: short ? short.warnings.some(function(w){return /CRITICAL: only \\d+ nt of homology/.test(w);}) : false
+      });
     } catch(e) { return JSON.stringify({err:e.message}); }
   })()`, ctx);
-  const cp = JSON.parse(capped);
+  const hp = JSON.parse(homProbe);
+  const homOK = hp.min_homology_wide !== null && hp.min_homology_wide >= 5
+             && hp.forced_returned > 0 && hp.forced_homology < 5
+             && hp.forced_warns_critical === true;
   out.push({ control: 'homology beyond the edit',
-             expectation: 'not falsifiable through genRT: the pool is capped and ranked on this term first, so nothing below 5 nt is ever offered',
-             not_applicable: true,
-             detected: null,
-             detail: JSON.stringify(cp) });
+             expectation: 'the default search offers nothing under 5 nt, and a length forced down to the edit '
+                        + 'returns a short-homology template flagged CRITICAL rather than offered silently',
+             detected: homOK,
+             detail: JSON.stringify(hp) });
 
   // 4. the baseline itself must still pass, or the controls prove nothing. This is a
   //    POSITIVE control, not a negative one: nothing is planted and nothing should be
@@ -435,14 +588,22 @@ function table(title, list) {
       String((d.spacer||'').length).padStart(3) + String(d.pbs_len||'').padStart(5) +
       String(d.rt_len||'').padStart(5) + String(d.homology_beyond_edit||'').padStart(5) +
       String(r.primer_count||0).padStart(9) + '  ' +
-      (r.ok ? 'all checks pass' : 'FAILED: ' + r.checks.filter(c=>!c.pass).map(c=>c.name).join('; ')));
+      (r.declined ? 'DECLINED: ' + r.declined
+        : r.ok ? 'all checks pass'
+        : 'FAILED: ' + r.checks.filter(c=>!c.pass).map(c=>c.name).join('; ')));
   });
 }
 table('CONTROLLED PANEL — every architecture at OsALS-T2', controlled);
 table('SPECIES SPREAD', spread);
 const cs = out.controlled.summary, ss = out.spread.summary;
+const _dec = [...controlled, ...spread].filter(r => r.declined);
 console.log('\n  controlled : ' + cs.passing + ' of ' + cs.total + ' pass every check');
 console.log('  spread     : ' + ss.passing + ' of ' + ss.total + ' pass every check');
+if (_dec.length) {
+  console.log('  declined   : ' + _dec.length + ' of ' + (cs.total + ss.total) +
+    ' — PE3b/PE5b where no licensed nicking sgRNA exists, which is the architecture, not a fault');
+  _dec.forEach(r => console.log('               ' + r.architecture + ' @ ' + r.locus));
+}
 console.log('\n  NEGATIVE CONTROLS — can these checks fail at all?');
 controls.forEach(c => console.log('    ' +
   (c.not_applicable ? 'n/a     ' : c.positive ? (c.detected ? 'passes  ' : 'BROKEN  ')

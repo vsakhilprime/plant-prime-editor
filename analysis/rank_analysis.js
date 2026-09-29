@@ -8,7 +8,14 @@ console.log('WHERE DOES THE PUBLISHED, EXPERIMENTALLY VALIDATED SPACER RANK?');
 console.log(f('target',12)+f('our #1',22)+f('our top no-warning',22)+f('published rank',16)+f('cands',7)+'pegF offers / PE-D offers');
 const rows=[];
 for(const d of edits){
-  const seq=fs.readFileSync(__dirname+'/../data/sequences_plain/'+d.t+'.txt','utf8').trim();
+  // The sequence files keep their ORIGINAL names. data/edits.json was renamed when the
+  // two rice ALS protospacers were namespaced by study ("OsALS-T2" -> "OsALS-T2
+  // (Lin 2021)") and this lookup was not, so the script threw ENOENT on its first
+  // iteration and data/rank_analysis.json had no working generator. Strip the study
+  // suffix, the same expression analysis/headtohead.js uses.
+  const seqFile=__dirname+'/../data/sequences_plain/'
+               +d.t.replace(/\s*\([^)]*\)\s*$/,'')+'.txt';
+  const seq=fs.readFileSync(seqFile,'utf8').trim();
   const ed=[{genomicPos:d.lo,type:d.kind==='substitution'?'SNP':d.kind.toUpperCase(),
              ref:d.plus,alt:(d.act.match(/to ([ACGT]+)/)||[])[1]||'A'}];
   const c=run('findSpacers(__a.s,"NGG",20,__a.e,__a.ed)',{s:seq,e:d.lo,ed});

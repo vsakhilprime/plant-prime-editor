@@ -1,18 +1,18 @@
 {
   "source_file": "data/benchmark_scored.csv",
-  "pegRNAs_ranked": 135,
-  "target_sites": 25,
+  "pegRNAs_ranked": 136,
+  "target_sites": 26,
   "species": {
-    "Oryza sativa": 123,
+    "Oryza sativa": 124,
     "Triticum aestivum": 5,
     "Solanum lycopersicum": 7
   },
   "observed": {
     "median_percentile": 92.3,
     "top_percent_at_the_median": 7.7,
-    "mean_percentile": 86.3,
-    "top_decile_count": 75,
-    "top_decile_fraction": 0.556,
+    "mean_percentile": 86.5,
+    "top_decile_count": 77,
+    "top_decile_fraction": 0.566,
     "minimum_percentile": 33.3,
     "below_50th_percentile": 1
   },
@@ -20,7 +20,7 @@
     "description": "each pegRNA's rank replaced by a uniform draw over its own candidate list",
     "permutations": 10000,
     "null_median_of_medians": 57.1,
-    "null_95th_percentile": 64.3,
+    "null_95th_percentile": 64.0,
     "p_value": 9.999000099990002e-05,
     "p_reported": "< 1e-4"
   }

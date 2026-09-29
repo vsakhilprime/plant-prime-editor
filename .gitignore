@@ -1,3 +1,9 @@
+# Restored on 29 September 2026. The copy shipped in the deposit zip was narrower than the one
+# in the repository and silently dropped four patterns when it overwrote it: node_modules/,
+# *.log, ~$* and .ipynb_checkpoints/. ~$* matters most — those are the lock files Word and
+# PowerPoint leave beside an open .docx or .pptx, and committing one is how a stray
+# ~$Manuscript.docx ends up in a public archive.
+
 node_modules/
 *.log
 .DS_Store
@@ -5,3 +11,8 @@ node_modules/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# The figure builders write a per-figure deck every time they run, and the published figures go
+# to the journal directly rather than into this archive, so no .pptx belongs here at all.
+# analysis/check_deposit_integrity.py fails if one is staged.
+*.pptx

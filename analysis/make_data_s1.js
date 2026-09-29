@@ -6,9 +6,19 @@
   everywhere else in the paper and writes whatever they actually produce. If an exporter
   changes, re-running this changes Data S1 with it, so the two cannot drift apart.
 
-  Worked example: rice OsALS-T2, PE2, vector pYPQ166-OsPE2, single G to A at position 306.
-  Spacer GGGTATGGTGGTGCAATGGG — the published one, third of three tied at score 80.
-  Expect PBS 10 nt, RT template 17 nt, 11 nt homology beyond the edit, 19 primers.
+  Worked example: rice OsALS-T2 (Lin 2021), PE2, vector pYPQ166-OsPE2, the published single G to T at
+  position 301, on ATTTGGGTATGGTGGTGCAA, one of three spacers tied at the top composite
+  score — the design every other panel in this paper draws. Expect PBS 10 nt, RT template 16 nt, 11 nt of homology
+  beyond the edit, 19 primers across the routes the run offers, of which the selected Golden
+  Gate route uses 6 and S1a lists those 6.
+
+  Those inputs are NOT repeated here. They are read from analysis/worked_example.json,
+  which is the one copy every script drawing this example reads. This comment restated them
+  and went stale when the worked example moved to the top-ranked spacer on 14 September 2026:
+  it still said "GGGTATGGTGGTGCAATGGG — the published one" and "RT template 17 nt, 11 nt
+  homology", which is the design the file no longer produces. The values here are now a
+  description of what the run returns, and analysis/check_supplementary_tables.py checks them
+  against the record rather than trusting the comment.
 
       node analysis/make_data_s1.js [outdir]      default: DataS1/
 */
@@ -47,28 +57,32 @@ ctx.btoa = s => Buffer.from(s, 'binary').toString('base64');
 ctx.unescape = s => s;
 ctx.XMLSerializer = class { serializeToString(n) { return (n && n.__xml) || '<svg/>'; } };
 
-const SEQ = fs.readFileSync(path.join(HERE, '..', 'data', 'sequences_plain', 'OsALS-T2.txt'), 'utf8')
+// The worked example's inputs are NOT written out here. They live once, in
+// analysis/worked_example.json, because four scripts draw this same example and on
+// 13 September 2026 two of them had drifted onto different edits without noticing.
+const WEX = JSON.parse(fs.readFileSync(path.join(HERE, 'worked_example.json'), 'utf8'));
+const SEQ = fs.readFileSync(path.join(HERE, '..', WEX.sequence_file), 'utf8')
               .split('\n').filter(l => !l.startsWith('>')).join('').replace(/\s+/g, '').toUpperCase();
-const SPACER = 'GGGTATGGTGGTGCAATGGG';
-const NICK   = 300;            // 0-based; edit sits 5 nt 3' of it
-const EDITPOS = NICK + 5;      // position 306, 1-based
+const SPACER = WEX.spacer;
+const NICK   = WEX.nick_pos0;   // 0-based
+const EDITPOS = WEX.edit_pos0;  // 0-based; position WEX.edit_pos1 1-based
 
 ctx.__seq = SEQ;
 const built = q(`(function () {
   try {
-    selectedVec = VECTORS.find(function (v) { return v.id === 'pYPQ166-OsPE2'; });
-    if (!selectedVec) return JSON.stringify({ err: 'vector pYPQ166-OsPE2 not found' });
+    selectedVec = VECTORS.find(function (v) { return v.id === ${JSON.stringify(WEX.vector_id)}; });
+    if (!selectedVec) return JSON.stringify({ err: 'vector ' + ${JSON.stringify(WEX.vector_id)} + ' not found' });
     selectedCloningStrategy = 'gg';
-    var g = __seq, nick = ${NICK}, strand = '+', spacer = ${JSON.stringify(SPACER)};
-    var from = g.charAt(${EDITPOS}), to = 'A';
+    var g = __seq, nick = ${NICK}, strand = ${JSON.stringify(WEX.strand)}, spacer = ${JSON.stringify(SPACER)};
+    var from = g.charAt(${EDITPOS}), to = ${JSON.stringify(WEX.edit_to)};
     var edits = [{ genomicPos: ${EDITPOS}, type: 'SNP', ref: from, alt: to }];
 
     var sp = findSpacers(g, 'NGG', 20, ${EDITPOS}, edits);
     var chosen = sp.find(function (x) { return x.spacer === spacer; });
     if (!chosen) return JSON.stringify({ err: 'published spacer not returned' });
 
-    var pbsC = genPBS(g, nick, strand, 8, 15, spacer, false);
-    var rtC  = genRT(g, nick, edits, strand, 10, 34, spacer, pbsC.length ? pbsC[0].seq : '');
+    var pbsC = genPBS(g, nick, strand, ${WEX.pbs_min}, ${WEX.pbs_max}, spacer, false);
+    var rtC  = genRT(g, nick, edits, strand, ${WEX.rt_min}, ${WEX.rt_max}, spacer, pbsC.length ? pbsC[0].seq : '');
     rtC = rtC.slice().sort(function (a, b) { return b.score - a.score; });
     var pbs = pbsC[0], rt = rtC[0];
 
@@ -108,9 +122,11 @@ if (d.err) { console.error('design failed:', d.err); process.exit(1); }
 console.log('  worked example rebuilt');
 console.log('    spacer %s · PBS %d nt · RT %d nt · homology %d nt · %d primers · %s (%s)',
             d.spacer, d.pbsLen, d.rtLen, d.homology, d.primers, d.vector, d.enzyme);
-if (d.pbsLen !== 10 || d.rtLen !== 17 || d.homology !== 11) {
-  console.error('  ! geometry differs from the published worked example (expected 10 / 17 / 11)');
-  console.error('    Data S1 and the manuscript would disagree — not writing files.');
+const _E = WEX.expect;
+if (d.pbsLen !== _E.pbs_len || d.rtLen !== _E.rt_len || d.homology !== _E.homology_beyond_edit) {
+  console.error('  ! geometry differs from analysis/worked_example.json (expected %d / %d / %d)',
+                _E.pbs_len, _E.rt_len, _E.homology_beyond_edit);
+  console.error('    Data S1, Figure 3 and the manuscript would disagree — not writing files.');
   process.exit(1);
 }
 

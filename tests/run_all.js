@@ -27,7 +27,12 @@ const SUITE = [
   ['audit_geom3.js',               'published PBS reproduced, both strands',    /total\s*:\s*144 \/ 146/],
   ['audit_rt.js',                  'RT template and edit encoding',             /^(\d+) passed, 0 failed/m],
   ['audit_indel2.js',              'insertion and deletion geometry',           /^4 passed, 0 failed/m],
-  ['audit_pe3.js',                 'PE3 and PE3b nick sgRNA strand logic',      /^\d+ passed, 0 failed/m],
+  ['audit_pe3.js',                 'PE3 and PE3b nick sgRNA rules',             /^\d+ passed, 0 failed/m],
+  ['audit_mnp.js',                 'multi-base substitutions replace, not insert', /^\d+ passed, 0 failed/m],
+  ['audit_tooltable.js',           'the two head-to-head files agree',          /^\d+ passed, 0 failed/m],
+  ['audit_fuzz.js',                'random sequences, all four edit classes',   /^\d+ passed, 0 failed/m],
+  ['audit_routes.js',              'what each cloning route emits',             /^\d+ passed, 0 failed/m],
+  ['audit_pair.js',                'PBS/RT pair check reports without re-ranking', /^\d+ passed, 0 failed/m],
   ['test_organism_detection.js',   'species detection from FASTA headers',      /^13 passed, 0 failed/m],
   ['test_same_codon_variants.js',  'two changes in one codon',                  /^\d+ passed, 0 failed/m],
   ['test_acceptor_overhangs.js',   'acceptor overhangs match the deposited sequences', /^\d+ checks passed, 0 failed/m],
@@ -48,6 +53,7 @@ const SUITE = [
   ['test_csv_export_scope.js',     'CSV export scope and codon context',        /All CSV export scope checks pass\./],
   ['test_gblock_and_scorers.js', 'gBlock enzyme sites, structure risk, spacer specificity', /^\d+ passed, 0 failed/m],
   ['test_exports.js',              'the four export builders run',              /^\d+ passed, 0 failed/m],
+  ['test_target_site_registry.js', 'one target site, however many studies numbered it', /^\d+ passed, 0 failed/m],
 ];
 
 console.log('Plant Prime Editor — test suite');

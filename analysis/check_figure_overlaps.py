@@ -37,8 +37,10 @@ def _find_deck(here):
                  os.path.join(here, '..', 'docs', 'Figures_PlantPrimeEditor.pptx')):
         if os.path.exists(cand):
             return cand
-    raise SystemExit('  figure deck not found. Pass its path as the first argument, or\n'
-                     '  place Figures_PlantPrimeEditor.pptx in docs/.')
+    sys.path.insert(0, os.path.join(here, 'lib'))
+    sys.path.insert(0, here)
+    from lib.need_deck import find_or_explain
+    return find_or_explain('check_figure_overlaps.py', extra_candidates=())
 
 
 DECK = _find_deck(HERE)

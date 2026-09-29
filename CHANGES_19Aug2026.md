@@ -88,8 +88,9 @@ disappears by itself if a Triticeae vector is ever added.
 
 ### 4. Nick-distance band is architecture-aware in all three places
 
-Two sites still applied the PE3/PE5 40–90 nt rule to PE3b and PE5b, which nick the *edited*
-strand adjacent to the edit by construction. Both now branch on the architecture (1–30 nt for the
+Two sites still applied the PE3/PE5 40–90 nt rule to PE3b and PE5b, which sit adjacent to the
+edit by construction. (The parenthetical "edited strand" in the original entry was wrong and is
+corrected in the 12 September 2026 entry below: PE3b nicks the *non-edited* strand, as PE3 does.) Both now branch on the architecture (1–30 nt for the
 conditional modes). The summary tile was also mislabelled "Nick-to-nick dist." on a PE3 panel —
 now "Nick-to-edit dist."
 
@@ -1991,24 +1992,21 @@ which matches failing output just as happily. So `node tests/run_all.js` printed
 0 failed** while a shipped test was failing, and `README.md` and `tests/README.md` both
 advertised that number.
 
-The failing assertion turned out to be wrong, not the tool. At the synthetic locus the test
-builds, the edit at index 150 is covered by exactly one NGG PAM in the entire sequence, and it
-is on the minus strand. PE3b puts its nicking sgRNA on the *edited* strand and requires the
-edit to destroy that sgRNA's PAM, so:
+The runner's matcher was the real defect and is fixed here: it is tightened to the same
+`0 failed` rule as every other row. Verified by deliberately breaking the test: the suite now
+reports `24 passed, 1 failed`.
 
-| pegRNA strand | PE3b partners | why |
-| --- | --- | --- |
-| minus | 1 | the minus-strand PAM at 149 qualifies |
-| plus | 0 | no plus-strand PAM covers the edit |
+The failing assertion itself was rewritten on the reasoning that PE3b "puts its nicking sgRNA on
+the *edited* strand and requires the edit to destroy that sgRNA's PAM", from which it followed
+that a plus-strand pegRNA at this locus has no partner and **zero is the right answer**.
 
-**Zero is the right answer.** PE3b is conditional on a disruptable PAM and is not designable
-everywhere — that is the architecture, not a defect, and `tests/README.md` had said so all
-along ("none is offered when no PAM-disrupting spacer exists"). The test now computes whether a
-qualifying PAM exists and checks the count against it, and the runner's matcher is tightened to
-the same `0 failed` rule as every other row. Verified by deliberately breaking the test: the
-suite now reports `24 passed, 1 failed`.
+> **Superseded, 12 September 2026.** That rule is inverted, and so was the conclusion drawn from
+> it. PE3b nicks the *non-edited* strand, exactly as PE3 does; what changes is that its spacer is
+> read from the edited allele, so the guide cannot bind until the edit exists. The plus-strand
+> pegRNA case does have a partner — the corrected engine returns one — and the "zero" here was an
+> artefact of the wrong rule, not a property of the architecture. See the 12 September entry.
 
-`audit_pe3.js` reports **7 passed, 0 failed**.
+`audit_pe3.js` reported **7 passed, 0 failed** on the rule as it then stood.
 
 ## Numbers that disagreed with each other
 
@@ -2702,3 +2700,237 @@ now confirms the displayed text and the copied text are character-identical in b
 
 `26 passed, 0 failed` (including *the four export builders run*, which exercises the report path) ·
 displayed citation == copied citation in both formats · fingerprint **`96e270bb`**, unchanged.
+
+
+---
+
+# Addendum 36 — Anzalone et al. 2022 read, at last (3 September 2026)
+
+The author supplied the PDF of Anzalone AV, Gao XD, Podracky CJ, Nelson AT, Koblan LW, Raguram A,
+Levy JM, Mercer JAM, Liu DR (2022) *Programmable deletion, replacement, integration and inversion
+of large DNA sequences with twin prime editing*, **Nat Biotechnol 40:731–740**,
+doi:10.1038/s41587-021-01133-w — the article, Extended Data Figures 1–8 and the Methods.
+
+Every claim in the package attributed to that paper was checked against it. **The withdrawal in
+Addendum 27 stands, and three further attributions were wrong.**
+
+## 1. The 31–60 nt window is genuinely not there — the withdrawal stands
+
+Addendum 27 removed *"That window was set at 31–60 nt in human cells (Anzalone et al., 2022)"*
+because it could not be found. It is now confirmed absent, by exhaustive token search rather than
+by reading impression:
+
+* `31` occurs **four** times in the whole file: an editing efficiency (*"28% or 31% attB
+  insertion"*), reference number 31, and twice as `31.5 ng` of plasmid DNA in the transfection
+  protocol.
+* `60` occurs only as figure axis tick labels and as *"approximately 60% confluency"* in Methods.
+* No `31–60` in any dash form.
+* **The only numeric nt/bp range anywhere in the text is `43-44 bp`.**
+
+The claim is not in the paper. It is not restored.
+
+## 2. The ≥8 nt flap-overlap threshold was not Anzalone's
+
+The 3′-flap complementarity panel read *"RC(flap1) should overlap with flap2 by ≥8 nt (Anzalone
+2022)."* The paper contains no such threshold, and its designs are nowhere near it: Fig. 1c gives
+3′ flaps *"with overlapping complementarity ranging from 22 bp to 38 bp"*, the *attP* series spans
+21–37 bp, and the *PAH* recoding tested 22, 24, 36, 42, 47 and 59 bp overlaps. **The smallest
+overlap tested anywhere in the paper is 21 bp.** The 8 comes from this tool's own
+`Math.min(8, ...)` floor. The panel now says so, quotes the paper's real range, and adds what the
+paper does report — that greater overlap gave slightly higher efficiency and fewer indels.
+
+## 3. Anzalone 2022 was cited for a nick-to-nick window it does not state
+
+Two places cited it alongside Li H et al. 2026 for *30–80 bp acceptable*. The paper states no
+nick-to-nick window at all, and its own designs sit **above** that band: 90 bp replaced at *HEK3*,
+and deletions of 56, 64, 77 and 90 bp between the pegRNA-induced nicks. Citing it for 30–80 bp
+implied agreement that does not exist. The window is Li 2026's alone — 2 to 190 bp tested across
+six rice genes — and the text now says what Anzalone's human-cell spacings actually were.
+
+## 4. The ~700 bp ceiling is this tool's, not the paper's
+
+Two places read *"up to ~700 bp. Anzalone 2022"*. The paper's summary sentence is *"precise
+deletions of up to **780 nt** in DMD"*, and Fig. 2f reports deletion sizes of 558, 589, 627, 780
+and 818 bp. Beyond that it reaches >5,000 bp integration and 40 kb inversion **only by adding a
+Bxb1 recombinase step**, which this tool does not design. 700 is an engineering limit chosen here;
+it is now labelled as one, with the paper's 780 nt and the recombinase caveat stated beside it.
+
+## 5. One code comment confirmed correct
+
+A comment at the RT-template scorer asserts that Anzalone et al. 2022 *"does not mention PEmax"*.
+Confirmed: **the string PEmax occurs zero times in the paper.** The comment stays.
+
+## 6. The manuscript said ten architectures
+
+Unrelated to the PDF, found while checking the same paragraph: the introduction read *"A plant
+researcher now chooses among at least ten architectures"* while the abstract, the results, the
+discussion and the tool all say eleven. Hedged with "at least", so not false — but it was the same
+undercount the author had already caught on the landing page. Now eleven.
+
+## Verified after
+
+`26 passed, 0 failed` · `68 checks, 0 disagree` · document audit clean · main text
+**6,987 / 7,000** · fingerprint **`96e270bb`**, unchanged — every edit here is documentation prose
+or a citation, none of it inside a scored parameter.
+
+## Still unverified, and honestly so
+
+The paper's **Supplementary Notes and Supplementary Tables 1–3 are separate files** and were not in
+the PDF supplied. Nothing in this package now depends on them. The licence question against Plant
+Communications policy and the two guideline pages remain open for the same reason as before —
+cell.com and ScienceDirect refuse automated access.
+
+
+---
+
+# Addendum 37 — Li H et al. 2026 read (3 September 2026)
+
+The author supplied the PDF of Li H, Chai Z, Shi X, Sun C, Zhang R, Zhang Q, Li Z, Zhang K, Lei Y,
+Gao C (2026) *Multiplexed, precise genome engineering in monocots with twin prime editing systems*,
+**Nat Biotechnol**, doi:10.1038/s41587-026-03174-5 — the article, Extended Data and Methods. This
+is the reference that underpins more of the platform's scoring than any other, and it had never
+been read here.
+
+## The headline claim is confirmed word for word
+
+The manuscript says:
+
+> *"Li et al. (2026) varied the distance between paired nicks from 2 to 190 bp across six rice
+> genes and found 30–50 bp best, with peak efficiency at four of the six."*
+
+The paper says:
+
+> *"we designed paired pegRNAs with internick distances varying from 2 to 190 bp … Across six
+> endogenous rice genes, the TKO editor performed best when nick sites were spaced 30–50 bp apart,
+> achieving peak efficiencies at four of the six loci."*
+
+Exact. Extended Data Fig. 2e bins the data into five spacing groups — 2–19 (n = 3), 20–29 (n = 2),
+**30–50 (n = 7)**, 51–80 (n = 10) and 81–190 (n = 15) bp — and their own design webtool "group[s]
+by internick distance (with the **30–50-bp group preferred over the 51–80-bp group**)". That is
+precisely the 30–50 optimal / 30–80 accepted split this platform enforces, arrived at
+independently and matching.
+
+The reference entry is also correct in every field: ten authors in order, title, journal, DOI.
+
+## One attribution was wrong, and it is on a scoring parameter
+
+The comment above `PBS_TM_BANDS` said Li et al. 2026 design to 30 °C for rice and 38 °C for wheat
+and maize, *"stated in their **Methods** as based on internal testing"*.
+
+**It is not in their Methods.** The article contains no melting temperature at all: the string
+"melting" occurs zero times, and the only °C values in the whole file are growth-chamber settings
+(28 °C for protoplasts, 30/28 °C day/night for regenerated plants). "Wallace" appears once, as the
+surname of an author in reference 3.
+
+Where it actually lives is in the article's own words: the Methods hand the PBS question to their
+design webtool — *"users can customize SCC variants, **PBS models and values**"* — with *"detailed
+user guidelines … in Supplementary Note 1 and the website's README file."* So the 30/38 °C rule is
+a **webtool design setting, not an article result**. That is a weaker class of evidence than
+"stated in their Methods" implies, and the comment now says so.
+
+This does not change any number. The three-tier provenance labelling was already right and already
+conservative: the rice band is re-derived here from 74 measurements at 14 rice targets (Lin et al.
+2021), the wheat/barley/maize band is carried as another group's reported rule and explicitly *"not
+re-derived here"*, and every other species inherits the rice window labelled as a default. Only the
+sentence naming where their rule was published was wrong.
+
+The tool's reference-panel entry for this paper also carried an abbreviated title and attributed
+the Tm targets to the paper flatly. It now gives the full title, states the internick result as the
+source of the nick-to-nick window, and says where the Tm targets come from.
+
+## Not verifiable from this file, and left alone
+
+The manuscript reports **516 designs parsed from their Supplementary Table 8** (437 rice, median
+PBS 9 nt; wheat and maize medians 12 nt). Supplementary Tables are separate files and were not
+supplied. The article does reference Supplementary Table 8 for pegRNA designs with *"varying the
+lengths of PBS and homology arms"*, which is consistent, but the medians themselves remain
+unchecked here and the manuscript already states plainly where they were parsed from.
+
+The copy supplied is the accepted version, stamped *"Published online: xx xx xxxx"* (received 6
+October 2025, accepted 15 April 2026). The reference entry's **"Published online 5 June 2026"**
+therefore cannot be confirmed from this file. It is left as the author supplied it — worth a
+30-second check against the live article page before submission.
+
+## Noted, not acted on
+
+The paper reports that SCC integration was most efficient when the paired RT templates' average
+folding free energy fell between **−0.2 and −0.05 kcal mol⁻¹ per nucleotide** — a per-nucleotide
+normalised ΔG band this platform does not use. Adopting it would change RT-template ranking, move
+the fingerprint and invalidate the deposited benchmark, so it is recorded here as a candidate for a
+future version rather than applied.
+
+## Verified after
+
+`26 passed, 0 failed` · `68 checks, 0 disagree` · fingerprint **`96e270bb`**, unchanged — both
+edits are a comment and a documentation panel, neither inside a hashed parameter.
+
+
+---
+
+# Addendum 38 — five more references read (3 September 2026)
+
+The author supplied Anzalone et al. 2019 and the four competing design tools. Every claim in the
+package attributed to them was checked against the papers themselves.
+
+| Reference | Entry | Verdict |
+|---|---|---|
+| Anzalone et al. 2019 | *Nature* **576**:149–157, doi:10.1038/s41586-019-1711-4 | correct |
+| Chow et al. 2021 (pegFinder) | *Nat Biomed Eng* **5**:190–194, doi:10.1038/s41551-020-00622-8 | correct |
+| Hsu et al. 2021 (PrimeDesign) | *Nat Commun* **12**:1034, doi:10.1038/s41467-021-21337-7 | correct |
+| Hwang et al. 2021 (PE-Designer) | *Nucleic Acids Res* **49**:W499–W504, doi:10.1093/nar/gkab319 | correct |
+| Li Y et al. 2021 (Easy-Prime) | *Genome Biol* **22**:235, doi:10.1186/s13059-021-02458-0 | correct |
+
+## Anzalone 2019: every quoted design rule verified verbatim
+
+This paper carries more of the scoring tables than any other, and every sentence attributed to it
+is in it:
+
+* **PBS length and GC.** *"We recommend starting with a PBS length of about 13 nt, and testing
+  different PBS lengths during optimization, especially if the priming region deviates from about
+  40–60% G/C content."* Supplementary Table S2 quotes the second clause; it is exact.
+* **PBS range tested.** *"PBS sequences ranging from 8 to 17 nt"* — the 8–17 nt figure in S2.
+* **RT template length.** *"we recommend starting with about 10–16 nt and testing shorter and
+  longer RT templates during pegRNA optimization"* — the 10–30 nt acceptable band in S3 is built
+  on this sentence and quotes it correctly.
+* **PE3 nick distance.** *"nicks positioned 3′ of the edit about 40–90 bp from the pegRNA-induced
+  nick generally increased editing efficiency (averaging 41%)"*. This settles the correction made
+  in Addendum 34 from the other direction: `genNickSgRNA` bands **40–90**, the landing copy had
+  said 40–80, and the source says 40–90. The code was right.
+* **The 34 nt multi-edit ceiling.** *"Using PE3 with a 34-nt RT template, we installed point
+  mutations at positions +12, +14, +17, +20, +23, +24, +26, +30, and +33 in the HEK3 locus with
+  36 ± 8.7% average efficiency (Fig. 4b)."* The code comment says "a single 34 nt RT template
+  installed edits at +12 to +33 from the nick", citing Fig. 4b. Exact.
+* **The 3′-C penalty.** *"the use of RT templates that place a C adjacent to the 3′ hairpin of the
+  sgRNA scaffold generally resulted in lower editing efficiency"* — the `firstCPen` term.
+* **Editing scope.** *"Insertions (1 bp to ≥44 bp), Deletions (1 bp to ≥80 bp)"*.
+
+## One manuscript claim was wrong, and a referee would have caught it
+
+The Introduction read:
+
+> *"PrimeDesign (Hsu et al., 2021), pegFinder (Chow et al., 2021), PE-Designer (Hwang et al.,
+> 2021) and EasyPrime (Li et al., 2021) **target mammalian systems**"*
+
+Two of those four say otherwise in their own papers:
+
+* **PE-Designer** *"supports pegRNA design for **543 organisms including vertebrates, plants,
+  insects, and bacteria**"*.
+* **pegFinder** *"compared pegRNA designs recommended by pegFinder with experimental data using
+  prime editing in human cells, murine cells and **plants**, finding that pegFinder successfully
+  identified functional pegRNAs in these systems"*.
+
+Easy-Prime is trained on HEK293T and PrimeDesign makes no organism claim, so the sentence held for
+two of the four and overreached on the other two. It is the kind of error that costs a paper
+credibility precisely where it is making a novelty claim, and the correction is not a retreat: what
+those tools lack is not plant *genomes* but a plant-calibrated primer-binding-site rule, which is
+what this paper measures and what Figure 5 shows. The sentence now says that, and names both
+exceptions.
+
+Also corrected: **Easy-Prime** is hyphenated in its own title. The reference list had it right; the
+body text and the Figure 5D legend had "EasyPrime" in five places.
+
+## Verified after
+
+`68 checks, 0 disagree` · document audit clean on all seven · table parity clean on all eleven ·
+main text **6,990 / 7,000**. No tool code was touched, so the fingerprint is unchanged at
+**`96e270bb`**.

@@ -16,7 +16,7 @@
   },
   "date_accessed": "2026-08-14"
  },
- "OsALS-T2": {
+ "OsALS-T2 (Lin 2021)": {
   "Plant Prime Editor": {
    "sp": "GAACAACCAACATTTGGGTA",
    "pbs": 10,
@@ -24,7 +24,7 @@
    "n": 20
   },
   "PlantPegDesigner": {
-   "sp": null,
+   "sp": "gggtatggtggtgcaatGggagg",
    "pbs": 10,
    "wal": 30,
    "n": null
@@ -115,8 +115,8 @@
  "OsCDC48-T1": {
   "Plant Prime Editor": {
    "sp": "GCTAGCTTTGACATAATCTC",
-   "pbs": 11,
-   "wal": 26,
+   "pbs": 12,
+   "wal": 30,
    "n": 20
   },
   "PlantPegDesigner": {
@@ -138,8 +138,8 @@
    "n": null
   },
   "PRIDICT": {
-   "sp": "GTTGACATAATCTCCGGCTC",
-   "pbs": 7,
+   "sp": "GCTAGCTTTGACATAATCTC",
+   "pbs": 13,
    "wal": null,
    "n": 4
   }
@@ -152,9 +152,9 @@
    "n": 20
   },
   "PlantPegDesigner": {
-   "sp": null,
-   "pbs": 8,
-   "wal": 30,
+   "sp": "gacgccgagattgacctTCacgg",
+   "pbs": 11,
+   "wal": 32,
    "n": null
   },
   "pegFinder": {
@@ -216,7 +216,7 @@
    "n": 20
   },
   "PlantPegDesigner": {
-   "sp": null,
+   "sp": "cacaagaaaatccaccaGgatgg",
    "pbs": 11,
    "wal": 30,
    "n": null

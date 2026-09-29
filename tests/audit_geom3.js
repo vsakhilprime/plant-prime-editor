@@ -6,7 +6,7 @@ function parseCSV(t){const R=[];let r=[],c='',Q=false;for(let i=0;i<t.length;i++
  else if(ch==='"')Q=true;else if(ch===','){r.push(c);c='';}else if(ch==='\n'){r.push(c);R.push(r);r=[];c='';}
  else if(ch!=='\r')c+=ch;} if(c.length||r.length){r.push(c);R.push(r);}
  const h=R.shift().map(x=>x.trim());return R.filter(x=>x.some(v=>v.trim())).map(x=>Object.fromEntries(h.map((k,i)=>[k,(x[i]??'').trim()])));}
-const rows=parseCSV(fs.readFileSync('./data/targets_verified.csv','utf8'));
+const rows=parseCSV(fs.readFileSync(require('path').resolve(__dirname,'..','data','targets_verified.csv'),'utf8'));
 
 // cache the tool's own nick per (gene,spacer)
 const nickCache=new Map();

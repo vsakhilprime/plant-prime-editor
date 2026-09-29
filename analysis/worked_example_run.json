@@ -1,0 +1,179 @@
+{
+ "window_nt": 600,
+ "spacers_returned": 20,
+ "chosen_rank": 2,
+ "tied_at_top": [
+  "CAACCAACATTTGGGTATGG",
+  "ATTTGGGTATGGTGGTGCAA",
+  "TTTGGGTATGGTGGTGCAAT"
+ ],
+ "spacer": {
+  "seq": "ATTTGGGTATGGTGGTGCAA",
+  "pam": "TGG",
+  "strand": "+",
+  "gc_pct": 45,
+  "nick_to_edit_nt": 4,
+  "nick_pos0": 296,
+  "score": 80,
+  "struct_risk": "perfect",
+  "specificity": 94,
+  "specificity_label": "High",
+  "warnings": [
+   "No G-start  -  suboptimal for plant U3/U6 (Ma 2015)"
+  ]
+ },
+ "pbs": [
+  {
+   "len": 10,
+   "seq": "CACCACCATA",
+   "tm_nn": 16.2,
+   "tm_wallace": 30,
+   "gc_pct": 50,
+   "score": 85
+  },
+  {
+   "len": 9,
+   "seq": "CACCACCAT",
+   "tm_nn": 13.4,
+   "tm_wallace": 28,
+   "gc_pct": 56,
+   "score": 75
+  },
+  {
+   "len": 11,
+   "seq": "CACCACCATAC",
+   "tm_nn": 22.1,
+   "tm_wallace": 34,
+   "gc_pct": 55,
+   "score": 75
+  }
+ ],
+ "rt": {
+  "len": 16,
+  "seq": "ACCTATCCTCCAATTG",
+  "gc_pct": 44,
+  "edit_dist_from_nick": 4,
+  "edit_pos_in_rt": [
+   11
+  ],
+  "homology_beyond_edit": 11,
+  "score": 99,
+  "struct_risk": "perfect",
+  "runner_up_len": 17,
+  "runner_up_score": 99
+ },
+ "vector": {
+  "id": "pYPQ166-OsPE2",
+  "name": "pYPQ166-OsPE2 (Rice/Wheat)",
+  "enzyme": "BsmBI",
+  "overhang_5": "TGGC",
+  "overhang_3": "AAAC",
+  "cassettes": 1,
+  "addgene": "141080",
+  "marker": null
+ },
+ "codon": {
+  "ref": "GGG",
+  "alt": "TGG",
+  "position_in_codon": 1,
+  "protein_position": "101",
+  "impact": "Non-conservative",
+  "aa_ref": "W",
+  "aa_alt": "G"
+ },
+ "variant": {
+  "Nucleotide_Position": "301",
+  "Codon_Position": "1st codon pos",
+  "Target_Codon": "GGG",
+  "Reference_Codon": "TGG",
+  "Target_AA": "G",
+  "Reference_AA": "W",
+  "Protein_Position": "101",
+  "Reference_Sequence": "OsALS_Ref1",
+  "Change_Type": "SNP",
+  "Protein_Impact": "Non-conservative"
+ },
+ "insert_nt": 128,
+ "scaffold_nt": 76,
+ "polyT_nt": 6,
+ "enzymes_screened": 10,
+ "screen_hits": 0,
+ "route": "BsmBI Golden Gate",
+ "ranking_first": {
+  "name": "ePE2",
+  "enzyme": "BsaI",
+  "addgene": "202029"
+ },
+ "ranking_of_chosen": 2,
+ "primers": [
+  {
+   "name": "P1_SpacerFwd",
+   "len": 56,
+   "tm": 48.9,
+   "gc": 35,
+   "status": "warn",
+   "group": "clone",
+   "warnings": 1
+  },
+  {
+   "name": "P2_ScaffoldRev",
+   "len": 20,
+   "tm": 65.8,
+   "gc": 65,
+   "status": "info",
+   "group": "clone",
+   "warnings": 0
+  },
+  {
+   "name": "P3_RT_PBS_Rev",
+   "len": 62,
+   "tm": 57.9,
+   "gc": 73,
+   "status": "warn",
+   "group": "clone",
+   "warnings": 3
+  },
+  {
+   "name": "P4_RT_PBS_Fwd_overlap",
+   "len": 30,
+   "tm": 43.7,
+   "gc": 57,
+   "status": "info",
+   "group": "alt",
+   "warnings": 0
+  },
+  {
+   "name": "P5_Verify_Fwd",
+   "len": 24,
+   "tm": 71,
+   "gc": 63,
+   "status": "pass",
+   "group": "verify",
+   "warnings": 0
+  },
+  {
+   "name": "P6_Verify_Rev",
+   "len": 24,
+   "tm": 71,
+   "gc": 63,
+   "status": "pass",
+   "group": "verify",
+   "warnings": 0
+  }
+ ],
+ "primers_flagged": 2,
+ "primers_total": 6,
+ "named": {
+  "heterodimer": "low",
+  "p3fold": "6 bp stem (5 G:C), 3 nt loop",
+  "dTm": 16.9
+ },
+ "build": "9e8d276b",
+ "locus": "OsALS-T2 (Lin 2021)",
+ "pe_system": "PE2",
+ "edit": "G to T at position 301",
+ "pbs_window": "8–17",
+ "rt_window": "10–30",
+ "bulk_order_rows": 6,
+ "primers_all_routes": 19
+}

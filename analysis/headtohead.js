@@ -5,8 +5,13 @@ const RC=s=>s.split('').reverse().map(c=>({A:'T',T:'A',G:'C',C:'G'}[c]||'N')).jo
 const comp=JSON.parse(fs.readFileSync(__dirname+'/../data/competitors.json','utf8'));
 const edits=JSON.parse(fs.readFileSync(__dirname+'/../data/edits.json','utf8'));
 const E={}; edits.forEach(d=>E[d.t]=d);
-const SEQ={}; edits.forEach(d=>SEQ[d.t]=fs.readFileSync(
-  __dirname+'/../data/sequences_plain/'+d.t+'.txt','utf8').trim());
+// The sequence files keep their ORIGINAL names. data/edits.json was renamed when the two
+// rice ALS protospacers were namespaced by study ("OsALS-T2" -> "OsALS-T2 (Lin 2021)"), and
+// this lookup was not, so the script has thrown ENOENT ever since and
+// data/tool_comparison.csv has not been regenerated from it. Strip the study suffix.
+const seqFile = t => __dirname + '/../data/sequences_plain/'
+                   + t.replace(/\s*\([^)]*\)\s*$/, '') + '.txt';
+const SEQ={}; edits.forEach(d=>SEQ[d.t]=fs.readFileSync(seqFile(d.t),'utf8').trim());
 const wallace=s=>4*((s.match(/[GC]/g)||[]).length)+2*((s.match(/[AT]/g)||[]).length);
 const tmNN=s=>run('m2_calcTm(__a.s)',{s});
 

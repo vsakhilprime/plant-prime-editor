@@ -13,6 +13,9 @@
    findSpacers now takes an optional {strand} and filters BEFORE the cap. This test pins
    both halves: the strand-specific call returns candidates where the filtered call returns
    none, and omitting the option leaves the default return byte-identical. */
+// The rice ALS labels are namespaced by source study (analysis/als_sites.json): two
+// different protospacers in one gene were both called OsALS-T2, one by Lin 2020 and one
+// by Lin 2021. This test uses the worked-example site, Lin 2021's.
 const path=require('path'), vm=require('vm'), fs=require('fs');
 process.env.PPE_HTML = process.env.PPE_HTML || path.join(__dirname,'..','plant_prime_editor_v1.0.html');
 const {ctx}=require(path.join(__dirname,'probe.js'));
@@ -20,13 +23,13 @@ const {ctx}=require(path.join(__dirname,'probe.js'));
 const csv=fs.readFileSync(path.join(__dirname,'..','data','benchmark_scored.csv'),'utf8').trim().split('\n');
 const hdr=csv[0].split(',');
 const rows=csv.slice(1).map(l=>{const c=l.split(','),o={};hdr.forEach((h,i)=>o[h]=c[i]);return o;});
-const r=rows.find(x=>x.locus==='OsALS-T2'&&x.genomic_seq&&x.nick_pos&&x.spacer_strand);
+const r=rows.find(x=>x.locus==='OsALS-T2 (Lin 2021)'&&x.genomic_seq&&x.nick_pos&&x.spacer_strand);
 
 let fail=0;
 const ok=(c,msg)=>{ if(c) console.log('  ok   '+msg); else {fail++; console.log('  FAIL '+msg);} };
 
 console.log('paired-pegRNA opposite-strand search is not starved by the candidate cap');
-if(!r){ console.log('  FAIL OsALS-T2 not found in benchmark_scored.csv'); process.exit(1); }
+if(!r){ console.log('  FAIL OsALS-T2 (Lin 2021) not found in benchmark_scored.csv'); process.exit(1); }
 
 const d=JSON.parse(vm.runInContext(`(function(){
   var g=${JSON.stringify(r.genomic_seq.toUpperCase())}, nick=${parseInt(r.nick_pos,10)};

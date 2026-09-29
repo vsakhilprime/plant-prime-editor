@@ -1,6 +1,6 @@
 PLANT PRIME EDITOR V1.0 — COMPLETE CLONING PROTOCOL
 ============================================================
-Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 96e270bb)
+Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 9e8d276b)
 Quote the parameter fingerprint when reporting a design: two designs made under
 identical rules carry the same fingerprint, whatever the version number says.
 ============================================================
@@ -9,32 +9,32 @@ PE System:       PE2
 Organisms:       Rice (Oryza sativa) protoplasts; the paper reports rice only
 Cloning enzyme:  BsmBI  (CGTCTC)
 pegRNA promoter: Pol III promoter of pYPQ141D (identity not established from the deposited sequence)
-Selection:       Hygromycin B (HPT)
+Selection:       supplied by the destination vector (hygromycin via pYPQ203); 141080 carries spectinomycin in E. coli and no plant marker
 Delivery:        PEG transfection of rice protoplasts in the source paper; Agrobacterium after the LR reaction into pYPQ203
 Reference:       Tang X, Sretenovic S, Ren Q, Jia X, Li M, Fan T, Yin D, Xiang S, Guo Y, Liu L, Zheng X, Qi Y, Zhang Y 2020 Mol Plant 13:667-670 -- Plant Prime Editors Enable Precise Gene Editing in Rice Cells
 5' overhang:     TGGC
 3' overhang:     AAAC
 — pegRNA-1 sequences —
-Spacer:    GGGTATGGTGGTGCAATGGG  (20 nt)
-RT:        GTAAAACCTATTCTCCC  (17 nt)
-PBS:       ATTGCACCAC  (10 nt)
+Spacer:    ATTTGGGTATGGTGGTGCAA  (20 nt)
+RT:        ACCTATCCTCCAATTG  (16 nt)
+PBS:       CACCACCATA  (10 nt)
 
 ============================================================
 ALL PRIMERS (5'→3'):
-P1_SpacerFwd                    55 nt  Tm(anneal)=48.9°C  GC=53%
-  5'-CACCCGTCTCNTGGCGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+P1_SpacerFwd                    56 nt  Tm(anneal)=48.9°C  GC=48%
+  5'-CACCCGTCTCNTGGCGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: pegRNA cloning (Golden Gate)
   Purpose: PCR P1+P2: amplify spacer-scaffold from template. Includes BsmBI site.
 P2_ScaffoldRev                  20 nt  Tm(anneal)=65.8°C  GC=65%
   5'-GCACCGACTCGGTGCCACTT-3'
   Role: pegRNA cloning
   Purpose: Anneals to scaffold template. Use with P1 in first PCR to get Spacer-Scaffold amplicon.
-P3_RT_PBS_Rev                   63 nt  Tm(anneal)=57.9°C  GC=44%
-  5'-TTTTCGTCTCNAAACAAAAAAGTGGTGCAATGGGAGAATAGGTTTTACGCACCGACTCGGTGC-3'
+P3_RT_PBS_Rev                   62 nt  Tm(anneal)=57.9°C  GC=45%
+  5'-TTTTCGTCTCNAAACAAAAAATATGGTGGTGCAATTGGAGGATAGGTGCACCGACTCGGTGC-3'
   Role: pegRNA cloning (overlap extension)
   Purpose: Long Ultramer. 5′ tail (5′→3′): [TTTT clamp]+[RC(BsmBI site)]+[N]+[RC(OH3)]+[RC(PolyT)]+[RC(PBS)]+[RC(RT)]. 3′ annealing end: RC(scaffold last 15 nt) anneals to Step-1 amplicon. The RE tail at 5′ is essential — it creates the 3′ sticky end (OH3) after BsmBI digestion of the Step-2 PCR product, enabling directional Golden Gate ligation. Order HPLC-purified Ultramer.
-P4_RT_PBS_Fwd_overlap           30 nt  Tm(anneal)=57.9°C  GC=53%
-  5'-GCACCGAGTCGGTGCGTAAAACCTATTCTC-3'
+P4_RT_PBS_Fwd_overlap           30 nt  Tm(anneal)=43.7°C  GC=57%
+  5'-GCACCGAGTCGGTGCACCTATCCTCCAATT-3'
   Role: pegRNA cloning (3-fragment Gibson assembly ONLY)
   Purpose: ⚠ NOT for BsaI/BsmBI Golden Gate cloning — P4 has no RE recognition site or vector arm and cannot produce a directly cloneable GG product. Use ONLY in a 3-fragment Gibson or In-Fusion assembly where the RT+PBS region is added as a separate fragment. For standard Golden Gate (BsaI/BsmBI) cloning, use P1+P3 (mega-primer overlap extension). Anneals to scaffold last 15nt, extends into RT region.
 P5_Verify_Fwd                   24 nt  Tm(anneal)=71°C  GC=63%
@@ -45,56 +45,56 @@ P6_Verify_Rev                   24 nt  Tm(anneal)=71°C  GC=63%
   5'-AACGCGCTTGCTGCTTGGATGCCC-3'
   Role: Colony verification
   Purpose: Unique site in pYPQ141D-peg, downstream of the cassette. Already reverse-complemented, so use as written. Expected bands: 941 bp empty, 1070 bp filled.
-gBlock_Insert_Sequence         159 nt  Tm(anneal)=0°C  GC=46%
-  5'-CACCCGTCTCNTGGCGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGCGTAAAACCTATTCTCCCATTGCACCACTTTTTTGTTTNGAGACGGGTG-3'
+gBlock_Insert_Sequence         159 nt  Tm(anneal)=0°C  GC=45%
+  5'-CACCCGTCTCNTGGCGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGCACCTATCCTCCAATTGCACCACCATATTTTTTGTTTNGAGACGGGTG-3'
   Role: Direct synthesis (gBlock strategy)
   Purpose: Complete insert for direct synthesis. Includes BsmBI flanking sites. 159 nt total (insert 129 nt + RE flanks). ✅ Within IDT gBlock 3000 nt limit. Order at https://www.idtdna.com/gblocks
-P_BsmBI_Fwd                     55 nt  Tm(anneal)=48.9°C  GC=47%
-  5'-AAAACGTCTCNTGGCGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+P_BsmBI_Fwd                     56 nt  Tm(anneal)=48.9°C  GC=43%
+  5'-AAAACGTCTCNTGGCGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: BsmBI alt cloning
   Purpose: BsmBI (CGTCTC) alternative to BsmBI Golden Gate. Creates identical ACCG 5' overhang. Use if BsaI is unavailable. Combine with P_BsmBI_Rev and substitute BsmBI-HF (NEB R0580) in the GG reaction.
-P_BsmBI_Rev                     63 nt  Tm(anneal)=57.9°C  GC=44%
-  5'-TTTTGAGACGNGTTTGCACCGACTCGGTGCAAAAAAGTGGTGCAATGGGAGAATAGGTTTTAC-3'
+P_BsmBI_Rev                     62 nt  Tm(anneal)=57.9°C  GC=45%
+  5'-TTTTCGTCTCNAAACAAAAAATATGGTGGTGCAATTGGAGGATAGGTGCACCGACTCGGTGC-3'
   Role: BsmBI alt cloning
   Purpose: FIX M3-A: BsmBI mega-primer matching P3 structure. 5′ tail: TTTT+GAGACG+N+RC(OH3)+RC(polyT+PBS+RT). 3′ annealing: RC(scaffold last 15 nt). Use with P_BsmBI_Fwd as a full drop-in replacement for P1+P3 when using BsmBI-HF (NEB R0580) instead of BsaI. Order HPLC-purified Ultramer.
-P_Gibson_Fwd                    65 nt  Tm(anneal)=48.9°C  GC=45%
-  5'-TTAAAAGAGTTGTGCAGATGATCCGGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+P_Gibson_Fwd                    66 nt  Tm(anneal)=48.9°C  GC=41%
+  5'-TTAAAAGAGTTGTGCAGATGATCCGGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: Gibson Assembly cloning (replaces P1 for Gibson)
-  Purpose: Gibson Assembly forward primer. 5' tail = 25 bp upstream U6 promoter homology arm (vector sequence immediately upstream of BsaI ACCG cut site). Annealing region = spacer (20 nt). Use in Step 1 PCR (P_Gibson_Fwd + P2_ScaffoldRev) and Step 2 (P_Gibson_Fwd + P3_RT_PBS_Rev). DO NOT use for BsaI or BsmBI Golden Gate — wrong tail. Ref: Gibson 2009 Nat Methods 6:343. Arms read off the deposited sequence of pYPQ141D-peg, linearised by TypeIIS BsmBI + BsaI, 147 bp excised. Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer.
-P_Gibson_Rev                    31 nt  Tm(anneal)=-25.7°C  GC=35%
+  Purpose: Gibson Assembly forward primer. 5' tail = 25 bp upstream U6 promoter homology arm (vector sequence immediately upstream of BsaI ACCG cut site). Annealing region = spacer (21 nt). Use in Step 1 PCR (P_Gibson_Fwd + P2_ScaffoldRev) and Step 2 (P_Gibson_Fwd + P3_RT_PBS_Rev). DO NOT use for BsaI or BsmBI Golden Gate — wrong tail. Ref: Gibson 2009 Nat Methods 6:343. Arms read off the deposited sequence of pYPQ141D-peg, linearised by TypeIIS BsmBI + BsaI, 147 bp excised. Neither arm carries a Type IIS recognition sequence; the sites leave with the stuffer.
+P_Gibson_Rev                    31 nt  Tm(anneal)=n/a (annealing region 6 nt — below the nearest-neighbour model’s validity range; this oligo assembles by homology, not by priming)  GC=35%
   5'-CCAGTGTGATGGATATCTGCAGAAAAAAAAA-3'
   Role: Gibson Assembly cloning (3' arm, final extension)
   Purpose: Gibson Assembly reverse primer. Adds 25 bp downstream vector homology arm to the 3' end of the assembled insert (after polyT terminator). Use in a final extension PCR step: [assembled insert] + P_Gibson_Rev + vector template. The insert is then directly ligated into BsaI-linearized vector by NEBuilder HiFi. DO NOT use for BsaI GG — this primer has no RE site.
-P_InFusion_Fwd                  55 nt  Tm(anneal)=48.9°C  GC=40%
-  5'-ATTAGTGATTTTTGTGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+P_InFusion_Fwd                  56 nt  Tm(anneal)=48.9°C  GC=45%
+  5'-TGTGCAGATGATCCGGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: In-Fusion HD cloning (Takara Bio)
-  Purpose: In-Fusion HD (Takara Bio Cat.638910) forward primer. 5-prime tail = 15 bp upstream vector sequence immediately before BsaI ACCG site (In-Fusion requires 15 bp, shorter than Gibson 20-25 bp). Annealing = spacer (20 nt). Use In-Fusion cloning as alternative to Golden Gate when BsaI site is in your pegRNA. Ref: Zhu 2007 BioTechniques 43:354.
-P_InFusion_Rev                  21 nt  Tm(anneal)=-25.7°C  GC=38%
-  5'-ATGGGGAAAGTGGTGAAAAAA-3'
+  Purpose: In-Fusion HD (Takara Bio Cat.638910) forward primer. 5-prime tail = 15 bp upstream vector sequence immediately before BsaI ACCG site (In-Fusion requires 15 bp, shorter than Gibson 20-25 bp). Annealing = spacer (21 nt). Use In-Fusion cloning as alternative to Golden Gate when BsaI site is in your pegRNA. Ref: Zhu 2007 BioTechniques 43:354.
+P_InFusion_Rev                  21 nt  Tm(anneal)=n/a (annealing region 6 nt — below the nearest-neighbour model’s validity range; this oligo assembles by homology, not by priming)  GC=29%
+  5'-GGATATCTGCAGAAAAAAAAA-3'
   Role: In-Fusion HD cloning (Takara Bio)
   Purpose: In-Fusion HD reverse primer. 5-prime tail = RC of first 15 bp of downstream vector sequence after polyT. 15 bp arm length is critical — In-Fusion Vaccinia exonuclease creates exactly 15 nt overhangs. Use with P_InFusion_Fwd and In-Fusion HD 2x Premix (50C x 15 min). Ref: Takara Bio Cat. 638910.
-P_OS_Fwd                        65 nt  Tm(anneal)=48.9°C  GC=42%
-  5'-AACCAGATCGATTAGTGATTTTTGTGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+P_OS_Fwd                        66 nt  Tm(anneal)=48.9°C  GC=41%
+  5'-TTAAAAGAGTTGTGCAGATGATCCGGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: One-Step PCR + Gibson Assembly — Forward
   Purpose: One-Step PCR + Gibson Assembly forward primer (Lin 2021 Nat Biotechnol 39:923; Zong 2022 Nat Biotechnol 40:1394). 5' tail = 25 bp upstream vector homology arm (same as P_Gibson_Fwd). Annealing region = scaffold first 20 nt (same template binding as standard P1). Use DIRECTLY with P_OS_Rev_Arm in a SINGLE PCR using vector plasmid as template (NO separate scaffold template needed). PCR yields full pegRNA insert [25+spacer+scaffold+RT+PBS+polyT+25] in ONE step. Sequence identical to P_Gibson_Fwd — can reuse if already ordered.
-P_OS_Rev                        48 nt  Tm(anneal)=57.9°C  GC=48%
-  5'-AAAAAAGTGGTGCAATGGGAGAATAGGTTTTACGCACCGACTCGGTGC-3'
+P_OS_Rev                        47 nt  Tm(anneal)=57.9°C  GC=49%
+  5'-AAAAAATATGGTGGTGCAATTGGAGGATAGGTGCACCGACTCGGTGC-3'
   Role: One-Step PCR + Gibson Assembly — Reverse mega-primer
-  Purpose: One-Step PCR mega-primer (Lin 2021). Sequence = RC(polyT) + RC(PBS 10 nt) + RC(RT 17 nt) + RC(scaffold last 15 nt). Identical in sequence to P3_RT_PBS_Rev — ORDER ONLY ONE. This is the complete pegRNA-encoding reverse primer. Order as IDT Ultramer (PAGE-purified if >80 nt; HPLC if >100 nt). Ref: Lin Q et al. 2021 Nat Biotechnol 39:923 SI.
-P_OS_Rev_Arm                    73 nt  Tm(anneal)=57.9°C  GC=47%
-  5'-AGAAAAACTCATGGGGAAAGTGGTGAAAAAAGTGGTGCAATGGGAGAATAGGTTTTACGCACCGACTCGGTGC-3'
+  Purpose: One-Step PCR mega-primer (Lin 2021). Sequence = RC(polyT) + RC(PBS 10 nt) + RC(RT 16 nt) + RC(scaffold last 15 nt). Identical in sequence to P3_RT_PBS_Rev — ORDER ONLY ONE. This is the complete pegRNA-encoding reverse primer. Order as IDT Ultramer (PAGE-purified if >80 nt; HPLC if >100 nt). Ref: Lin Q et al. 2021 Nat Biotechnol 39:923 SI.
+P_OS_Rev_Arm                    72 nt  Tm(anneal)=57.9°C  GC=47%
+  5'-CCAGTGTGATGGATATCTGCAGAAAAAAAAATATGGTGGTGCAATTGGAGGATAGGTGCACCGACTCGGTGC-3'
   Role: One-Step PCR + Gibson Assembly — Reverse with 3' homology arm
-  Purpose: Combined one-step reverse primer with downstream Gibson arm. 5' tail = RC(25 bp downstream vector arm) + [P_OS_Rev mega-primer sequence]. Use THIS primer (not P_OS_Rev) if you want to add the 3' homology arm IN the PCR reaction itself, so the product is directly ready for NEBuilder HiFi without a separate arm-addition step. NOTE: very long oligo (73 nt total) — HPLC purification essential. Alternative: use P_OS_Rev without arm, then use separate P_Gibson_Rev primer to extend arm in a brief 10-cycle final PCR. Ref: Lin 2021 Nat Biotechnol; NEB NEBuilder HiFi E2621.
-P_Esp3I_Fwd                     55 nt  Tm(anneal)=61.6°C  GC=47%
-  5'-AAAACGTCTCNTGGCGGGTATGGTGGTGCAATGGGGTTTTAGAGCTAGAAATAGC-3'
+  Purpose: Combined one-step reverse primer with downstream Gibson arm. 5' tail = RC(25 bp downstream vector arm) + [P_OS_Rev mega-primer sequence]. Use THIS primer (not P_OS_Rev) if you want to add the 3' homology arm IN the PCR reaction itself, so the product is directly ready for NEBuilder HiFi without a separate arm-addition step. NOTE: very long oligo (72 nt total) — HPLC purification essential. Alternative: use P_OS_Rev without arm, then use separate P_Gibson_Rev primer to extend arm in a brief 10-cycle final PCR. Ref: Lin 2021 Nat Biotechnol; NEB NEBuilder HiFi E2621.
+P_Esp3I_Fwd                     56 nt  Tm(anneal)=48.9°C  GC=43%
+  5'-AAAACGTCTCNTGGCGATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGC-3'
   Role: Esp3I alternative cloning (isoschizomer of BsmBI)
   Purpose: Esp3I (Thermo ER0201) forward primer for pegRNA cassette. Esp3I is a BsmBI isoschizomer (CGTCTC recognition, 1/5 cut offsets) — creates identical ACCG overhang as BsaI. Reaction temperature 37°C (unlike BsmBI-HF at 55°C). Use this primer if BsmBI-HF (NEB R0580) is unavailable. SEQUENCE IS IDENTICAL to P_BsmBI_Fwd — generated explicitly for clarity.
-P_Esp3I_Rev                     31 nt  Tm(anneal)=-25.7°C  GC=32%
-  5'-AAAACGTCTCNAAACGTGGTGCAATAAAAAA-3'
+P_Esp3I_Rev                     62 nt  Tm(anneal)=57.9°C  GC=45%
+  5'-TTTTCGTCTCNAAACAAAAAATATGGTGGTGCAATTGGAGGATAGGTGCACCGACTCGGTGC-3'
   Role: Esp3I alternative cloning (isoschizomer of BsmBI)
-  Purpose: Esp3I reverse primer. Creates AAAC overhang. Use with P_Esp3I_Fwd. Reaction: same as BsmBI Golden Gate but incubate at 37°C (Esp3I optimum). Thermocycler: [37°C 3 min / 16°C 4 min] × 30 cycles → 37°C 10 min → 80°C 20 min. Ref: Thermo Scientific Esp3I ER0201 manual.
-P_gBlock_Gibson_Rev             26 nt  Tm(anneal)=-25.7°C  GC=38%
-  5'-AACTCATGGGGAAAGTGGTGAAAAAA-3'
+  Purpose: Esp3I reverse mega-primer, sequence-identical to P_BsmBI_Rev (Esp3I and BsmBI are isoschizomers: CGTCTC, 1/5) — ORDER ONLY ONE. 5′ tail TTTT+CGTCTC+N+AAAC, 3′ annealing RC(scaffold last 15 nt). Order HPLC-purified Ultramer. Use with P_Esp3I_Fwd. Reaction: same as BsmBI Golden Gate but incubate at 37°C (Esp3I optimum). Thermocycler: [37°C 3 min / 16°C 4 min] × 30 cycles → 37°C 10 min → 80°C 20 min. Ref: Thermo Scientific Esp3I ER0201 manual.
+P_gBlock_Gibson_Rev             26 nt  Tm(anneal)=n/a (annealing region 6 nt — below the nearest-neighbour model’s validity range; this oligo assembles by homology, not by priming)  GC=31%
+  5'-GTGATGGATATCTGCAGAAAAAAAAA-3'
   Role: gBlock direct synthesis + Gibson Assembly
   Purpose: When cloning a gBlock/synthetic fragment via Gibson Assembly (not Golden Gate), use this primer to add the downstream vector homology arm to the gBlock before NEBuilder HiFi assembly. Run a short PCR (5 cycles) with gBlock as template + this primer as reverse primer. The gBlock itself should already have the upstream 20 bp arm in its synthesized sequence. Ref: NEB NEBuilder HiFi E2621.
 
@@ -105,7 +105,7 @@ STEP 1 — PCR: spacer-scaffold amplicon
   Forward:  P1_SpacerFwd
   Reverse:  P2_ScaffoldRev
   Q5 HotStart 2x MM: 12.5 µL | P1 (10 µM): 1 µL | P2 (10 µM): 1 µL | Template: 1 µL | H₂O: 9.5 µL
-  Thermocycler: 98°C 30s init; [98°C 10s / 57°C 30s / 72°C 30s] × 30; 72°C 2min
+  Thermocycler: 98°C 30s init; [98°C 10s / 55°C 30s / 72°C 30s] × 30; 72°C 2min
   Expected: ~116 bp. Purify: QIAquick PCR cleanup.
 
 STEP 2 — Overlap-extension PCR: add RT+PBS (+linker+tevo for PE2max/ePPE/PPE)
@@ -113,8 +113,8 @@ STEP 2 — Overlap-extension PCR: add RT+PBS (+linker+tevo for PE2max/ePPE/PPE)
   Forward:  P1_SpacerFwd
   Reverse:  P3_RT_PBS_Rev  (Ultramer, HPLC-purified)
   Q5 HotStart 2x MM: 25 µL | P1 (10 µM): 2 µL | P3 (10 µM): 2 µL | Template: 2 µL | H₂O: 19 µL
-  Thermocycler: 98°C 30s; [98°C 10s / 53°C 30s / 72°C 30s] × 5; [98°C 10s / 59°C 30s / 72°C 30s] × 25; 72°C 2min
-  Expected: ~143 bp. Gel-purify.
+  Thermocycler: 98°C 30s; [98°C 10s / 53°C 30s / 72°C 30s] × 5; [98°C 10s / 55°C 30s / 72°C 30s] × 25; 72°C 2min
+  Expected: ~142 bp. Gel-purify.
 
 STEP 3 — Golden Gate ligation (1-pot) into cassette 1 of pYPQ166-OsPE2 (Rice/Wheat)
   pYPQ166-OsPE2 (Rice/Wheat) (100 ng): 1 µL | PCR insert (~50 ng): 2 µL | T4 Ligase buffer 10x: 2 µL | BsmBI (10 U/µL): 1 µL | T4 Ligase (400 U/µL): 1 µL | H₂O to 20 µL
@@ -122,7 +122,7 @@ STEP 3 — Golden Gate ligation (1-pot) into cassette 1 of pYPQ166-OsPE2 (Rice/W
 
 STEP 4 — Transform E. coli (Mach1 or DH5α)
   Plate on LB + Spectinomycin 100 µg/mL
-  Colony PCR: P5_Verify_Fwd + P6_Verify_Rev  Expected: Correct clone: ~1070 bp  |  Empty vector: ~941 bp  (a 129 bp shift, read off pYPQ141D-peg)
+  Colony PCR: P5_Verify_Fwd + P6_Verify_Rev  Expected: Correct clone: ~1069 bp  |  Empty vector: ~941 bp  (a 128 bp shift, read off pYPQ141D-peg)
   Sanger: confirm full spacer + scaffold + RT + PBS sequence (use P5_Verify_Fwd)
 
 ============================================================

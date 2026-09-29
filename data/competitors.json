@@ -273,7 +273,7 @@
   "n_extension_picked": 3
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "tool": "pegFinder",
   "n_rows": 240,
   "n_spacers": 4,
@@ -358,7 +358,7 @@
   ]
  },
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "tool": "PE-Designer",
   "n_rows": 252,
   "n_spacers": 5,

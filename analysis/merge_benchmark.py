@@ -18,6 +18,7 @@ The tomato pass carried three extra columns (n_edits, bases_validated, edit_text
 they are preserved and left empty for the rice and wheat rows rather than dropped,
 so nothing scored is silently discarded.
 """
+import sys as _s; _s.dont_write_bytecode = True   # a deposit should not ship __pycache__
 import csv, json, os, collections
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -56,6 +57,11 @@ with open(OUT, 'w', newline='', encoding='utf-8') as fh:
         w.writerow({c: r.get(c, '') for c in cols})
 
 loci = collections.Counter(r['locus'] for r in merged)
+# Labels are not sites: key on the protospacer (analysis/target_sites.json).
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'lib'))
+from target_site import site_of_row as _site  # noqa: E402
+sites = sorted({_site(r) for r in merged})
 spec = collections.Counter(r['species'] for r in merged)
 withpct = [r for r in merged if str(r.get('published_rank_percentile', '')).strip()]
 
@@ -64,10 +70,12 @@ rec = {
     'inputs': [{'pass': t, 'file': os.path.basename(p), 'rows': len(rows)} for t, p, rows in parts],
     'output_file': os.path.basename(OUT),
     'pegRNAs': len(merged),
-    'target_sites': len(loci),
+    'target_labels': len(loci),
+    'target_sites': len(sites),
     'species': dict(spec),
     'pegRNAs_with_a_rank_percentile': len(withpct),
-    'sites': sorted(loci),
+    'sites': sites,
+    'labels': sorted(loci),
 }
 json.dump(rec, open(os.path.join(HERE, 'benchmark_merge.json'), 'w'), indent=2)
 
@@ -75,7 +83,8 @@ print('\nCANONICAL BENCHMARK SET')
 for t, p, rows in parts:
     print('  %-11s %3d pegRNAs   %s' % (t, len(rows), os.path.basename(p)))
 print('  ' + '-' * 46)
-print('  merged      %3d pegRNAs at %d target sites' % (len(merged), len(loci)))
+print('  merged      %3d pegRNAs at %d target sites (%d labels)'
+      % (len(merged), len(sites), len(loci)))
 print('  species     %s' % ', '.join('%s %d' % (k, v) for k, v in sorted(spec.items())))
 print('  with a published-design rank percentile: %d' % len(withpct))
 print('\nwrote data/%s and analysis/benchmark_merge.json' % os.path.basename(OUT))

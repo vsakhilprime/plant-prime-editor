@@ -1,29 +1,36 @@
-target,tool,spacer,pbs_length_nt,pbs_tm_wallace_C,pbs_tm_nn_C,rt_length_nt,notes
-OsALS-T2,Plant Prime Editor,GAACAACCAACATTTGGGTA,10,28,12.9,,top-scoring candidate with no warnings
-OsALS-T2,PlantPegDesigner,ggtatggtggtgcaatgGggagg,10,30,,13,No. 1 recommended program; could NOT be used
-OsALS-T2,pegFinder,GGGTATGGTGGTGCAATGGG,12,36,31.3,,picked design
-OsALS-T2,PE-Designer,GAACAACCAACATTTGGGTA,12,34,25.1,,first listed pegRNA
-OsEPSPS-T1,Plant Prime Editor,GCAGTCACGGCTGCTGTCAA,8,26,11.1,,top-scoring candidate with no warnings
-OsEPSPS-T1,PlantPegDesigner,cagtcacggctgctgtcaatgGg,9,30,,16,No. 1 recommended program; not stated
-OsEPSPS-T1,pegFinder,GCAGTCACGGCTGCTGTCAA,12,40,37,,picked design
-OsEPSPS-T1,PE-Designer,GCAGTCACGGCTGCTGTCAA,12,40,37,,first listed pegRNA
-OsCDC48-T2,Plant Prime Editor,GTGGGTTCGGCACCGAGTTT,8,28,13.3,,top-scoring candidate with no warnings
-OsCDC48-T2,PlantPegDesigner,gaccagccagcgtctggcgccgg,9,30,,15,"No. 1 recommended program; could be used (2 fwd, 2 rev PAM)"
-OsCDC48-T2,pegFinder,GACCAGCCAGCGTCTGGCGC,9,30,19.2,,picked design
-OsCDC48-T2,PE-Designer,TTCGCTGACCAGCCAGCGTC,12,40,35.8,,first listed pegRNA
-OsCDC48-T1,Plant Prime Editor,GCTAGCTTTGACATAATCTC,11,26,10.4,,top-scoring candidate with no warnings
-OsCDC48-T1,PlantPegDesigner,gctagctttgacataatCTCCGG,12,30,,12,"No. 1 recommended program; could be used (3 fwd, 1 rev PAM)"
-OsCDC48-T1,pegFinder,GCTAGCTTTGACATAATCTC,16,42,30.8,,picked design
-OsCDC48-T1,PE-Designer,GCTTTCTTCTTTCTGATTAA,12,32,19,,first listed pegRNA
-OsAAT,Plant Prime Editor,GACGCCGAGATTGACCTTCA,11,32,19.1,,top-scoring candidate with no warnings
-OsAAT,PlantPegDesigner,aggatcccagccccgtgaGAagg,8,30,,13,No. 1 recommended program; not stated
-OsAAT,pegFinder,GACGCCGAGATTGACCTTCA,13,40,32.1,,picked design
-OsAAT,PE-Designer,CAAGGATCCCAGCCCCGTGA,12,42,38.6,,first listed pegRNA
-OsACC-T1,Plant Prime Editor,GAGCAATCTGTTCCTCGTGC,10,32,19.4,,top-scoring candidate with no warnings
-OsACC-T1,PlantPegDesigner,tcctcgtgctggacaagtgtggG,10,32,,17,"No. 1 recommended program; could be used (2 fwd, 1 rev PAM)"
-OsACC-T1,pegFinder,TTCCTCGTGCTGGACAAGTG,13,40,36.2,,picked design
-OsACC-T1,PE-Designer,GAGCAATCTGTTCCTCGTGC,12,36,26.6,,first listed pegRNA
-TaGW2,Plant Prime Editor,ACAGCACAAGAAAATCCACC,11,30,15.3,,top-scoring candidate with no warnings
-TaGW2,PlantPegDesigner,ctctagaaataccccatccCtgg,11,30,,14,"No. 1 recommended program; could be used (1 fwd, 2 rev PAM)"
-TaGW2,pegFinder,CACAAGAAAATCCACCAGGA,15,42,33.6,,picked design
-TaGW2,PE-Designer,CCTCTAGAAATACCCCATCC,12,34,24,,first listed pegRNA
+target,tool,edit,edit_source,spacer,pbs_length_nt,pbs_tm_wallace_C,pbs_tm_nn_C,rt_length_nt,notes
+OsALS-T2 (Lin 2021),Plant Prime Editor,SNP G>T at top-strand 301,"Lin et al. 2021, Supplementary Table 1",GAACAACCAACATTTGGGTA,10,28,12.9,,top-scoring candidate with no warnings
+OsALS-T2 (Lin 2021),PlantPegDesigner,SNP G>T at top-strand 301,"Lin et al. 2021, Supplementary Table 1",gggtatggtggtgcaatGggagg,10,30,,13,No. 1 recommended program; could NOT be used
+OsALS-T2 (Lin 2021),pegFinder,SNP G>T at top-strand 301,"Lin et al. 2021, Supplementary Table 1",GGGTATGGTGGTGCAATGGG,12,36,31.3,,picked design
+OsALS-T2 (Lin 2021),PE-Designer,SNP G>T at top-strand 301,"Lin et al. 2021, Supplementary Table 1",GAACAACCAACATTTGGGTA,12,34,25.1,,first listed pegRNA
+OsEPSPS-T1,Plant Prime Editor,SNP C>T at top-strand 295 (the source table quotes G>A on the minus strand),"Lin et al. 2021, Supplementary Table 1",GCAGTCACGGCTGCTGTCAA,8,26,11.1,,top-scoring candidate with no warnings
+OsEPSPS-T1,PlantPegDesigner,SNP C>T at top-strand 295 (the source table quotes G>A on the minus strand),"Lin et al. 2021, Supplementary Table 1",cagtcacggctgctgtcaatgGg,9,30,,16,No. 1 recommended program; not stated
+OsEPSPS-T1,pegFinder,SNP C>T at top-strand 295 (the source table quotes G>A on the minus strand),"Lin et al. 2021, Supplementary Table 1",GCAGTCACGGCTGCTGTCAA,12,40,37,,picked design
+OsEPSPS-T1,PE-Designer,SNP C>T at top-strand 295 (the source table quotes G>A on the minus strand),"Lin et al. 2021, Supplementary Table 1",GCAGTCACGGCTGCTGTCAA,12,40,37,,first listed pegRNA
+OsCDC48-T2,Plant Prime Editor,INS 3 nt AAA before top-strand 302,"Lin et al. 2020, Supplementary Table 1",GTGGGTTCGGCACCGAGTTT,8,28,13.3,,top-scoring candidate with no warnings
+OsCDC48-T2,PlantPegDesigner,INS 3 nt AAA before top-strand 302,"Lin et al. 2020, Supplementary Table 1",gaccagccagcgtctggcgccgg,9,30,,15,"No. 1 recommended program; could be used (2 fwd, 2 rev PAM)"
+OsCDC48-T2,pegFinder,INS 3 nt AAA before top-strand 302,"Lin et al. 2020, Supplementary Table 1",GACCAGCCAGCGTCTGGCGC,9,30,19.2,,picked design
+OsCDC48-T2,PE-Designer,INS 3 nt AAA before top-strand 302,"Lin et al. 2020, Supplementary Table 1",TTCGCTGACCAGCCAGCGTC,12,40,35.8,,first listed pegRNA
+OsCDC48-T1,Plant Prime Editor,DEL 6 nt CCGGAG at top-strand 295-300 (the source table quotes CTCCGG>- on the minus strand),"Lin et al. 2020, Supplementary Table 1",GCTAGCTTTGACATAATCTC,12,30,15.9,,top-scoring candidate with no warnings
+OsCDC48-T1,PlantPegDesigner,DEL 6 nt CCGGAG at top-strand 295-300 (the source table quotes CTCCGG>- on the minus strand),"Lin et al. 2020, Supplementary Table 1",gctagctttgacataatCTCCGG,12,30,,12,"No. 1 recommended program; could be used (3 fwd, 1 rev PAM)"
+OsCDC48-T1,pegFinder,DEL 6 nt CCGGAG at top-strand 295-300 (the source table quotes CTCCGG>- on the minus strand),"Lin et al. 2020, Supplementary Table 1",GCTAGCTTTGACATAATCTC,16,42,30.8,,picked design
+OsCDC48-T1,PE-Designer,DEL 6 nt CCGGAG at top-strand 295-300 (the source table quotes CTCCGG>- on the minus strand),"Lin et al. 2020, Supplementary Table 1",GCTTTCTTCTTTCTGATTAA,12,32,19,,first listed pegRNA
+OsAAT,Plant Prime Editor,MNP GA>CC at top-strand 302-303,"Lin et al. 2020, Supplementary Table 1",GACGCCGAGATTGACCTTCA,11,32,19.1,,top-scoring candidate with no warnings
+OsAAT,PlantPegDesigner,MNP GA>CC at top-strand 302-303,"Lin et al. 2020, Supplementary Table 1",gacgccgagattgacctTCacgg,11,32,,15,No. 1 recommended program; not stated
+OsAAT,pegFinder,MNP GA>CC at top-strand 302-303,"Lin et al. 2020, Supplementary Table 1",GACGCCGAGATTGACCTTCA,13,40,32.1,,picked design
+OsAAT,PE-Designer,MNP GA>CC at top-strand 302-303,"Lin et al. 2020, Supplementary Table 1",CAAGGATCCCAGCCCCGTGA,12,42,38.6,,first listed pegRNA
+OsACC-T1,Plant Prime Editor,SNP G>C at top-strand 306,"Lin et al. 2021, Supplementary Table 1",GAGCAATCTGTTCCTCGTGC,10,32,19.4,,top-scoring candidate with no warnings
+OsACC-T1,PlantPegDesigner,SNP G>C at top-strand 306,"Lin et al. 2021, Supplementary Table 1",tcctcgtgctggacaagtgtggG,10,32,,17,"No. 1 recommended program; could be used (2 fwd, 1 rev PAM)"
+OsACC-T1,pegFinder,SNP G>C at top-strand 306,"Lin et al. 2021, Supplementary Table 1",TTCCTCGTGCTGGACAAGTG,13,40,36.2,,picked design
+OsACC-T1,PE-Designer,SNP G>C at top-strand 306,"Lin et al. 2021, Supplementary Table 1",GAGCAATCTGTTCCTCGTGC,12,36,26.6,,first listed pegRNA
+TaGW2,Plant Prime Editor,SNP C>G at top-strand 300 (the source table quotes G>C on the minus strand),"Lin et al. 2020, Supplementary Table 1",ACAGCACAAGAAAATCCACC,11,30,15.3,,top-scoring candidate with no warnings
+TaGW2,PlantPegDesigner,SNP C>G at top-strand 300 (the source table quotes G>C on the minus strand),"Lin et al. 2020, Supplementary Table 1",cacaagaaaatccaccaGgatgg,11,30,,12,"No. 1 recommended program; could be used (1 fwd, 2 rev PAM)"
+TaGW2,pegFinder,SNP C>G at top-strand 300 (the source table quotes G>C on the minus strand),"Lin et al. 2020, Supplementary Table 1",CACAAGAAAATCCACCAGGA,15,42,33.6,,picked design
+TaGW2,PE-Designer,SNP C>G at top-strand 300 (the source table quotes G>C on the minus strand),"Lin et al. 2020, Supplementary Table 1",CCTCTAGAAATACCCCATCC,12,34,24,,first listed pegRNA
+OsALS-T2 (Lin 2021),PRIDICT,SNP G>T at top-strand 301,"Lin et al. 2021, Supplementary Table 1",GTTTGGGTATGGTGGTGCAA,8,,,,PRIDICT2.0 reports no primer-binding-site melting temperature
+OsEPSPS-T1,PRIDICT,SNP C>T at top-strand 295 (the source table quotes G>A on the minus strand),"Lin et al. 2021, Supplementary Table 1",GCAGTCACGGCTGCTGTCAA,13,,,,PRIDICT2.0 reports no primer-binding-site melting temperature
+OsCDC48-T2,PRIDICT,INS 3 nt AAA before top-strand 302,"Lin et al. 2020, Supplementary Table 1",GACCAGCCAGCGTCTGGCGC,11,,,,PRIDICT2.0 reports no primer-binding-site melting temperature
+OsCDC48-T1,PRIDICT,DEL 6 nt CCGGAG at top-strand 295-300 (the source table quotes CTCCGG>- on the minus strand),"Lin et al. 2020, Supplementary Table 1",GCTAGCTTTGACATAATCTC,13,,,11,PRIDICT2.0 reports no primer-binding-site melting temperature; rank-1 design of the deposited run (data/tool_runs/PRIDICT2_OsCDC48-T1_pegRNA_dataframe.csv)
+OsAAT,PRIDICT,MNP GA>CC at top-strand 302-303,"Lin et al. 2020, Supplementary Table 1",GACGCCGAGATTGACCTTCA,7,,,,PRIDICT2.0 reports no primer-binding-site melting temperature
+OsACC-T1,PRIDICT,SNP G>C at top-strand 306,"Lin et al. 2021, Supplementary Table 1",GTCCTCGTGCTGGACAAGTG,14,,,,PRIDICT2.0 reports no primer-binding-site melting temperature
+TaGW2,PRIDICT,SNP C>G at top-strand 300 (the source table quotes G>C on the minus strand),"Lin et al. 2020, Supplementary Table 1",GCAGCACAAGAAAATCCACC,15,,,,PRIDICT2.0 reports no primer-binding-site melting temperature

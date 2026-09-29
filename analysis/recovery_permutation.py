@@ -16,7 +16,7 @@ statistic and the null come from the same file as every other benchmark number.
 Writes analysis/recovery_permutation.json
 Standard library only.
 """
-import csv, json, os, random, statistics as st, collections
+import os, csv, json, os, random, statistics as st, collections
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, '..', 'data', 'benchmark_scored.csv')
@@ -31,6 +31,7 @@ for r in rows:
         continue
     recs.append({
         'id': r['id'], 'locus': r['locus'], 'species': r['species'],
+        'spacer': r['published_spacer'],
         'n': int(float(n)), 'rank': int(float(rk)) if rk else None,
         'percentile': float(pct),
     })
@@ -52,10 +53,27 @@ p_value = (ge + 1) / (N + 1)
 null_medians.sort()
 
 by_sp = collections.Counter(r['species'] for r in recs)
+_SITE = {}
+try:
+    import json as _j
+    _reg = _j.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                     'target_sites.json')))
+    for _s in _reg['sites']:
+        _SITE[_s['spacer']] = _s['id']
+except Exception as _e:
+    raise SystemExit('analysis/target_sites.json is missing or unreadable (%s). '
+                     'Regenerate it with: python3 analysis/build_target_sites.py' % _e)
+
 out = {
     'source_file': 'data/benchmark_scored.csv',
     'pegRNAs_ranked': len(recs),
-    'target_sites': len({r['locus'] for r in recs}),
+    # Counted by SITE, identified by its PROTOSPACER (analysis/target_sites.json). Labels are
+    # not identities here: four pairs of labels denote one protospacer and five single labels
+    # denote two. Counting labels and collapsing only the ALS pair happened to give 25 for this
+    # cohort because a merge missed and a split missed cancelled, but it gives 33 where the
+    # 162-passing stage has 35 sites and 26 where the 141-scored stage has 27. OsROC5-T1 is the
+    # site in the benchmark that has no percentile and so does not enter the ranking.
+    'target_sites': len({_SITE.get(r['spacer'], r['locus']) for r in recs}),
     'species': dict(by_sp),
     'observed': {
         'median_percentile': round(obs_median, 1),

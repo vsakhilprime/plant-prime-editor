@@ -15,7 +15,11 @@ function topRT(on) {
   return vm.runInContext(`(function(){
     m2_setExcludeFirstC(${on});
     var g='ACACCGTTGGACCCACCGGACAGACCTGTTGCATACATTCCTGAGAACTCGTGTGATCCTCGAGCGGCTATCCGTGGTGTTGATGACAGCCAAGGGAAATGGTTAGGTGGTATGTTTGATAAAGACAGCTTTGTGGAAACATTTGAAGGTTGGGCTAAGACAGTGGTTACTGGCAGAGCAAAG';
-    var edits=[{pos:100,type:'SNP',from:g[100],to:(g[100]==='A'?'T':'A')}];
+    // FIX (27 Sep 2026): these were pos/from/to, which genRT does not read — every field was
+    // undefined, the arithmetic went NaN, and the guards let it through, so this test scored a
+    // WILD-TYPE template for years and its C-start comparison was vacuous. genRT now rejects a
+    // malformed edit outright; the fixture uses the shape design() actually builds.
+    var edits=[{genomicPos:100,type:'SNP',ref:g[100],alt:(g[100]==='A'?'T':'A')}];
     var c=genRT(g,90,edits,'+',10,34,'GACCAGCTCGGCAAGTTCTA','CTGGCTGCAT');
     if(!c||!c.length) return null;
     c=c.slice().sort(function(a,b){return b.score-a.score;});

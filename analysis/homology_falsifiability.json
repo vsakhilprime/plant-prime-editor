@@ -1,0 +1,126 @@
+{
+  "locus": "OsALS-T2 (Lin 2021)",
+  "nick": 300,
+  "editPos": 300,
+  "strand": "+",
+  "minLen": 1,
+  "ladder": [
+    {
+      "len": 1,
+      "hom": null,
+      "band": "none",
+      "warn": null
+    },
+    {
+      "len": 2,
+      "hom": null,
+      "band": "none",
+      "warn": null
+    },
+    {
+      "len": 3,
+      "hom": null,
+      "band": "none",
+      "warn": null
+    },
+    {
+      "len": 4,
+      "hom": 3,
+      "band": "critical",
+      "warn": "CRITICAL: only 3 nt of homology 3′ of the edit. The RT template must extend at least 5 nt past the farthest edit (Anzalone 2019 Nature 576:149) so the 3′ flap can anneal and be ligated. A flap with no downstream homology will not install the edit. Increase RT max length."
+    },
+    {
+      "len": 5,
+      "hom": 4,
+      "band": "critical",
+      "warn": "CRITICAL: only 4 nt of homology 3′ of the edit. The RT template must extend at least 5 nt past the farthest edit (Anzalone 2019 Nature 576:149) so the 3′ flap can anneal and be ligated. A flap with no downstream homology will not install the edit. Increase RT max length."
+    },
+    {
+      "len": 6,
+      "hom": 5,
+      "band": "low",
+      "warn": "Only 5 nt of homology 3′ of the edit — above the 5 nt minimum but below the 10–15 nt that gives the most reliable flap resolution (Anzalone 2019)."
+    },
+    {
+      "len": 7,
+      "hom": 6,
+      "band": "low",
+      "warn": "Only 6 nt of homology 3′ of the edit — above the 5 nt minimum but below the 10–15 nt that gives the most reliable flap resolution (Anzalone 2019)."
+    },
+    {
+      "len": 8,
+      "hom": 7,
+      "band": "low",
+      "warn": "Only 7 nt of homology 3′ of the edit — above the 5 nt minimum but below the 10–15 nt that gives the most reliable flap resolution (Anzalone 2019)."
+    },
+    {
+      "len": 9,
+      "hom": 8,
+      "band": "low",
+      "warn": "Only 8 nt of homology 3′ of the edit — above the 5 nt minimum but below the 10–15 nt that gives the most reliable flap resolution (Anzalone 2019)."
+    },
+    {
+      "len": 10,
+      "hom": 9,
+      "band": "low",
+      "warn": "Only 9 nt of homology 3′ of the edit — above the 5 nt minimum but below the 10–15 nt that gives the most reliable flap resolution (Anzalone 2019)."
+    },
+    {
+      "len": 11,
+      "hom": 10,
+      "band": "ok",
+      "warn": null
+    },
+    {
+      "len": 12,
+      "hom": 11,
+      "band": "ok",
+      "warn": null
+    },
+    {
+      "len": 13,
+      "hom": 12,
+      "band": "ok",
+      "warn": null
+    },
+    {
+      "len": 14,
+      "hom": 13,
+      "band": "ok",
+      "warn": null
+    },
+    {
+      "len": 15,
+      "hom": 14,
+      "band": "ok",
+      "warn": null
+    }
+  ],
+  "default_offered": [
+    {
+      "len": 14,
+      "hom": 13
+    },
+    {
+      "len": 15,
+      "hom": 14
+    },
+    {
+      "len": 17,
+      "hom": 16
+    },
+    {
+      "len": 20,
+      "hom": 19
+    },
+    {
+      "len": 16,
+      "hom": 15
+    },
+    {
+      "len": 18,
+      "hom": 17
+    }
+  ],
+  "default_min_homology": 13
+}

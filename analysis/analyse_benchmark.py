@@ -32,6 +32,27 @@ BLUE,VERM,GREEN,ORANGE,PINK,SKY,GREY = '#0072B2','#D55E00','#009E73','#E69F00','
 SRC = sys.argv[1] if len(sys.argv) > 1 else _os.path.join(_DATA, 'benchmark_scored.csv')
 df  = pd.read_csv(SRC)
 
+# ── FIX EFFICIENCY-JOIN (12 Sep 2026) ──────────────────────────────────────
+# benchmark_scored.csv carries a measured efficiency for the five tomato rows only;
+# the 44 Lin 2020 efficiencies digitised from Fig. 1e/1f live in
+# benchmark_lin2020_joined.csv and nowhere else (see rebuild_lin2020_join.py).
+# Section 4 below drops every row without an efficiency and then skips any term with
+# fewer than 8 points, so reading the canonical file alone left n = 5 and printed an
+# EMPTY table — silently, with a heading promising "which terms carry the signal".
+# Join the efficiencies in by id before anything downstream needs them, and say so.
+_JOIN = _os.path.join(_DATA, 'benchmark_lin2020_joined.csv')
+if 'measured_efficiency' in df.columns and _os.path.exists(_JOIN):
+    _own = pd.to_numeric(df['measured_efficiency'], errors='coerce').notna().sum()
+    _j = pd.read_csv(_JOIN)[['id', 'measured_efficiency']].rename(
+             columns={'measured_efficiency': '_eff_joined'})
+    df = df.merge(_j, on='id', how='left')
+    df['measured_efficiency'] = pd.to_numeric(df['measured_efficiency'], errors='coerce') \
+                                  .fillna(pd.to_numeric(df['_eff_joined'], errors='coerce'))
+    df = df.drop(columns=['_eff_joined'])
+    _all = pd.to_numeric(df['measured_efficiency'], errors='coerce').notna().sum()
+    print(f'  efficiencies: {_own} in {_os.path.basename(SRC)}, '
+          f'{_all - _own} joined from benchmark_lin2020_joined.csv, {_all} total')
+
 def rule(t=''):
     print('\n' + '─'*78); print(t); print('─'*78)
 
@@ -105,15 +126,29 @@ except Exception as e:
 
 # ── 4. per-term contributions ──────────────────────────────────────────────
 rule('4.  WHICH TERMS CARRY THE SIGNAL')
+# FIX STALE-TARGET (12 Sep 2026). This tested proximity to 30 °C, which is the WALLACE
+# figure the recalibration in this work replaces; on the nearest-neighbour scale the target
+# is 16 °C for rice and 30 °C for wheat, barley and maize (PBS_TM_BANDS). Testing against a
+# single 30 °C on NN values measured the wrong thing. Both are now reported: proximity to
+# the species band target, and proximity to 30 °C kept for contrast because it is the
+# figure the plant literature quotes and the one the recalibration argues against.
+_BAND_TARGET = {'rice': 16, 'default': 16, 'triticeae_maize': 30}
+if 'pbs_tm_band' in ok.columns:
+    ok['_tm_target'] = ok['pbs_tm_band'].map(_BAND_TARGET).fillna(16)
+else:
+    ok['_tm_target'] = 16
 terms = [('composite score','composite_score',1),('nick–edit distance','nick_edit_dist',-1),
-         ('PBS Tm deviation from 30 °C','pbs_tm','tm'),('PBS↔RT template ΔG','pbs_rt_dG',1),
+         ('PBS Tm deviation from species target','pbs_tm','tmband'),
+         ('PBS Tm deviation from 30 °C (Wallace-era)','pbs_tm','tm'),
+         ('PBS↔RT template ΔG','pbs_rt_dG',1),
          ('spacer GC','spacer_gc',1),('intrinsic risk score','ir_score',1)]
 rows=[]
 for label,col,sign in terms:
     if col not in ok.columns: continue
     v = pd.to_numeric(ok[col], errors='coerce')
     if v.notna().sum() < 8: continue
-    vv = -(v-30).abs() if sign=='tm' else (v*sign)
+    vv = (-(v-ok['_tm_target']).abs() if sign=='tmband'
+          else -(v-30).abs() if sign=='tm' else (v*sign))
     m = vv.notna() & ok.measured_efficiency.notna()
     r_,p_ = stats.spearmanr(vv[m], ok.measured_efficiency[m])
     rows.append((label,r_,p_,m.sum())); print(f'  {label:<30} rho = {r_:+.3f}   P = {p_:.3g}   n = {m.sum()}')

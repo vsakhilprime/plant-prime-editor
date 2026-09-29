@@ -13,7 +13,7 @@ ctx.unescape = s=>s;
 ctx.XMLSerializer = class { serializeToString(n){ return n.__xml || '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300"><text>x</text></svg>'; } };
 
 // build a real design to export
-const seq=fs.readFileSync('./data/sequences_plain/OsALS-T2.txt','utf8').trim();
+const seq=fs.readFileSync(require('path').resolve(__dirname,'..','data','sequences_plain','OsALS-T2.txt'),'utf8').trim();
 ctx.__seq=seq;
 q(`
   var _e=[{genomicPos:300,type:'SNP',ref:'G',alt:'T'}];

@@ -3,7 +3,7 @@
  "data_source": "Lin Q et al. 2021 Nat Biotechnol 39:923, primer-binding-site length series, digitised in data/tm_table.csv",
  "design": "within-target Spearman between the engine score and measured efficiency, combined across targets; null shuffles efficiencies within each target",
  "targets_analysed": 13,
- "designs_analysed": 70,
+ "designs_analysed": 73,
  "targets_skipped": [
   {
    "target": "OsIPA1-T1",
@@ -19,7 +19,7 @@
    "difference": 0
   },
   {
-   "target": "OsALS-T2",
+   "target": "OsALS-T2 (Lin 2021)",
    "real_rho": 0.8603090020146066,
    "reconstructed_rho": 0.8603090020146066,
    "difference": 0
@@ -32,9 +32,9 @@
   },
   {
    "target": "OsEPSPS-T1",
-   "real_rho": 0.6826469692905577,
+   "real_rho": 0.6050633809075329,
    "reconstructed_rho": 0.6050633809075329,
-   "difference": -0.078
+   "difference": 0
   },
   {
    "target": "OsEPSPS-T2",
@@ -43,16 +43,22 @@
    "difference": 0
   },
   {
-   "target": "OsIPA1-T2",
+   "target": "OsGAPDH-T1",
    "real_rho": 0.5,
+   "reconstructed_rho": 0.5,
+   "difference": 0
+  },
+  {
+   "target": "OsIPA1-T2",
+   "real_rho": 0.4,
    "reconstructed_rho": 0.4,
-   "difference": -0.1
+   "difference": 0
   },
   {
    "target": "OsNRT1.1B-T1",
-   "real_rho": 1,
+   "real_rho": 0.8,
    "reconstructed_rho": 0.8,
-   "difference": -0.2
+   "difference": 0
   }
  ],
  "per_target": [
@@ -85,7 +91,7 @@
    "length_error_nt": 0
   },
   {
-   "target": "OsALS-T2",
+   "target": "OsALS-T2 (Lin 2021)",
    "mode": "real",
    "n": 5,
    "dropped": [],
@@ -115,11 +121,9 @@
   {
    "target": "OsEPSPS-T1",
    "mode": "real",
-   "n": 8,
-   "dropped": [
-    "16:sequence mismatch"
-   ],
-   "rho": 0.6826469692905577,
+   "n": 9,
+   "dropped": [],
+   "rho": 0.6050633809075329,
    "best_measured_len": 8,
    "best_measured_eff": 3.65,
    "best_of_all_measured_eff": 3.65,
@@ -144,7 +148,7 @@
   },
   {
    "target": "OsGAPDH-T1",
-   "mode": "reconstructed",
+   "mode": "real",
    "n": 3,
    "dropped": [],
    "rho": 0.5,
@@ -159,11 +163,9 @@
   {
    "target": "OsIPA1-T2",
    "mode": "real",
-   "n": 3,
-   "dropped": [
-    "16:sequence mismatch"
-   ],
-   "rho": 0.5,
+   "n": 4,
+   "dropped": [],
+   "rho": 0.4,
    "best_measured_len": 9,
    "best_measured_eff": 2.2,
    "best_of_all_measured_eff": 2.2,
@@ -189,11 +191,9 @@
   {
    "target": "OsNRT1.1B-T1",
    "mode": "real",
-   "n": 3,
-   "dropped": [
-    "16:sequence mismatch"
-   ],
-   "rho": 1,
+   "n": 4,
+   "dropped": [],
+   "rho": 0.8,
    "best_measured_len": 10,
    "best_measured_eff": 0.64,
    "best_of_all_measured_eff": 0.64,
@@ -246,13 +246,13 @@
   }
  ],
  "combined": {
-  "median_rho": 0.667,
+  "median_rho": 0.605,
   "positive_targets": 13,
   "of": 13,
   "null_median_rho": 0,
-  "null_95th": 0.386,
-  "p_value": 0.00004999750012499375,
-  "p_reported": "< 5e-5"
+  "null_95th": 0.344,
+  "p_value": 0.0008499575021248938,
+  "p_reported": "0.000850"
  },
  "top_pick_performance": {
   "median_fraction_of_best_efficiency": 1,

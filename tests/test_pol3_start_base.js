@@ -6,6 +6,9 @@
    condition read spacer[0]==='G', so a spacer that was correct for an OsU3 vector was reported
    as failing, and one that was wrong was reported as passing. Four of the fifteen vectors run
    a pegRNA cassette on OsU3, so the mislabel was not a corner case. */
+// The rice ALS labels are namespaced by source study (analysis/als_sites.json): two
+// different protospacers in one gene were both called OsALS-T2, one by Lin 2020 and one
+// by Lin 2021. This test uses the worked-example site, Lin 2021's.
 const path=require('path'), vm=require('vm');
 process.env.PPE_HTML = process.env.PPE_HTML || path.join(__dirname,'..','plant_prime_editor_v1.0.html');
 const {ctx}=require(path.join(__dirname,'probe.js'));
@@ -47,7 +50,7 @@ function readCsv(p){const t=fs.readFileSync(p,'utf8').replace(/^\ufeff/,'').trim
   const h=sp(t[0]);return t.slice(1).map(l=>{const c=sp(l),o={};h.forEach((k,i)=>o[k]=c[i]);return o;});}
 const bench=readCsv(path.join(__dirname,'..','data','benchmark_scored.csv'));
 const loci={}; bench.forEach(r=>{if(r.genomic_seq&&r.published_spacer&&r.spacer_strand&&r.nick_pos&&!loci[r.locus])loci[r.locus]=r;});
-const L=loci['OsALS-T2'];
+const L=loci['OsALS-T2 (Lin 2021)'];
 
 function primerFirstBase(vecId){
   return JSON.parse(vm.runInContext(`(function(){
@@ -57,12 +60,15 @@ function primerFirstBase(vecId){
     var spacer=${JSON.stringify(L.published_spacer)};
     var editPos=nick+5, from=g.charAt(editPos), to=(from==='A'?'T':'A');
     var pbsC=genPBS(g,nick,strand,8,15,spacer,false);
-    var rtC=genRT(g,nick,[{pos:editPos,type:'SNP',from:from,to:to}],strand,10,34,spacer,pbsC[0].seq);
+    // FIX (27 Sep 2026): pos/from/to are not fields genRT reads, so this fixture designed a
+    // WILD-TYPE template and the test never exercised an edited one. genRT now rejects a
+    // malformed edit rather than returning wild type; the shape below is what design() builds.
+    var rtC=genRT(g,nick,[{genomicPos:editPos,type:'SNP',ref:from,alt:to}],strand,10,34,spacer,pbsC[0].seq);
     rtC=rtC.slice().sort(function(a,b){return b.score-a.score;});
     var ns={spacer:g.slice(nick+40,nick+60),strand:strand==='+'?'-':'+'};
     m2Data={peSystem:'PE2',spacer:{spacer:spacer},rt:{seq:rtC[0].seq},pbs:{seq:pbsC[0].seq},
             selectedNick:ns,nickSgRNAs:[ns],twinSpacer:{spacer:g.slice(nick+30,nick+50)},
-            twinPBS:[{seq:pbsC[0].seq}],twinRT:[{seq:rtC[0].seq}],locus:'OsALS-T2'};
+            twinPBS:[{seq:pbsC[0].seq}],twinRT:[{seq:rtC[0].seq}],locus:'OsALS-T2 (Lin 2021)'};
     window._m3EditableSeqs=null; allPrimers.length=0; runPrimerDesign();
     var p1=allPrimers.filter(function(p){return (p.name||'').indexOf('P1')===0;})[0];
     var i=(p1.seq||'').toUpperCase().indexOf(spacer);

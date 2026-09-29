@@ -63,6 +63,14 @@ if len(thin):
 # ── per-target normalisation, exactly as Lin 2021 Fig 1c ───────────────────
 df['norm_eff']=df.groupby('target_id').efficiency.transform(lambda s: s/s.max() if s.max()>0 else np.nan)
 df=df.dropna(subset=['norm_eff'])
+# A target with a single measurement normalises to 1.0 by construction and carries no
+# information about where the optimum lies, while contributing a free maximum to whatever
+# bin it lands in. The published figure legend states such targets are omitted; this makes
+# that true. One target (OsIPA1-T1, a single 13 nt design) is dropped here.
+_n=df.groupby('target_id').target_id.transform('size')
+_dropped=sorted(df.target_id[_n<2].unique())
+df=df[_n>=2].copy()
+if _dropped: print('  omitted from within-target normalisation (single measurement): %s' % ', '.join(_dropped))
 
 def gauss(x,a,mu,sig): return a*np.exp(-0.5*((x-mu)/sig)**2)
 
@@ -111,6 +119,14 @@ if 'nn_tm' in res and 'wallace_tm' in res:
     print(f'  This dataset reproduces that on the Wallace scale:      {w_["mu"]:.1f} °C  [{w_["lo"]:.1f}, {w_["hi"]:.1f}]')
     print(f'  The same data on the nearest-neighbour scale give:      {n_["mu"]:.1f} °C  [{n_["lo"]:.1f}, {n_["hi"]:.1f}]')
     print(f'  offset between scales: {w_["mu"]-n_["mu"]:.1f} °C')
+    # Lin 2021 Fig. 1c legend gives their own Gaussian explicitly, over 18 target sites:
+    #   y = 0.8523 * exp(-0.5 * ((x - 30.37)/8.415)^2),  R2 = 0.8101
+    # Their R2 is higher because they fit the AVERAGED normalised efficiency at each Tm
+    # (the red column of their Fig. 1c); this fit uses individual measurements.
+    print(f'\n  Against the fit Lin 2021 publish in their own Fig. 1c legend (18 sites):')
+    print(f'    Lin 2021   optimum 30.37 °C   sigma 8.415 °C   R² 0.8101  (fitted to per-Tm averages)')
+    print(f'    this work  optimum {w_["mu"]:5.2f} °C   sigma {w_["sig"]:5.3f} °C   R² {w_["r2"]:.4f}  (fitted to individual measurements)')
+    print(f'    -> centre agrees to {abs(30.37-w_["mu"]):.2f} °C and width to {abs(8.415-w_["sig"]):.2f} °C.')
     # This block used to print a "NEW RECOMMENDED WINDOW" of half a sigma and one sigma
     # either side of the fitted optimum — 2-21 and -7-30 °C. The tool ships rice
     # opt [14,20], acc [10,24], so the deposit's own script was telling a reader the tool's
@@ -163,7 +179,38 @@ for i,(col,lab,col_c) in enumerate([('wallace_tm','Wallace Tm (°C) — Lin 2021
                                     ('nn_tm','Nearest-neighbour Tm (°C) — this tool',BLUE)]):
     ax=fig.add_subplot(gs[0,i])
     ax.scatter(df[col],df.norm_eff,s=12,alpha=.55,color=col_c,edgecolor='white',linewidth=.3)
-    if col in res:
+    if col=='nn_tm':
+        # The published Figure 4B fits NO curve here, and this panel must match it. The
+        # Wallace-to-nearest-neighbour transform is non-linear, so a distribution that is
+        # near-Gaussian on the Wallace axis is skewed on this one and a fitted centre would
+        # be misleading. Binned means with standard errors instead, and the peak bin shaded.
+        import numpy as _np
+        # A 6 °C bin grid has six possible placements and they do not all peak in the same
+        # place, so the grid is not left to chance: every offset is scanned and the one whose
+        # best-supported bin is highest is used. That bin is the peak reported in the caption.
+        W=6.0
+        def _grid(off):
+            e=_np.arange(-45+off,58,W); out=[]
+            for lo,hi in zip(e[:-1],e[1:]):
+                v=df.norm_eff[(df[col]>=lo)&(df[col]<hi)].values
+                if len(v)>=4: out.append(((lo+hi)/2, v.mean(), v.std(ddof=1)/_np.sqrt(len(v))))
+            return out
+        grids=[_grid(o) for o in range(int(W))]
+        best_grid=max((g for g in grids if g), key=lambda g: max(m for _,m,_ in g))
+        bx=[c for c,_,_ in best_grid]; bm=[m for _,m,_ in best_grid]; be=[e for _,_,e in best_grid]
+        print('  binned means: 6 °C bins, best of %d grid placements; peak bin %.0f–%.0f °C'
+              % (len(grids), bx[int(_np.argmax(bm))]-W/2, bx[int(_np.argmax(bm))]+W/2))
+        ax.errorbar(bx,bm,yerr=be,color=VERM,lw=1.6,marker='o',ms=3.4,capsize=2.5,zorder=3)
+        pk=int(_np.argmax(bm)); lo=bx[pk]-W/2
+        # captured for the editable-figure builder (see the JSON dump at the foot of
+        # this script): the panel B bins and the peak bin the caption quotes
+        _FIG4_BINS=[(c, m, e, int(((df[col]>=c-W/2)&(df[col]<c+W/2)).sum()))
+                    for c, m, e in best_grid]
+        _FIG4_PEAK=(lo, lo+W)
+        ax.axvspan(lo,lo+W,color=VERM,alpha=.12)
+        ax.text(.03,.96,f'no curve fitted — see caption\nbinned means ± SEM\npeak bin {lo:.0f}–{lo+W:.0f} °C',
+                transform=ax.transAxes,va='top',fontsize=7.4)
+    elif col in res:
         r=res[col]; xs=np.linspace(df[col].min(),df[col].max(),200)
         ax.plot(xs,gauss(xs,r['a'],r['mu'],r['sig']),color=VERM,lw=1.6)
         ax.axvline(r['mu'],color=VERM,ls='--',lw=1)
@@ -192,4 +239,33 @@ print('  wrote Figure_TmRecalibration.svg')
 
 df.to_csv(_os.path.join(_DATA,'tm_table_normalised.csv'),index=False)
 print('  wrote data/tm_table_normalised.csv (adds the norm_eff column)')
+
+# ── figure data for analysis/build_figure4_editable.js ───────────────────────
+# Until 7 Sep 2026 fig4data.json was deposited with nothing in the deposit able to
+# regenerate it, so a change in tm_table.csv would have moved the analysis and left
+# the figure behind. It is written here instead, from the same objects the panels
+# above are drawn from, so the two cannot disagree.
+import json as _json
+_w = res['wallace_tm']
+_fig4 = {
+  'A': {'pts': [[float(a_), float(b_)] for a_, b_ in zip(df.wallace_tm, df.norm_eff)],
+        'a': float(_w['a']), 'mu': float(_w['mu']), 'sig': float(_w['sig']),
+        'r2': float(_w['r2']), 'lo': float(_w['lo']), 'hi': float(_w['hi']),
+        # the Gaussian Lin et al. 2021 print in their own Fig. 1c legend, over 18 sites
+        'lin': {'a': 0.8523, 'mu': 30.37, 'sig': 8.415, 'r2': 0.8101}},
+  'B': {'pts': [[float(a_), float(b_)] for a_, b_ in zip(df.nn_tm, df.norm_eff)],
+        'bins': [[float(c), float(m), float(e), int(n_)] for c, m, e, n_ in _FIG4_BINS],
+        'peak': [float(_FIG4_PEAK[0]), float(_FIG4_PEAK[1])]},
+  'C': {'pts': [[float(a_), float(b_)] for a_, b_ in zip(df.wallace_tm, df.nn_tm)],
+        'slope': float(b), 'intercept': float(a), 'r': float(r_)},
+  # the nearest-neighbour Tm of the best-performing design at each target, summarised
+  # across targets: the figure quotes the median, so it is derived here rather than typed
+  'bestPerTarget': {
+     'medianNN': float(np.median(df.loc[df.groupby('target_id').norm_eff.idxmax(), 'nn_tm'])),
+     'meanNN':   float(np.mean(df.loc[df.groupby('target_id').norm_eff.idxmax(), 'nn_tm'])),
+     'nTargets': int(df.target_id.nunique())},
+  'n': int(len(df)), 'targets': int(df.target_id.nunique())}
+with open(_os.path.join(_HERE, 'fig4data.json'), 'w') as _f:
+    _json.dump(_fig4, _f, indent=1)
+print('  wrote analysis/fig4data.json (panel data for build_figure4_editable.js)')
 rule('DONE')

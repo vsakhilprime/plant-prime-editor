@@ -1,9 +1,65 @@
 {
   "n_targets_with_3plus_lengths": 13,
+  "lengths_analysed_nt": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "n_distinct_lengths_for_uniform_baseline": 12,
+  "superseded_rule_derivation": {
+    "method": "per target, the PBS length whose nearest-neighbour Tm lies closest to the 30 C figure of Lin 2021; the rule is the interquartile range of that distribution across targets",
+    "nearest_30C_length_per_target": [
+      9,
+      10,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      13,
+      13,
+      13,
+      17,
+      17
+    ],
+    "median_nt": 12,
+    "interquartile_range_nt": "12-13",
+    "full_range_nt": "9-17",
+    "derived_rule": {
+      "rule_nt": "12-13",
+      "width_nt": 2,
+      "targets_inside": 0,
+      "of": 13,
+      "expected_if_uniform": 0.167,
+      "enrichment": 0.0,
+      "targets": []
+    },
+    "legacy_quoted_rule": {
+      "rule_nt": "11-15",
+      "width_nt": 5,
+      "targets_inside": 1,
+      "of": 13,
+      "expected_if_uniform": 0.417,
+      "enrichment": 0.18,
+      "targets": [
+        "OsODEV-T1"
+      ]
+    }
+  },
   "best_length_per_target": {
     "OsAAT-T1": 8,
     "OsACC-T1": 9,
-    "OsALS-T2": 8,
+    "OsALS-T2 (Lin 2021)": 8,
     "OsCDC48-T3": 10,
     "OsEPSPS-T1": 8,
     "OsEPSPS-T2": 8,
@@ -23,8 +79,8 @@
       "targets_inside": 12,
       "of": 13,
       "fraction": 0.923,
-      "expected_if_uniform": 0.308,
-      "enrichment": 3.0
+      "expected_if_uniform": 0.333,
+      "enrichment": 2.77
     },
     {
       "window_nt": "7-11",
@@ -32,8 +88,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.385,
-      "enrichment": 2.6
+      "expected_if_uniform": 0.417,
+      "enrichment": 2.4
     },
     {
       "window_nt": "7-12",
@@ -41,8 +97,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.462,
-      "enrichment": 2.17
+      "expected_if_uniform": 0.5,
+      "enrichment": 2.0
     },
     {
       "window_nt": "8-10",
@@ -50,8 +106,8 @@
       "targets_inside": 12,
       "of": 13,
       "fraction": 0.923,
-      "expected_if_uniform": 0.231,
-      "enrichment": 4.0
+      "expected_if_uniform": 0.25,
+      "enrichment": 3.69
     },
     {
       "window_nt": "8-11",
@@ -59,8 +115,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.308,
-      "enrichment": 3.25
+      "expected_if_uniform": 0.333,
+      "enrichment": 3.0
     },
     {
       "window_nt": "8-12",
@@ -68,8 +124,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.385,
-      "enrichment": 2.6
+      "expected_if_uniform": 0.417,
+      "enrichment": 2.4
     },
     {
       "window_nt": "8-13",
@@ -77,8 +133,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.462,
-      "enrichment": 2.17
+      "expected_if_uniform": 0.5,
+      "enrichment": 2.0
     },
     {
       "window_nt": "9-11",
@@ -86,8 +142,8 @@
       "targets_inside": 9,
       "of": 13,
       "fraction": 0.692,
-      "expected_if_uniform": 0.231,
-      "enrichment": 3.0
+      "expected_if_uniform": 0.25,
+      "enrichment": 2.77
     },
     {
       "window_nt": "9-12",
@@ -95,8 +151,8 @@
       "targets_inside": 9,
       "of": 13,
       "fraction": 0.692,
-      "expected_if_uniform": 0.308,
-      "enrichment": 2.25
+      "expected_if_uniform": 0.333,
+      "enrichment": 2.08
     },
     {
       "window_nt": "6-11",
@@ -104,8 +160,8 @@
       "targets_inside": 13,
       "of": 13,
       "fraction": 1.0,
-      "expected_if_uniform": 0.462,
-      "enrichment": 2.17
+      "expected_if_uniform": 0.5,
+      "enrichment": 2.0
     },
     {
       "window_nt": "10-13",
@@ -113,8 +169,8 @@
       "targets_inside": 6,
       "of": 13,
       "fraction": 0.462,
-      "expected_if_uniform": 0.308,
-      "enrichment": 1.5
+      "expected_if_uniform": 0.333,
+      "enrichment": 1.38
     },
     {
       "window_nt": "11-15",
@@ -122,22 +178,22 @@
       "targets_inside": 1,
       "of": 13,
       "fraction": 0.077,
-      "expected_if_uniform": 0.385,
-      "enrichment": 0.2
+      "expected_if_uniform": 0.417,
+      "enrichment": 0.18
     }
   ],
   "rule_comparison": {
-    "superseded_rule_nt": "11-15",
+    "superseded_rule_nt": "12-13",
+    "superseded_rule_is": "derived (interquartile range of the nearest-30 C length)",
+    "legacy_quoted_rule_nt": "11-15",
     "recalibrated_window_nt": "8-11",
     "targets_whose_best_length_is_inside_the_new_window": 13,
-    "targets_whose_best_length_is_inside_the_old_rule": 1,
-    "inside_both": [
-      "OsODEV-T1"
-    ],
+    "targets_whose_best_length_is_inside_the_old_rule": 0,
+    "inside_both": [],
     "captured_only_by_the_new_window": [
       "OsAAT-T1",
       "OsACC-T1",
-      "OsALS-T2",
+      "OsALS-T2 (Lin 2021)",
       "OsCDC48-T3",
       "OsEPSPS-T1",
       "OsEPSPS-T2",
@@ -145,12 +201,15 @@
       "OsIPA1-T2",
       "OsLDMAR-T1",
       "OsNRT1.1B-T1",
+      "OsODEV-T1",
       "OsPDS-T1",
       "OsROC5-T1"
     ],
     "captured_only_by_the_old_rule": [],
-    "measured_designs_classified_differently": 47,
-    "measured_designs_total": 74,
-    "fraction_reclassified": 0.635
+    "measured_designs_classified_differently": 43,
+    "measured_designs_total": 73,
+    "fraction_reclassified": 0.589,
+    "measured_designs_classified_differently_vs_legacy_rule": 47,
+    "fraction_reclassified_vs_legacy_rule": 0.644
   }
 }

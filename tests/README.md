@@ -11,7 +11,7 @@ engine directly — the tests run against the file that is served, not a copy of
 Expected output:
 
 ```
-26 passed, 0 failed
+31 passed, 0 failed
 ```
 
 To test a different build: `node tests/run_all.js path/to/other.html`, or set `PPE_HTML`.
@@ -34,7 +34,12 @@ failure fails the suite — `audit_pe3.js` was matched by a looser pattern until
 | `audit_geom3.js` | rebuilds the primer-binding site for every published pegRNA in `data/targets_verified.csv` from genomic sequence alone | **144 of 146 published primer-binding sites reproduce exactly**, 97/98 on the plus strand and 47/48 on the minus. The two exceptions are documented PDF-parsing truncations in the source tables, not tool errors |
 | `audit_rt.js` | reverse-complements each generated reverse-transcriptase template back onto the genome and checks the resulting flap | **42 of 42** — the flap differs from wild type at exactly one position, that position is the one requested, and the base is the one requested, on both strands at six nick-to-edit distances |
 | `audit_indel2.js` | insertions and deletions on both strands | the flap equals the wild-type window with the edit applied, exactly |
-| `audit_pe3.js` | PE3 and PE3b nick sgRNA strand selection | PE3 candidates land on the non-edited strand, PE3b on the edited strand, and none is offered when no PAM-disrupting spacer exists |
+| `audit_tooltable.js` | the head-to-head comparison exists twice on disk — `data/tool_comparison.csv` and `data/all_tools.json` — and every field they share must agree, every row must appear in both, and every tool must carry a recorded version. It found seven PRIDICT designs present in the JSON and in Supplementary Table S9 but absent from the CSV |
+| `audit_routes.js` | the six assembly routes and the vector overhangs, against Supplementary Table S7: which primers each route actually emits (the enzyme-swap routes drop P1 and add their own pair; one-step Gibson emits the P_OS trio; gBlock emits the synthesised insert and three Gibson primers), and that the guide overhangs are per-vector rather than per-enzyme — four distinct pairs across the 12 BsaI vectors, and no vector with the CGTG overhang the table used to claim |
+| `audit_fuzz.js` | randomised end-to-end check: 300 random sequences with a random edit of a random class on a random strand, plus 300 more for PE3b. Asserts that the engine never throws, that every RT template read back onto the top strand is found in the *edited* genome, that every primer-binding site is the reverse complement of the bases immediately 5′ of the nick read from the *reference*, and that every PE3b candidate obeys its own rule. Seeded, so a failure is reproducible |
+| `audit_mnp.js` | multi-base substitutions | a same-length ref→alt of any length is applied as a replacement, not spliced in as an insertion: the template keeps the window's length, exactly the requested bases change, and a substitution the window would clip is warned about. Insertions and deletions still change length as they should |
+| `audit_pe3.js` | PE3 and PE3b nick sgRNA rules | both systems nick the non-edited strand; a PE3b spacer is read from the edited sequence, carries the edit inside its protospacer and leaves its PAM intact; a seed-region edit outranks a PAM-distal one; an indel is refused rather than guessed; and when nothing is returned the test establishes independently that nothing qualifies |
+| `audit_pair.js` | the primer-binding site and RT template judged together | a clean pair is silent; a low-band pair raises one warning naming the energy and says whether any other candidate escapes it; degenerate input does not throw; selection is unchanged |
 | `test_organism_detection.js` | species detection from 13 real FASTA and GenBank header formats | monocots and dicots are called correctly, and a header with no species returns "unknown" rather than guessing |
 | `test_same_codon_variants.js` | two nucleotide changes inside one codon, against the tool's own `getCodonContext` | codon framing is right, and two variants in one codon agree on one reference codon and one amino-acid position. **Rewritten 23 Aug 2026** — the previous version never loaded the tool at all: it re-implemented the logic locally and asserted nothing, and ran to completion against a non-existent file |
 | `test_acceptor_overhangs.js` | re-derives every acceptor's Golden Gate overhangs from `data/vector_sequences.json` by simulating the digestion | the overhangs in the tool have not drifted from the sequence they were read off |

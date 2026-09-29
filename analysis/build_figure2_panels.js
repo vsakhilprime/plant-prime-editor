@@ -71,10 +71,35 @@ const PANEL_A_IDS = ['S10', 'S11', 'S8', 'S7', 'S12'];
 const panelA = PANEL_A_IDS.map(id => {
   const c = candA.find(x => x.id === id);
   if (!c) throw new Error('panel A: candidate ' + id + ' is no longer returned — the panel needs rebuilding, not re-stamping');
+  // TERM DECOMPOSITION (added 3 Sep 2026). The figure draws one segment per scoring
+  // term, and until now those segments were not derived here — which is how the panel
+  // came to carry a legend that swapped the poly-T and ΔG colours, and drew the −80
+  // wrong-side penalty in the seed-GC colour. The bands below mirror findSpacers, and
+  // the assertion under them fails loudly if the two ever drift apart, so a wrong figure
+  // cannot be drawn silently.
+  const d = c.dist, ok = c.isCorrectSide, G = c.gc_pct;
+  const seedGC = run('m2_gc(__a)', c.spacer.slice(8));
+  const distScore = !ok ? -80
+                  : (d >= 3 && d <= 15) ? 50
+                  : (d <= 25) ? 35
+                  : (d <= 34) ? 15
+                  : (d <= 50) ? 0 : -30;
+  const gcScore   = (G >= 45 && G <= 60) ? 20 : (G >= 40 && G <= 65) ? 14 : (G >= 30 && G <= 75) ? 7 : 2;
+  const seedScore = (seedGC >= 35 && seedGC <= 60) ? 10 : (seedGC <= 75) ? 5 : 1;
+  const polyT     = /TTTT/.test(c.spacer) ? -25 : 0;
+  const sum       = distScore + gcScore + seedScore + polyT;   // gStart is 0 by design
+  const rebuilt   = Math.min(99, Math.max(1, sum));
+  if (rebuilt !== c.rawScore) {
+    throw new Error('panel A: term decomposition for ' + c.id + ' rebuilds ' + rebuilt +
+      ' but findSpacers returns ' + c.rawScore + '. The scoring bands changed; update this script.');
+  }
   return {
     id: c.id, spacer: c.spacer, pam: c.pam, strand: c.strand,
-    nick_edit_dist: c.dist,
-    raw_score: c.rawScore,          // distance + GC + seed GC + poly-T penalty
+    nick_edit_dist: c.dist, correctSide: ok, gc: G, seedGC: seedGC,
+    distScore: distScore, gcScore: gcScore, seedScore: seedScore, polyT: polyT,
+    sum: sum,                       // may be negative; the panel shows the 1–99 floor
+    clamped: sum !== rebuilt,
+    raw_score: c.rawScore,          // distance + GC + seed GC + poly-T penalty, clamped
     dG_penalty: -c.structPenalty,   // the ΔG term, subtracted from raw
     total: c.score,                 // what the interface ranks on
     dG_worst: c.dGworst, struct_risk: c.structRisk
@@ -91,6 +116,7 @@ const HM_MIN = 8, HM_MAX = 22;
 // The RT template the heatmap reports against: genPBS picks the PBS, genRT is
 // then given it. The heatmap uses rtCandidates[0], so this reproduces that.
 const rtPick = run(`(function(){
+  _PPE_TM_BAND_KEY = __a.band || 'rice';   // FIX SPECIES-BAND (12 Sep 2026)
   var pbs = genPBS(__a.seq, __a.np, '+', 8, 22, __a.spacer, false);
   var top = pbs && pbs[0] ? pbs[0].seq : '';
   var rt  = genRT(__a.seq, __a.np, __a.edits, '+', 10, 30, __a.spacer, top);

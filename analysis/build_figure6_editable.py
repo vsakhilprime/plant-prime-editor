@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 """
+build_figure6_editable.py — SUPERSEDED 7 September 2026 by
+analysis/build_figure6_editable.js, which derives the same values and draws the
+figure as a standalone slide with a layout audit. This script is kept because it
+writes into the combined Figures deck rather than a standalone file; if you edit
+one, edit both, or retire this one. Two builders for one figure is how a panel
+drifts away from its data.
+
+Original header follows.
+
 build_figure6_editable.py — redraw Figure 6 as native PowerPoint shapes.
 
 Figure 6 was the last placed image among the main figures, and the only display item whose

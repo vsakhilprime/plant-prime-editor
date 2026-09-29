@@ -59,8 +59,10 @@ def _find_deck(here):
                  os.path.join(here, '..', 'docs', 'Figures_PlantPrimeEditor.pptx')):
         if os.path.exists(cand):
             return cand
-    raise SystemExit('  figure deck not found. Pass its path as the first argument, or\n'
-                     '  place Figures_PlantPrimeEditor.pptx in docs/.')
+    sys.path.insert(0, os.path.join(here, 'lib'))
+    sys.path.insert(0, here)
+    from lib.need_deck import find_or_explain
+    return find_or_explain('build_editable_figures.py', extra_candidates=())
 
 
 DECK = _find_deck(HERE)
@@ -471,7 +473,14 @@ def panel_D(slide, x0, y0, w, h, feats):
 
 
 def figS4(slide, loto):
-    """A: best measured length vs leave-one-out optimum.  B: out-of-sample rho per target."""
+    """A: best measured length vs leave-one-out optimum.  B: out-of-sample rho per target.
+
+    SUPERSEDED by analysis/build_figureS4_editable.js, which derives every value from
+    data/tm_table.csv rather than reading loto.json and hard-coding the summary text,
+    and which separates the in-sample count from the two out-of-sample tests. This
+    function is kept because it draws the panel into the combined Figures deck; its
+    numbers are now correct but static. Edit both or retire this one.
+    """
     argmax = loto['argmax']          # [target, best_measured, loto_optimum, n_lengths]
     rank   = loto['ranking']         # [target, rho, n_lengths]
     GREEN  = TOOL_COLOUR['Plant Prime Editor']
@@ -526,9 +535,11 @@ def figS4(slide, loto):
     line(slide, x0 + 2.24, ly + 0.005, x0 + 2.24, ly + 0.145, colour=INK, lw=1.5)
     text(slide, x0 + 2.32, ly, 2.7, 0.18, 'leave-one-out optimum', size=7.8, colour=INK)
     text(slide, x0, ly + 0.24, w, 0.36,
-         'All 13 best lengths fall inside 8–11 nt; binomial P = 2 × 10⁻⁷ against lengths drawn '
-         'uniformly from the 5–17 nt range tested. The withheld target contributed nothing to '
-         'the value used to predict it.', size=7.6, colour=MUTED)
+         'All 13 best lengths fall inside 8–11 nt; binomial P = 6 × 10⁻⁷ against a uniform draw '
+         'over the 12 lengths in the 6–17 nt range tested. That window was chosen as the '
+         'narrowest one retaining every target, so the count describes the fit rather than '
+         'testing it; analysis/build_figureS4_editable.js draws the out-of-sample versions.',
+         size=7.6, colour=MUTED)
 
     # ── B ───────────────────────────────────────────────────────────────────
     x1, w1 = 7.00, 5.90
@@ -566,9 +577,9 @@ def figS4(slide, loto):
     line(slide, x1 + 0.10, ly2 + 0.005, x1 + 0.10, ly2 + 0.145, colour=GREEN, lw=1.2, dash=True)
     text(slide, x1 + 0.18, ly2, 2.4, 0.18, 'median ρ = %.2f' % med, size=7.8, colour=INK)
     text(slide, x1, ly2 + 0.24, w1, 0.36,
-         'Positive at every one of the eleven targets with four or more lengths tested; '
-         'sign test P = 5 × 10⁻⁴. OsIPA1-T1 is excluded: a single measurement gives no best '
-         'length to predict.', size=7.6, colour=MUTED)
+         'Positive at every one of the ten targets with four or more analysed lengths; '
+         'one-sided sign test P = 1 × 10⁻³. OsIPA1-T1 is excluded: a single measurement gives '
+         'no best length to predict.', size=7.6, colour=MUTED)
 
 
 def main():

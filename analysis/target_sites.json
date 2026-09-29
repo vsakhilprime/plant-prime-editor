@@ -1,0 +1,692 @@
+{
+  "_why": "A target site is a protospacer in a genomic window; a label is a name a study gave it. They are not one-to-one. Key on the site, display the label. Labels listed under \"ambiguous_labels\" name two different protospacers and CANNOT be resolved without the row: use siteOfRow/siteOfSpacer, not siteOf.",
+  "generated": "2026-09-19T09:26:17Z",
+  "generated_by": "analysis/build_target_sites.py",
+  "keyed_on": "protospacer; verified that every protospacer occupies exactly one genomic window and is assigned to at most one species across every deposited file that names one",
+  "supersedes": "analysis/als_sites.json, which registered the OsALS pair and no other",
+  "n_sites": 35,
+  "n_labels": 34,
+  "aliases": {
+    "OsAAT-T1": [
+      "OsAAT"
+    ],
+    "OsALS-T2 (Lin 2021)": [
+      "OsALS-T1 (Lin 2020)"
+    ],
+    "OsEPSPS-T2": [
+      "OsEPSPS-T1"
+    ],
+    "OsGAPDH": [
+      "OsGAPDH-T1"
+    ]
+  },
+  "ambiguous_labels": {
+    "OsEPSPS-T1": [
+      "OsEPSPS-T1",
+      "OsEPSPS-T2"
+    ],
+    "OsCDC48-T3": [
+      "OsCDC48-T3 (site A)",
+      "OsCDC48-T3 (site B)"
+    ],
+    "SlOr": [
+      "SlOr (site A)",
+      "SlOr (site B)"
+    ],
+    "SlCAB13": [
+      "SlCAB13 (site A)",
+      "SlCAB13 (site B)"
+    ],
+    "SlWH9": [
+      "SlWH9 (site A)",
+      "SlWH9 (site B)"
+    ]
+  },
+  "label_to_site": {
+    "OsACC-T1": "OsACC-T1",
+    "OsPDS-T1": "OsPDS-T1",
+    "OsALS-T1 (Lin 2020)": "OsALS-T2 (Lin 2021)",
+    "OsALS-T2 (Lin 2021)": "OsALS-T2 (Lin 2021)",
+    "OsEPSPS-T2": "OsEPSPS-T2",
+    "OsAAT": "OsAAT-T1",
+    "OsAAT-T1": "OsAAT-T1",
+    "OsGAPDH": "OsGAPDH",
+    "OsGAPDH-T1": "OsGAPDH",
+    "OsIPA1-T2": "OsIPA1-T2",
+    "OsNRT1.1B-T1": "OsNRT1.1B-T1",
+    "OsROC5-T1": "OsROC5-T1",
+    "OsALS-T2 (Lin 2020)": "OsALS-T2 (Lin 2020)",
+    "OsCDC48-T1": "OsCDC48-T1",
+    "OsCDC48-T2": "OsCDC48-T2",
+    "OsDEP1": "OsDEP1",
+    "TaGW2": "TaGW2",
+    "TaUbi10-T1": "TaUbi10-T1",
+    "TaUbi10-T2": "TaUbi10-T2",
+    "TaMLO": "TaMLO",
+    "TaGASR7": "TaGASR7",
+    "SlALS1": "SlALS1",
+    "SlCENH3": "SlCENH3",
+    "SlHKT1;2": "SlHKT1;2",
+    "SlEPSPS1": "SlEPSPS1",
+    "SlMBP21": "SlMBP21",
+    "SlDMR6": "SlDMR6",
+    "SlPRD": "SlPRD",
+    "SlRPS23.2": "SlRPS23.2"
+  },
+  "sites": [
+    {
+      "id": "OsCDC48-T3 (site B)",
+      "gene": "OsCDC48",
+      "species": "",
+      "spacer": "TAGCACCCATGACAATGACA",
+      "pam": "TGG",
+      "window": "05c30eb95c",
+      "labels": [
+        "OsCDC48-T3"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsPDS-T1",
+      "gene": "OsPDS",
+      "species": "",
+      "spacer": "GTTGGTCTTTGCTCCTGCAG",
+      "pam": "AGG",
+      "window": "02487695c3",
+      "labels": [
+        "OsPDS-T1"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsROC5-T1",
+      "gene": "OsROC5",
+      "species": "",
+      "spacer": "AGAAATGTAACCTCCCTAAT",
+      "pam": "TGG",
+      "window": "02e2ac3489",
+      "labels": [
+        "OsROC5-T1"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlCAB13 (site A)",
+      "gene": "SlCAB13",
+      "species": "",
+      "spacer": "ATTGTGCAAGAAACTTAGTG",
+      "pam": "",
+      "window": "7117bd1f8b",
+      "labels": [
+        "SlCAB13"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlCAB13 (site B)",
+      "gene": "SlCENH3",
+      "species": "",
+      "spacer": "TCTCGAAGTGCCACTGTCCC",
+      "pam": "",
+      "window": "44c5279069",
+      "labels": [
+        "SlCAB13"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlEPSPS1",
+      "gene": "SlEPSPS1",
+      "species": "",
+      "spacer": "CAACTATTCCTTGGAAATGC",
+      "pam": "",
+      "window": "49fc1e1b55",
+      "labels": [
+        "SlEPSPS1"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlWH9 (site A)",
+      "gene": "SlEPSPS1",
+      "species": "",
+      "spacer": "ACAGTAACTGCTGCTGTCAA",
+      "pam": "",
+      "window": "d5aef78f82",
+      "labels": [
+        "SlWH9"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlHKT1;2",
+      "gene": "SlHKT1;2",
+      "species": "",
+      "spacer": "ATCATCATGTTTTCATTTGT",
+      "pam": "",
+      "window": "88f4c6f93e",
+      "labels": [
+        "SlHKT1;2"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlMBP21",
+      "gene": "SlMBP21",
+      "species": "",
+      "spacer": "AGCTCCTTCAACGTTCTCAA",
+      "pam": "",
+      "window": "a31963125f",
+      "labels": [
+        "SlMBP21"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlPRD",
+      "gene": "SlPRD",
+      "species": "",
+      "spacer": "AGAAAAACCAGATGCTGGAA",
+      "pam": "",
+      "window": "e667cf33d2",
+      "labels": [
+        "SlPRD"
+      ],
+      "studies": [],
+      "seen_in": [
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsAAT-T1",
+      "gene": "OsAAT",
+      "species": "Oryza sativa",
+      "spacer": "CAAGGATCCCAGCCCCGTGA",
+      "pam": "AGG",
+      "window": "06a48c6502",
+      "labels": [
+        "OsAAT",
+        "OsAAT-T1"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsACC-T1",
+      "gene": "OsACC",
+      "species": "Oryza sativa",
+      "spacer": "TTCCTCGTGCTGGACAAGTG",
+      "pam": "TGG",
+      "window": "78ff0b2f1b",
+      "labels": [
+        "OsACC-T1"
+      ],
+      "studies": [
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsALS-T2 (Lin 2020)",
+      "gene": "OsALS",
+      "species": "Oryza sativa",
+      "spacer": "GTGCTGCCTATGATCCCAAG",
+      "pam": "TGG",
+      "window": "0d89562287",
+      "labels": [
+        "OsALS-T2 (Lin 2020)"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsALS-T2 (Lin 2021)",
+      "gene": "OsALS",
+      "species": "Oryza sativa",
+      "spacer": "GGGTATGGTGGTGCAATGGG",
+      "pam": "AGG",
+      "window": "24ffb3b1aa",
+      "labels": [
+        "OsALS-T1 (Lin 2020)",
+        "OsALS-T2 (Lin 2021)"
+      ],
+      "studies": [
+        "Lin2020_S1",
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsCDC48-T1",
+      "gene": "OsCDC48",
+      "species": "Oryza sativa",
+      "spacer": "GCTAGCTTTGACATAATCTC",
+      "pam": "CGG",
+      "window": "dd465bca85",
+      "labels": [
+        "OsCDC48-T1"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsCDC48-T2",
+      "gene": "OsCDC48",
+      "species": "Oryza sativa",
+      "spacer": "GACCAGCCAGCGTCTGGCGC",
+      "pam": "CGG",
+      "window": "3454ab2dea",
+      "labels": [
+        "OsCDC48-T2"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsCDC48-T3 (site A)",
+      "gene": "OsCDC48",
+      "species": "Oryza sativa",
+      "spacer": "GAAGGGGTCAGCGGCGGCGC",
+      "pam": "CGG",
+      "window": "0a74842913",
+      "labels": [
+        "OsCDC48-T3"
+      ],
+      "studies": [
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsDEP1",
+      "gene": "OsDEP1",
+      "species": "Oryza sativa",
+      "spacer": "GTGGGTTTGTTTCTAGCTCA",
+      "pam": "AGG",
+      "window": "74f5f82415",
+      "labels": [
+        "OsDEP1"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsEPSPS-T1",
+      "gene": "OsEPSPS",
+      "species": "Oryza sativa",
+      "spacer": "GCAGTCACGGCTGCTGTCAA",
+      "pam": "TGG",
+      "window": "0ddf61b83f",
+      "labels": [
+        "OsEPSPS-T1"
+      ],
+      "studies": [
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsEPSPS-T2",
+      "gene": "OsEPSPS",
+      "species": "Oryza sativa",
+      "spacer": "TACTAAATATACAATCCCTT",
+      "pam": "GGG",
+      "window": "9398c4c2cd",
+      "labels": [
+        "OsEPSPS-T1",
+        "OsEPSPS-T2"
+      ],
+      "studies": [
+        "Lin2020_S1",
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsGAPDH",
+      "gene": "OsGAPDH",
+      "species": "Oryza sativa",
+      "spacer": "GAGTATGTCGTGGAGTCCAC",
+      "pam": "CGG",
+      "window": "26a59a63dd",
+      "labels": [
+        "OsGAPDH",
+        "OsGAPDH-T1"
+      ],
+      "studies": [
+        "Lin2020_S1",
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsIPA1-T2",
+      "gene": "OsIPA1",
+      "species": "Oryza sativa",
+      "spacer": "CTCTTCTGTCAACCCAGCCA",
+      "pam": "TGG",
+      "window": "5c5bd77234",
+      "labels": [
+        "OsIPA1-T2"
+      ],
+      "studies": [
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "OsNRT1.1B-T1",
+      "gene": "OsNRT1.1B",
+      "species": "Oryza sativa",
+      "spacer": "CTTGATTTGACCTACCTTAA",
+      "pam": "TGG",
+      "window": "12740ccfec",
+      "labels": [
+        "OsNRT1.1B-T1"
+      ],
+      "studies": [
+        "Lin2021_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlALS1",
+      "gene": "SlALS1",
+      "species": "Solanum lycopersicum",
+      "spacer": "CTATTACAGGTCAAGTGCCA",
+      "pam": "NGG",
+      "window": "e3ed421073",
+      "labels": [
+        "SlALS1"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlOr (site B)",
+      "gene": "SlALS1",
+      "species": "Solanum lycopersicum",
+      "spacer": "TCAGTACCAATCATCCTCCT",
+      "pam": "NGG",
+      "window": "1060e72289",
+      "labels": [
+        "SlOr"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlCENH3",
+      "gene": "SlCENH3",
+      "species": "Solanum lycopersicum",
+      "spacer": "AAAAGAAGCGTTACAGGCCA",
+      "pam": "NGG",
+      "window": "3d5441e12f",
+      "labels": [
+        "SlCENH3"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlDMR6",
+      "gene": "SlDMR6",
+      "species": "Solanum lycopersicum",
+      "spacer": "TAGAGAAGTATGCTCCTGAA",
+      "pam": "NGG",
+      "window": "098dfb0810",
+      "labels": [
+        "SlDMR6"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlOr (site A)",
+      "gene": "SlOr",
+      "species": "Solanum lycopersicum",
+      "spacer": "GAGATAATATTAGAAGTAGG",
+      "pam": "NGG",
+      "window": "23e1df72bb",
+      "labels": [
+        "SlOr"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlRPS23.2",
+      "gene": "SlRPS23.2",
+      "species": "Solanum lycopersicum",
+      "spacer": "CATTTACGAATAGCAGAATT",
+      "pam": "NGG",
+      "window": "de3d3943a0",
+      "labels": [
+        "SlRPS23.2"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "SlWH9 (site B)",
+      "gene": "SlWH9",
+      "species": "Solanum lycopersicum",
+      "spacer": "CTTGAAGCAATCTTTAATTC",
+      "pam": "NGG",
+      "window": "ff40c88b6c",
+      "labels": [
+        "SlWH9"
+      ],
+      "studies": [
+        "Vu 2024"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "TaGASR7",
+      "gene": "TaGASR7",
+      "species": "Triticum aestivum",
+      "spacer": "GCCGGGCACCTACGGCAACA",
+      "pam": "AGG",
+      "window": "b97f180368",
+      "labels": [
+        "TaGASR7"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "TaGW2",
+      "gene": "TaGW2",
+      "species": "Triticum aestivum",
+      "spacer": "CACAAGAAAATCCACCAGGA",
+      "pam": "TGG",
+      "window": "a78530232f",
+      "labels": [
+        "TaGW2"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "CaseStudy_Targets.csv",
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "TaMLO",
+      "gene": "TaMLO",
+      "species": "Triticum aestivum",
+      "spacer": "GGAGATTGGGTCCTGCGTGA",
+      "pam": "CGG",
+      "window": "b986e49cde",
+      "labels": [
+        "TaMLO"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "TaUbi10-T1",
+      "gene": "TaUbi10",
+      "species": "Triticum aestivum",
+      "spacer": "GCGTATGTATGAAACTGTAC",
+      "pam": "AGG",
+      "window": "3e68eabae2",
+      "labels": [
+        "TaUbi10-T1"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    },
+    {
+      "id": "TaUbi10-T2",
+      "gene": "TaUbi10",
+      "species": "Triticum aestivum",
+      "spacer": "GCTGGTGCAACTGGTGGCCC",
+      "pam": "AGG",
+      "window": "4bb1f6ae61",
+      "labels": [
+        "TaUbi10-T2"
+      ],
+      "studies": [
+        "Lin2020_S1"
+      ],
+      "seen_in": [
+        "benchmark_scored.csv",
+        "targets_verified.csv"
+      ]
+    }
+  ]
+}

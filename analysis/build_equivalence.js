@@ -28,8 +28,13 @@
    bench protocol. A change confined to Module 3's cloning outputs therefore shows
    0 differing here and is still a real change — that is exactly what happened on
    23 August 2026 when the gBlock's restriction sites were corrected from BsaI to
-   the vector's own enzyme. tests/test_gblock_and_scorers.js and
-   tests/test_primer_roundtrip.js are what guard that side.
+   the vector's own enzyme, and again on 27 September 2026 when the Module 3 audit
+   rebuilt the pegRNA-2 cassette, P_BsmBI_Rev and P_Esp3I_Rev and stopped the gBlock
+   appending a terminator on the three acceptors that supply their own 3' end: that
+   change altered the oligonucleotides a user orders on 10 of the 15 vectors and this
+   harness reported 0 of 108,912 computed fields differing, exactly as documented here.
+   tests/test_gblock_and_scorers.js, tests/test_primer_roundtrip.js and
+   analysis/check_module3_primers.js are what guard that side.
 
    USAGE
      node analysis/build_equivalence.js <old.html> [new.html]
@@ -114,9 +119,25 @@ const PLANTS = [['monocot', 'rice'], ['monocot', 'wheat'], ['dicot', 'tomato'], 
 // A scoring change touching 194 of 411 cases, reported as identical. The classification
 // is now per LEAF, not per subtree: inside these containers, `label` is advisory and
 // every number is computed.
+// A third correction, 27 September 2026, and the mirror image of the first. The specificity
+// honesty patch added four PROSE keys to what computeSpacerSpecificity returns -- `method`,
+// `varying_terms`, `constant_terms` and `observed_range`, the sentences that say which terms
+// move the score and which are a fixed baseline. None of them is in this set, so the harness
+// reported 135 of 411 cases "differing on a COMPUTED VALUE" for a change that altered no
+// number at all:
+//
+//     old [0].otMeta.gcSpec=55
+//     new [0].otMeta.constant_terms="CFD mismatch weights (40%) and seed-weight ..."
+//
+// Both records carry the same fourteen numeric keys and the same values; only the prose
+// differs. Left uncorrected this masks the reverse failure -- once "135 differ" is the
+// expected output, a real scoring change hides inside it. `observed_range` is a description
+// of the scorer's range, identical for every spacer, so it cannot conceal a per-design
+// change either.
 const ADVISORY = new Set(['warnings', 'warns', 'spWarns', 'warning', 'advice', 'note', 'notes',
                           'details', 'otDetails', 'label', 'otLabel',
-                          'otColor', 'color', 'bg', 'txtC', 'src']);
+                          'otColor', 'color', 'bg', 'txtC', 'src',
+                          'method', 'varying_terms', 'constant_terms', 'observed_range']);
 
 // Containers whose CHILDREN must be classified individually rather than skipped whole.
 // Anything reached inside one of these is compared as a computed value unless its own

@@ -1,5 +1,5 @@
 target_id,species,gene,strand,published_spacer,pam,published_edit,n_published_pegRNAs,window_nt,source,what_it_tests
-OsALS-T2,rice,OsALS,+,GGGTATGGTGGTGCAATGGG,AGG,+1 G to T,25,600,Lin2021_S1,"single substitution, plus strand; reference case already computed headlessly"
+OsALS-T2 (Lin 2021),rice,OsALS,+,GGGTATGGTGGTGCAATGGG,AGG,+1 G to T,25,600,Lin2021_S1,"single substitution, plus strand; reference case already computed headlessly"
 OsEPSPS-T1,rice,OsEPSPS,-,GCAGTCACGGCTGCTGTCAA,TGG,+6 G to A,10,600,Lin2021_S1,"single substitution, MINUS strand — where design tools most often diverge"
 OsCDC48-T2,rice,OsCDC48,+,GACCAGCCAGCGTCTGGCGC,CGG,+2 AAA ins,17,600,Lin2020_S1,3 nt insertion — insertion path
 OsCDC48-T1,rice,OsCDC48,-,GCTAGCTTTGACATAATCTC,CGG,+1-6 CTCCGG del,24,600,Lin2020_S1,6 nt deletion — deletion path

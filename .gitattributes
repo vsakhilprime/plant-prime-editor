@@ -1,0 +1,26 @@
+# Line endings, settled once so they stop showing up as changes.
+#
+# The analyses are written on Linux and the repository is worked on from Windows, where Git is
+# configured with core.autocrlf=true. Without this file every text file can appear modified
+# after a copy from one to the other — a diff of hundreds of files in which nothing has
+# actually changed, and which buries the handful of real edits.
+#
+# text=auto eol=lf stores LF in the repository and checks LF out, so both sides agree.
+* text=auto eol=lf
+
+# Binary files must never be line-ending converted; doing so corrupts them.
+*.pptx  binary
+*.docx  binary
+*.xlsx  binary
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+
+# SVG and CSV are text and should be diffable.
+*.svg   text
+*.csv   text

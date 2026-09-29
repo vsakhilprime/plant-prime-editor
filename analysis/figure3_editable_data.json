@@ -1,0 +1,423 @@
+{
+ "build": "9e8d276b",
+ "generated_by": "analysis/build_figure3_editable.js",
+ "panelA": {
+  "locus": "OsALS-T2 (Lin 2021)",
+  "pe": "PE2",
+  "vector": "pYPQ166-OsPE2",
+  "vectorName": "pYPQ166-OsPE2 (Rice/Wheat)",
+  "enzyme": "BsmBI",
+  "ggNotPublished": false,
+  "insertLen": 128,
+  "scafLen": 76,
+  "polyTLen": 6,
+  "backboneEnzymes": [
+   "HindIII",
+   "EcoRI",
+   "BamHI",
+   "SalI",
+   "KpnI",
+   "XbaI",
+   "NcoI",
+   "SpeI",
+   "NheI"
+  ],
+  "routes": [
+   {
+    "id": "gg",
+    "name": "BsmBI Golden Gate",
+    "enz": "BsmBI",
+    "chem": "Type IIS"
+   },
+   {
+    "id": "bsmbi",
+    "name": "BsmBI cassette swap",
+    "enz": "BsmBI",
+    "chem": "Type IIS"
+   },
+   {
+    "id": "esp3i",
+    "name": "Esp3I (BsmBI isoschizomer)",
+    "enz": "Esp3I",
+    "chem": "Type IIS"
+   },
+   {
+    "id": "onestep_gibson",
+    "name": "One-step PCR + Gibson",
+    "enz": null,
+    "chem": "homologous recombination"
+   },
+   {
+    "id": "gblock",
+    "name": "gBlock + Gibson",
+    "enz": null,
+    "chem": "homologous recombination"
+   },
+   {
+    "id": "infusion",
+    "name": "In-Fusion HD",
+    "enz": null,
+    "chem": "homologous recombination"
+   }
+  ],
+  "cases": [
+   {
+    "label": "worked example",
+    "detail": "rice OsALS-T2 (Lin 2021) insert, unmodified",
+    "ins": "ATTTGGGTATGGTGGTGCAAGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGCACCTATCCTCCAATTGCACCACCATATTTTTT",
+    "hits": [],
+    "critical": [],
+    "blocked": [],
+    "bestId": "gg",
+    "bestName": "BsmBI Golden Gate",
+    "advisory": []
+   },
+   {
+    "label": "planted control",
+    "detail": "CGTCTC planted in the RT template",
+    "ins": "GACCAGCTCGGCAAGTTCTAGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGCTTCCGTCTCGAGCTCAGCTGACCCTGGCTGCAT",
+    "hits": [
+     {
+      "name": "BsmBI",
+      "seq": "CGTCTC",
+      "pos": 99,
+      "strand": "+",
+      "critical": true
+     }
+    ],
+    "critical": [
+     "BsmBI"
+    ],
+    "blocked": [
+     "gg",
+     "bsmbi",
+     "esp3i"
+    ],
+    "bestId": "onestep_gibson",
+    "bestName": "One-step PCR + Gibson",
+    "advisory": []
+   }
+  ],
+  "ranking": [
+   {
+    "id": "ePE2-rice",
+    "name": "ePE2",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "202029",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE3",
+     "PE3b",
+     "PE4",
+     "PE5",
+     "PE5b",
+     "twinPE"
+    ],
+    "promoter": "OsU6-2 (pegRNA cassette 1)"
+   },
+   {
+    "id": "pYPQ166-OsPE2",
+    "name": "pYPQ166-OsPE2 (Rice/Wheat)",
+    "plant": "monocot",
+    "enzyme": "BsmBI",
+    "addgene": "141080",
+    "pe": [
+     "PE2",
+     "PE3"
+    ],
+    "promoter": "Pol III promoter of pYPQ141D (identity not established from the deposited sequence)"
+   },
+   {
+    "id": "pEPPE-mono",
+    "name": "ePPE (Monocot, protoplast)",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "183095",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE4",
+     "ePPE"
+    ],
+    "promoter": "OsU6-2"
+   },
+   {
+    "id": "pH-ePPE",
+    "name": "pH-ePPE",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "183097",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE4",
+     "ePPE"
+    ],
+    "promoter": "OsU6-2"
+   },
+   {
+    "id": "nCas9-PPE",
+    "name": "nCas9-PPE",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "140445",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE4"
+    ],
+    "promoter": "none on this plasmid -- the guide is cloned into QPM-sgR (pTaU3), Addgene 140448"
+   },
+   {
+    "id": "pH-nCas9-PPE",
+    "name": "pH-nCas9-PPE",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "140447",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE4"
+    ],
+    "promoter": "OsU3"
+   },
+   {
+    "id": "pSpG-PPE",
+    "name": "pSpG-PPE",
+    "plant": "monocot",
+    "enzyme": "BsaI",
+    "addgene": "170130",
+    "pe": [
+     "PE2",
+     "PE2max",
+     "PE4"
+    ],
+    "promoter": "none on this plasmid -- the guide is cloned into pOsU3, Addgene 170132"
+   }
+  ],
+  "library": {
+   "total": 15,
+   "published": 11,
+   "inHouse": 4,
+   "dicot": 6,
+   "monocot": 9
+  },
+  "naturalAdvisory": [
+   {
+    "locus": "OsEPSPS-T2",
+    "enzyme": "NcoI",
+    "pos": 105,
+    "cloning": false
+   },
+   {
+    "locus": "OsGAPDH-T1",
+    "enzyme": "BbsI",
+    "pos": 97,
+    "cloning": true
+   },
+   {
+    "locus": "OsAAT",
+    "enzyme": "BamHI",
+    "pos": 3,
+    "cloning": false
+   },
+   {
+    "locus": "OsCDC48-T1",
+    "enzyme": "NheI",
+    "pos": 0,
+    "cloning": false
+   },
+   {
+    "locus": "OsGAPDH",
+    "enzyme": "BbsI",
+    "pos": 97,
+    "cloning": true
+   }
+  ]
+ },
+ "panelB": {
+  "locus": "OsALS-T2 (Lin 2021)",
+  "pe": "PE2",
+  "vector": "pYPQ166-OsPE2",
+  "segments": [
+   [
+    "spacer",
+    20
+   ],
+   [
+    "sgRNA scaffold",
+    76
+   ],
+   [
+    "RT template",
+    16
+   ],
+   [
+    "PBS",
+    10
+   ],
+   [
+    "poly-T",
+    6
+   ]
+  ],
+  "primers": [
+   {
+    "name": "P1_SpacerFwd",
+    "role": "pegRNA cloning (Golden Gate)",
+    "len": 56,
+    "anneal": 20,
+    "tm": 48.9,
+    "gc": 35,
+    "gcClamp": true,
+    "selfComp": "moderate",
+    "selfDetail": "3' 4-mer partial internal match — monitor for primer-dimers",
+    "status": "warn",
+    "score": 72,
+    "annealSeq": "GTTTTAGAGCTAGAAATAGC",
+    "purpose": "PCR P1+P2: amplify spacer-scaffold from template. Includes BsmBI site.",
+    "warnings": [
+     "Annealing Tm 48.9°C is below the 52–72°C band — lower the annealing temperature or extend the primer if the design allows it"
+    ],
+    "group": "clone",
+    "site": {
+     "start": 20,
+     "end": 40,
+     "dir": "+"
+    }
+   },
+   {
+    "name": "P2_ScaffoldRev",
+    "role": "pegRNA cloning",
+    "len": 20,
+    "anneal": 20,
+    "tm": 65.8,
+    "gc": 65,
+    "gcClamp": false,
+    "selfComp": "low",
+    "selfDetail": null,
+    "status": "info",
+    "score": 92,
+    "annealSeq": "GCACCGACTCGGTGCCACTT",
+    "purpose": "Anneals to scaffold template. Use with P1 in first PCR to get Spacer-Scaffold amplicon.",
+    "warnings": [],
+    "group": "clone",
+    "site": {
+     "start": 76,
+     "end": 96,
+     "dir": "−"
+    }
+   },
+   {
+    "name": "P3_RT_PBS_Rev",
+    "role": "pegRNA cloning (overlap extension)",
+    "len": 62,
+    "anneal": 15,
+    "tm": 57.9,
+    "gc": 73,
+    "gcClamp": true,
+    "selfComp": "high",
+    "selfDetail": "3′ 6-mer is reverse-complementary to positions 1–6, enclosing a 3 nt loop — close enough to the 3′ end to compete with priming",
+    "status": "warn",
+    "score": 60,
+    "annealSeq": "GCACCGACTCGGTGC",
+    "purpose": "Long Ultramer. 5′ tail (5′→3′): [TTTT clamp]+[RC(BsmBI site)]+[N]+[RC(OH3)]+[RC(PolyT)]+[RC(PBS)]+[RC(RT)]. 3′ annealing end: RC(scaffold last 15 nt) anneals to Step-1 amplicon. The RE tail at 5′ is essential — it creates the 3′ sticky end (OH3) after BsmBI digestion of the Step-2 PCR product, enabling directional Golden Gate ligation. Order HPLC-purified Ultramer.",
+    "warnings": [
+     "High self-complementarity risk — 3′ 6-mer is reverse-complementary to positions 1–6, enclosing a 3 nt loop — close enough to the 3′ end to compete with priming",
+     "GC 73% is above 70% — risk of secondary structure and non-specific priming",
+     "P3 3′ scaffold overlap: ⚠ P3 3' scaffold region folds back on itself: 6 bp stem (5 G:C), 3 nt loop, est. ΔG -12.5 kcal/mol on the increment approximation. This may reduce P3 priming efficiency in Step 2 PCR. Consider extending the scaffold overlap from 15 to 20 nt (use M3_SCAFFOLD.slice(-20)) or perform Step 2 PCR with a 95°C initial denaturation and reduce ramp rate. Fixed for every design: the 15 nt of scaffold P3 anneals through is the same in every pegRNA cassette, so this is a property of the route, not of this target."
+    ],
+    "group": "clone",
+    "site": {
+     "start": 81,
+     "end": 96,
+     "dir": "−"
+    }
+   },
+   {
+    "name": "P4_RT_PBS_Fwd_overlap",
+    "role": "pegRNA cloning (3-fragment Gibson assembly ONLY)",
+    "len": 30,
+    "anneal": 15,
+    "tm": 43.7,
+    "gc": 57,
+    "gcClamp": false,
+    "selfComp": "n/a",
+    "selfDetail": null,
+    "status": "info",
+    "score": 95,
+    "annealSeq": "ACCTATCCTCCAATT",
+    "purpose": "⚠ NOT for BsaI/BsmBI Golden Gate cloning — P4 has no RE recognition site or vector arm and cannot produce a directly cloneable GG product. Use ONLY in a 3-fragment Gibson or In-Fusion assembly where the RT+PBS region is added as a separate fragment. For standard Golden Gate (BsaI/BsmBI) cloning, use P1+P3 (mega-primer overlap extension). Anneals to scaffold last 15nt, extends into RT region.",
+    "warnings": [],
+    "group": "alt",
+    "site": {
+     "start": 96,
+     "end": 111,
+     "dir": "+"
+    }
+   },
+   {
+    "name": "P5_Verify_Fwd",
+    "role": "Colony verification by Sanger sequencing",
+    "len": 24,
+    "anneal": 24,
+    "tm": 71,
+    "gc": 63,
+    "gcClamp": true,
+    "selfComp": "low",
+    "selfDetail": null,
+    "status": "pass",
+    "score": 100,
+    "annealSeq": "TGCTGGAAGCCGGGAACACTGGGT",
+    "purpose": "Unique site in pYPQ141D-peg, upstream of the cloning site. Empty vector gives 941 bp; a correct clone gives 1070 bp. Read off the deposited sequence.",
+    "warnings": [],
+    "group": "verify",
+    "site": null
+   },
+   {
+    "name": "P6_Verify_Rev",
+    "role": "Colony verification",
+    "len": 24,
+    "anneal": 24,
+    "tm": 71,
+    "gc": 63,
+    "gcClamp": true,
+    "selfComp": "low",
+    "selfDetail": null,
+    "status": "pass",
+    "score": 100,
+    "annealSeq": "AACGCGCTTGCTGCTTGGATGCCC",
+    "purpose": "Unique site in pYPQ141D-peg, downstream of the cassette. Already reverse-complemented, so use as written. Expected bands: 941 bp empty, 1070 bp filled.",
+    "warnings": [],
+    "group": "verify",
+    "site": null
+   }
+  ],
+  "named": {
+   "heterodimer": {
+    "risk": "low",
+    "detail": ""
+   },
+   "p3fold": {
+    "risk": "high",
+    "dg": -12.5,
+    "stem": 6,
+    "loop": 3,
+    "est": -12.5,
+    "label": "6 bp stem (5 G:C), 3 nt loop",
+    "msg": "⚠ P3 3' scaffold region folds back on itself: 6 bp stem (5 G:C), 3 nt loop, est. ΔG -12.5 kcal/mol on the increment approximation. This may reduce P3 priming efficiency in Step 2 PCR. Consider extending the scaffold overlap from 15 to 20 nt (use M3_SCAFFOLD.slice(-20)) or perform Step 2 PCR with a 95°C initial denaturation and reduce ramp rate."
+   },
+   "dTm": 16.9,
+   "p1tm": 48.9,
+   "p2tm": 65.8,
+   "p3tm": 57.9
+  },
+  "groups": {
+   "clone": "used in this route",
+   "alt": "alternative route only",
+   "verify": "colony verification"
+  }
+ }
+}

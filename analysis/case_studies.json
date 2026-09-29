@@ -1,18 +1,18 @@
 {
- "generated": "2026-08-24T01:57:36.903Z",
- "build": "Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 96e270bb)",
+ "generated": "2026-09-28T15:11:18.029Z",
+ "build": "Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 9e8d276b)",
  "controlled": {
   "locus": "OsALS-T2",
   "results": [
    {
     "architecture": "PE2",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "pYPQ166-OsPE2",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -27,7 +27,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsmBI site",
@@ -49,13 +49,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsmBI"
@@ -64,13 +64,13 @@
    },
    {
     "architecture": "PE2max",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 173 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -85,7 +85,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -107,13 +107,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -122,13 +122,13 @@
    },
    {
     "architecture": "PE3",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "pYPQ166-OsPE2",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -143,7 +143,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsmBI site",
@@ -165,13 +165,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsmBI"
@@ -180,13 +180,13 @@
    },
    {
     "architecture": "PE3b",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -201,7 +201,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -213,8 +213,9 @@
       "detail": "ACCG/AAAC"
      },
      {
-      "name": "nicking sgRNA cassette present",
-      "pass": true
+      "name": "conditional nick declined, correctly",
+      "pass": true,
+      "detail": "the architecture cannot be built here"
      },
      {
       "name": "tevopreQ1 absent, as the architecture requires",
@@ -223,28 +224,29 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
     },
-    "primer_count": 22
+    "declined": "no PE3b-licensed nicking sgRNA exists at this locus — no protospacer on the non-edited strand carries the edit with its own motif intact",
+    "primer_count": 19
    },
    {
     "architecture": "PE4",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -259,7 +261,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -281,13 +283,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -296,13 +298,13 @@
    },
    {
     "architecture": "PE5",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -317,7 +319,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -339,13 +341,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -354,13 +356,13 @@
    },
    {
     "architecture": "PE5b",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -375,7 +377,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -387,8 +389,9 @@
       "detail": "ACCG/AAAC"
      },
      {
-      "name": "nicking sgRNA cassette present",
-      "pass": true
+      "name": "conditional nick declined, correctly",
+      "pass": true,
+      "detail": "the architecture cannot be built here"
      },
      {
       "name": "tevopreQ1 absent, as the architecture requires",
@@ -397,28 +400,29 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
     },
-    "primer_count": 22
+    "declined": "no PE3b-licensed nicking sgRNA exists at this locus — no protospacer on the non-edited strand carries the edit with its own motif intact",
+    "primer_count": 19
    },
    {
     "architecture": "twinPE",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "ePE2-rice",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 128 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -433,7 +437,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -455,13 +459,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -470,13 +474,13 @@
    },
    {
     "architecture": "ePPE",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "pEPPE-mono",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 173 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -491,7 +495,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -513,13 +517,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -528,13 +532,13 @@
    },
    {
     "architecture": "PPE",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "pPPE-mono",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 173 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -549,7 +553,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -571,13 +575,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -586,13 +590,13 @@
    },
    {
     "architecture": "ePPE3",
-    "locus": "OsALS-T2",
+    "locus": "OsALS-T2 (Lin 2021)",
     "vector": "pPPE-mono",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "122 nt in these four parts; 173 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -607,7 +611,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 19.8"
+      "detail": "10 nt, Tm 16.2"
      },
      {
       "name": "no internal BsaI site",
@@ -629,13 +633,13 @@
     ],
     "ok": true,
     "design": {
-     "spacer": "GGGTATGGTGGTGCAATGGG",
-     "pbs": "ATTGCACCAC",
-     "rt": "GTAAAACCTATTCTCCC",
+     "spacer": "ATTTGGGTATGGTGGTGCAA",
+     "pbs": "CACCACCATA",
+     "rt": "ACCTATCCTCCAATTG",
      "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 19.8,
-     "pbs_score": 80,
+     "rt_len": 16,
+     "pbs_tm": 16.2,
+     "pbs_score": 85,
      "rt_score": 99,
      "homology_beyond_edit": 11,
      "enzyme": "BsaI"
@@ -659,12 +663,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -674,7 +678,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsmBI site",
@@ -697,14 +701,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsmBI"
     },
     "primer_count": 19,
@@ -718,12 +722,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 179 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -733,7 +737,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -756,14 +760,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -777,12 +781,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -792,7 +796,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsmBI site",
@@ -815,14 +819,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsmBI"
     },
     "primer_count": 22,
@@ -836,12 +840,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -851,7 +855,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -874,14 +878,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -895,12 +899,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -910,7 +914,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -933,14 +937,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -954,12 +958,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -969,7 +973,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -992,14 +996,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -1013,12 +1017,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1028,7 +1032,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -1051,14 +1055,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -1072,12 +1076,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 134 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1087,7 +1091,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -1110,14 +1114,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1131,12 +1135,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 179 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1146,7 +1150,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -1169,14 +1173,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -1190,12 +1194,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 179 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1205,7 +1209,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -1228,14 +1232,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1249,12 +1253,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "128 nt"
+      "detail": "128 nt in these four parts; 179 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "15 nt"
+      "detail": "10 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1264,7 +1268,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "11 nt, Tm 10.4"
+      "detail": "12 nt, Tm 15.9"
      },
      {
       "name": "no internal BsaI site",
@@ -1287,14 +1291,14 @@
     "ok": true,
     "design": {
      "spacer": "GCTAGCTTTGACATAATCTC",
-     "pbs": "ATTATGTCAAA",
-     "rt": "TTTCTGATTAATGGCACGGAG",
-     "pbs_len": 11,
-     "rt_len": 21,
-     "pbs_tm": 10.4,
+     "pbs": "ATTATGTCAAAG",
+     "rt": "TTCTGATTAAAGGCCCGGAG",
+     "pbs_len": 12,
+     "rt_len": 20,
+     "pbs_tm": 15.9,
      "pbs_score": 55,
      "rt_score": 99,
-     "homology_beyond_edit": 15,
+     "homology_beyond_edit": 10,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1308,12 +1312,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1323,7 +1327,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsmBI site",
@@ -1346,14 +1350,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsmBI"
     },
     "primer_count": 19,
@@ -1367,12 +1371,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 176 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1382,7 +1386,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1405,14 +1409,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -1426,12 +1430,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1441,7 +1445,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsmBI site",
@@ -1464,14 +1468,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsmBI"
     },
     "primer_count": 22,
@@ -1485,12 +1489,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1500,7 +1504,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1523,14 +1527,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -1544,12 +1548,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1559,7 +1563,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1582,14 +1586,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -1603,12 +1607,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1618,7 +1622,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1641,14 +1645,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -1662,12 +1666,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1677,7 +1681,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1700,14 +1704,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 22,
@@ -1721,12 +1725,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 131 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1736,7 +1740,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1759,14 +1763,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1780,12 +1784,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 176 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1795,7 +1799,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1818,14 +1822,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 19,
@@ -1839,12 +1843,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 176 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1854,7 +1858,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1877,14 +1881,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1898,12 +1902,12 @@
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "125 nt in these four parts; 176 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
       "pass": true,
-      "detail": "11 nt"
+      "detail": "13 nt"
      },
      {
       "name": "RT template encodes the edit",
@@ -1913,7 +1917,7 @@
      {
       "name": "PBS length within the searched window",
       "pass": true,
-      "detail": "10 nt, Tm 15.2"
+      "detail": "15 nt, Tm 33.6"
      },
      {
       "name": "no internal BsaI site",
@@ -1936,14 +1940,14 @@
     "ok": true,
     "design": {
      "spacer": "CACAAGAAAATCCACCAGGA",
-     "pbs": "TGGTGGATTT",
-     "rt": "CTAGAAATACCACATCC",
-     "pbs_len": 10,
-     "rt_len": 17,
-     "pbs_tm": 15.2,
-     "pbs_score": 85,
-     "rt_score": 99,
-     "homology_beyond_edit": 11,
+     "pbs": "TGGTGGATTTTCTTG",
+     "rt": "GAAATACCCCATCG",
+     "pbs_len": 15,
+     "rt_len": 14,
+     "pbs_tm": 33.6,
+     "pbs_score": 75,
+     "rt_score": 73,
+     "homology_beyond_edit": 13,
      "enzyme": "BsaI"
     },
     "primer_count": 23,
@@ -1951,13 +1955,13 @@
    },
    {
     "architecture": "PE2",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pHEE401E",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -1996,9 +2000,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2010,13 +2014,13 @@
    },
    {
     "architecture": "PE2max",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pHEE401E",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 172 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2055,9 +2059,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2069,13 +2073,13 @@
    },
    {
     "architecture": "PE3",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2114,9 +2118,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2128,13 +2132,13 @@
    },
    {
     "architecture": "PE3b",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2173,9 +2177,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2187,13 +2191,13 @@
    },
    {
     "architecture": "PE4",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pHEE401E",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2232,9 +2236,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2246,13 +2250,13 @@
    },
    {
     "architecture": "PE5",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2291,9 +2295,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2305,13 +2309,13 @@
    },
    {
     "architecture": "PE5b",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2350,9 +2354,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2364,13 +2368,13 @@
    },
    {
     "architecture": "twinPE",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 127 nt as transcribed (adds the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2409,9 +2413,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2423,13 +2427,13 @@
    },
    {
     "architecture": "ePPE",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pEPPE-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 172 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2468,9 +2472,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2482,13 +2486,13 @@
    },
    {
     "architecture": "PPE",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 172 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2527,9 +2531,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2541,13 +2545,13 @@
    },
    {
     "architecture": "ePPE3",
-    "locus": "SlOr",
+    "locus": "SlOr (site B)",
     "vector": "pCE3-BsmBI-dicot",
     "checks": [
      {
       "name": "pegRNA assembles: spacer+scaffold+RT+PBS in order",
       "pass": true,
-      "detail": "123 nt"
+      "detail": "121 nt in these four parts; 172 nt as transcribed (adds linker, tevopreQ1 and the poly-T terminator)"
      },
      {
       "name": "homology beyond the edit ≥ 5 nt",
@@ -2586,9 +2590,9 @@
     "design": {
      "spacer": "TCAGTACCAATCATCCTCCT",
      "pbs": "AGGATGATTGG",
-     "rt": "AGGTCAAGTGACAAGG",
+     "rt": "GTCAAGTGCCTAGG",
      "pbs_len": 11,
-     "rt_len": 16,
+     "rt_len": 14,
      "pbs_tm": 19.6,
      "pbs_score": 85,
      "rt_score": 94,
@@ -2619,16 +2623,15 @@
   },
   {
    "control": "edit passed to genRT under the pre-fix field names",
-   "expectation": "the template comes back as genomic wild-type and the new check reports it",
+   "expectation": "genRT refuses to design from it; before 27 Sep 2026 it returned a wild-type template presented as carrying the edit",
    "detected": true,
-   "detail": "wrong-field template 14 nt is identical to wild-type; correct-field template 17 nt differs from it"
+   "detail": "wrong-field edit is refused outright; correct-field template 17 nt differs from wild type"
   },
   {
    "control": "homology beyond the edit",
-   "expectation": "not falsifiable through genRT: the pool is capped and ranked on this term first, so nothing below 5 nt is ever offered",
-   "not_applicable": true,
-   "detected": null,
-   "detail": "{\"returned\":6,\"min_homology_offered\":10}"
+   "expectation": "the default search offers nothing under 5 nt, and a length forced down to the edit returns a short-homology template flagged CRITICAL rather than offered silently",
+   "detected": true,
+   "detail": "{\"wide_returned\":6,\"min_homology_wide\":10,\"forced_len\":6,\"forced_returned\":1,\"forced_homology\":0,\"forced_warns_critical\":true}"
   },
   {
    "control": "unmodified baseline case",

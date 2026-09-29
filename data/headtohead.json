@@ -1,6 +1,6 @@
 [
  {
-  "target": "OsALS-T2",
+  "target": "OsALS-T2 (Lin 2021)",
   "n_candidates": 20,
   "ours": {
    "spacer": "GAACAACCAACATTTGGGTA",
@@ -102,10 +102,10 @@
    "spacer": "GCTAGCTTTGACATAATCTC",
    "rank": 4,
    "score": 64,
-   "pbs_len": 11,
-   "pbs": "ATTATGTCAAA",
-   "tm_nn": 10.4,
-   "tm_wal": 26
+   "pbs_len": 12,
+   "pbs": "ATTATGTCAAAG",
+   "tm_nn": 15.9,
+   "tm_wal": 30
   },
   "pegfinder": {
    "spacer": "GCTAGCTTTGACATAATCTC",
