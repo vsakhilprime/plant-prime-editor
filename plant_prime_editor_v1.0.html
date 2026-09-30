@@ -3952,6 +3952,26 @@ function closeMobileNav() {
             <!-- Live preview -->
             <div id="m3-da-preview" style="display:none"></div>
 
+            <!-- ── Custom sgRNA scaffold (Direct Assembly only) ───────── -->
+            <div id="m3-da-f-scaf" style="border:1px dashed rgba(148,163,184,.35);border-radius:7px;padding:10px 12px">
+              <div style="font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center">
+                <span>sgRNA scaffold <span style="font-weight:400">(optional &#8212; leave blank for the standard 76 nt)</span></span>
+                <span id="m3-da-scaf-len" style="color:var(--muted)"></span>
+              </div>
+              <textarea id="m3-da-scaf" class="inp" rows="2" placeholder="Paste a modified scaffold here, or leave blank to use the standard one"
+                oninput="m3_da_validate()" autocomplete="off" spellcheck="false"
+                style="width:100%;font-family:var(--mono);font-size:10.5px;letter-spacing:.3px;color:var(--text2);resize:vertical"></textarea>
+              <div style="display:flex;gap:8px;margin-top:5px">
+                <button type="button" onclick="m3_da_scafUseStandard()"
+                  style="padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:transparent;
+                  color:var(--muted);font-family:var(--mono);font-size:9px;cursor:pointer">insert the standard scaffold</button>
+                <button type="button" onclick="m3_da_scafClear()"
+                  style="padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:transparent;
+                  color:var(--muted);font-family:var(--mono);font-size:9px;cursor:pointer">clear</button>
+              </div>
+              <div id="m3-da-scaf-note" style="display:none;margin-top:6px;font-size:9.5px;line-height:1.6"></div>
+            </div>
+
             <!-- Confirm button -->
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
               <button onclick="_confirmReset('da_clear')"
@@ -9637,7 +9657,7 @@ function computeSpacerSpecificity(spacer, pam, pamMotif) {
 // 15 is the number of targets in the dual-pegRNA comparison, a different experiment.
 // That is corrected too.
 //
-// Every fingerprint move is recorded below and in CHANGES_19Aug2026.md, and
+// Every fingerprint move is recorded below, and
 // analysis/build_equivalence.js re-runs the whole design surface on the old build
 // and the new one to show that no computed value moved with them.
 //
@@ -18593,7 +18613,26 @@ const VECTORS = [
 // ─────────────────────────────────────────────────────────────────────
 //  SEQUENCE CONSTANTS  (Anzalone 2019 / Lin 2020)
 // ─────────────────────────────────────────────────────────────────────
-const M3_SCAFFOLD     = 'GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGC';
+// The scaffold Module 3 builds with. Read about eighty times across primer design, insert
+// construction, the sequence map, gBlock and Gibson arms, colony PCR and every expected
+// amplicon size — so Direct Assembly's custom scaffold is routed HERE, at the one place they
+// all resolve through, rather than at eighty call sites where one missed read would produce a
+// construct that fails at the bench while every panel on screen looked right. That is not a
+// hypothetical: the first attempt at this feature changed three sites, passed its own tests,
+// and the primers still came out standard.
+//
+// M3_SCAFFOLD_STANDARD is the fixed sequence. M3_SCAFFOLD is a getter that returns whatever
+// is active, which is the standard unless Direct Assembly supplies one. With no custom
+// scaffold every read returns exactly what it returned before.
+var M3_SCAFFOLD_STANDARD = 'GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGC';
+Object.defineProperty(typeof window !== 'undefined' ? window : globalThis, 'M3_SCAFFOLD', {
+  configurable: true,
+  get: function () {
+    // m3_activeScaffold is defined in a later block; until then, and in any context where it
+    // is absent, the standard sequence is the answer.
+    return (typeof m3_activeScaffold === 'function') ? m3_activeScaffold() : M3_SCAFFOLD_STANDARD;
+  }
+});
 // LINKER is defined in M2 script block (global scope).
 // m3_linker is updated from the M2 handoff so every protocol step
 // uses the sequence-specific optimal linker computed for this pegRNA.
@@ -18677,8 +18716,8 @@ const VEC_CONTEXTS = {
 };
 
 // Scaffold terminal sequences (for primer overlap design)
-const M3_SCAFFOLD_FIRST20 = M3_SCAFFOLD.slice(0, 20);  // GTTTTAGAGCTAGAAATAGC
-const M3_SCAFFOLD_LAST15  = M3_SCAFFOLD.slice(-15);     // GCACCGAGTCGGTGC (last 15)
+const M3_SCAFFOLD_FIRST20 = M3_SCAFFOLD_STANDARD.slice(0, 20);  // GTTTTAGAGCTAGAAATAGC
+const M3_SCAFFOLD_LAST15  = M3_SCAFFOLD_STANDARD.slice(-15);     // GCACCGAGTCGGTGC (last 15)
 
 // ─────────────────────────────────────────────────────────────────────
 //  GLOBAL STATE
@@ -20707,6 +20746,137 @@ function m3_da_selectPE(peId) {
   m3_da_validate();
 }
 
+// ── A scaffold the user brings themselves (Direct Assembly only) ─────────────
+//
+// Figure 2E states that a modified scaffold can be supplied through Direct Assembly.
+// Until now no field existed and the scaffold was a constant in four places, so the
+// figure described something the tool could not do. This is that field.
+//
+// IT IS NOT DECORATION. Primers anneal to slices of the scaffold — the first 20 nt at
+// the spacer junction and the last 15 at the RT-template junction — so a different
+// scaffold changes the assembled insert, the annealing regions of P1 to P3, their
+// melting temperatures and dimer checks, the restriction-site screen, the oligo list
+// and the printed protocol. Everything downstream therefore reads ONE resolver rather
+// than the constant, because a preview drawn from one sequence and primers built from
+// another is the failure this codebase has already had to fix elsewhere.
+//
+// Scope is deliberate: Direct Assembly only. Modules 1 and 2 keep the standard
+// scaffold, so the design and scoring path the published benchmarks ran through is
+// untouched, including the PBS-to-scaffold-3' free-energy term.
+var _m3DirectScaffold = '';        // '' means: use the standard scaffold
+
+function m3_activeScaffold() {
+  if (typeof _m3DirectMode !== 'undefined' && _m3DirectMode === 'direct' && _m3DirectScaffold) {
+    return _m3DirectScaffold;
+  }
+  return M3_SCAFFOLD_STANDARD;
+}
+
+// Pure: no DOM, so tests/test_da_custom_scaffold.js can exercise it directly.
+// Reports rather than refuses. A user pasting a scaffold usually knows why, and one of
+// the four Type IIS enzymes may not be the one they end up cloning with — but a site
+// they did not notice would be cut during assembly and the construct would fail at the
+// bench, so it is said plainly and in the enzyme's own name.
+function m3_da_scaffoldCheck(seq) {
+  var raw = String(seq == null ? '' : seq);
+  var s = raw.replace(/\s+/g, '').toUpperCase();
+  if (!s) return { empty: true, seq: '', len: 0, valid: true, sites: [],
+                   headChanged: false, tailChanged: false, standard: true };
+  var out = { empty: false, seq: s, len: s.length,
+              valid: /^[ACGT]+$/.test(s), sites: [],
+              standard: (s === M3_SCAFFOLD_STANDARD),
+              headChanged: s.slice(0, 20)  !== M3_SCAFFOLD_STANDARD.slice(0, 20),
+              tailChanged: s.slice(-15)    !== M3_SCAFFOLD_STANDARD.slice(-15) };
+  if (!out.valid) return out;
+  // The same three recognition sequences the linker screen uses — BsmBI and Esp3I read
+  // the same site, so three patterns cover the four supported enzymes. Both strands.
+  var ENZ = [['GGTCTC', 'BsaI'], ['CGTCTC', 'BsmBI / Esp3I'], ['GAAGAC', 'BbsI']];
+  var rc = function (x) {
+    return x.split('').reverse().map(function (c) {
+      return { A:'T', T:'A', G:'C', C:'G' }[c] || c; }).join('');
+  };
+  ENZ.forEach(function (e) {
+    [[e[0], '+'], [rc(e[0]), '\u2212']].forEach(function (pair) {
+      var i = s.indexOf(pair[0]);
+      while (i !== -1) {
+        out.sites.push({ enzyme: e[1], site: e[0], strand: pair[1], pos: i + 1 });
+        i = s.indexOf(pair[0], i + 1);
+      }
+    });
+  });
+  return out;
+}
+
+function m3_da_scafUseStandard() {
+  var t = document.getElementById('m3-da-scaf');
+  if (t) { t.value = M3_SCAFFOLD_STANDARD; m3_da_validate(); }
+}
+function m3_da_scafClear() {
+  var t = document.getElementById('m3-da-scaf');
+  if (t) { t.value = ''; m3_da_validate(); }
+}
+
+function m3_da_renderScaffold() {
+  var t    = document.getElementById('m3-da-scaf');
+  var lenEl= document.getElementById('m3-da-scaf-len');
+  var note = document.getElementById('m3-da-scaf-note');
+  if (!t) return true;
+  var r = m3_da_scaffoldCheck(t.value);
+  _m3DirectScaffold = (!r.empty && r.valid) ? r.seq : '';
+  if (lenEl) lenEl.textContent = r.empty ? '' : (r.len + ' nt');
+  if (!note) return r.empty || r.valid;
+
+  if (r.empty) {
+    t.style.borderColor = '';
+    if (lenEl) lenEl.style.color = 'var(--muted)';
+    note.style.display = 'none'; note.innerHTML = '';
+    return true;
+  }
+  if (!r.valid) {
+    t.style.borderColor = 'rgba(248,113,113,.55)';
+    if (lenEl) lenEl.style.color = 'var(--error)';
+    note.style.display = '';
+    note.innerHTML = '<span style="color:var(--error);font-weight:700">Not a DNA sequence.</span>' +
+      '<span style="color:var(--muted)"> Only A, C, G and T are accepted; spaces and line breaks are ignored. ' +
+      'The standard scaffold is used until this is corrected.</span>';
+    return false;
+  }
+
+  var bits = [];
+  if (r.standard) {
+    bits.push('<span style="color:var(--accent)">This is the standard scaffold.</span>');
+  } else {
+    bits.push('<span style="color:var(--accent2)">Custom scaffold in use &#8212; ' + r.len +
+              ' nt, against ' + M3_SCAFFOLD_STANDARD.length + ' nt standard.</span>');
+    var j = [];
+    if (r.headChanged) j.push('the first 20 nt, where the spacer-side primer anneals');
+    if (r.tailChanged) j.push('the last 15 nt, where the RT-template-side primer anneals');
+    if (j.length) {
+      bits.push('<span style="color:var(--muted)">Primers are rebuilt from this sequence: you have changed ' +
+                j.join(' and ') + '.</span>');
+    }
+  }
+  if (r.sites.length) {
+    var seen = {}, names = [];
+    r.sites.forEach(function (x) { if (!seen[x.enzyme]) { seen[x.enzyme] = 1; names.push(x.enzyme); } });
+    var detail = r.sites.slice(0, 4).map(function (x) {
+      return x.enzyme + ' at ' + x.pos + ' (' + x.strand + ')'; }).join(', ');
+    bits.push('<span style="color:var(--error);font-weight:700">&#9888; ' + r.sites.length +
+      ' Type IIS site' + (r.sites.length === 1 ? '' : 's') + ' in this scaffold: ' + names.join(', ') + '.</span>' +
+      '<span style="color:var(--muted)"> ' + detail +
+      (r.sites.length > 4 ? ', &#8230;' : '') +
+      '. If you clone with one of these enzymes the digest will cut inside the insert instead of ' +
+      'releasing it, and the assembly will fail. Choose a route that does not use it, or change the ' +
+      'scaffold. The design will continue either way.</span>');
+  }
+  t.style.borderColor = r.sites.length ? 'rgba(248,113,113,.55)'
+                      : (r.standard ? '' : 'rgba(74,222,128,.4)');
+  if (lenEl) lenEl.style.color = r.sites.length ? 'var(--error)' : 'var(--accent2)';
+  note.style.display = '';
+  note.innerHTML = bits.join('<br>');
+  return true;
+}
+
 // ── Live length display + validation ─────────────────────────────────
 function m3_da_validate() {
   const fields = {
@@ -20757,6 +20927,10 @@ function m3_da_validate() {
     }
   }
 
+  // The scaffold reports problems but never withholds the Confirm button: the chosen
+  // handling is to warn loudly and let the user proceed.
+  m3_da_renderScaffold();
+
   // Show / update live preview
   if (pe) m3_da_updatePreview();
 
@@ -20776,7 +20950,7 @@ function m3_da_updatePreview() {
   if (!sp || !rt || !pbs) { div.style.display='none'; return; }
 
   const isTevo = ['PE2max','ePPE','PPE','ePPE3'].includes(pe);
-  const SCAF   = 'GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGC';
+  const SCAF   = m3_activeScaffold();
   const LINKER = (document.getElementById('m3-da-linker-val')?.textContent || 'AACTCTCT').trim();
   const TEVO   = 'CGCGGTTCTATCTAGTTACGCGTTAAACCAACTAGAA';
   const POLYT  = 'TTTTTT';
@@ -21211,7 +21385,7 @@ function renderVectors() {
       // rather than inferred from a figure, which is a materially stronger claim and
       // worth showing on the card where the vector is chosen.
       v.acceptor_verified ? `<span class="badge" style="background:rgba(52,211,153,.15);color:#34d399;border:1px solid rgba(52,211,153,.35)" title="Type IIS sites located in the deposited full-plasmid sequence and the digestion simulated; the four-base overhangs are read off the sequence, not taken from the paper">✓ Overhangs from sequence</span>` : '',
-      v.scaffold_seq && v.scaffold_seq !== M3_SCAFFOLD ? `<span class="badge b-warn" title="This backbone carries an F+E scaffold, not the standard one — the transcript differs from the default assembly">F+E scaffold</span>` : '',
+      v.scaffold_seq && v.scaffold_seq !== M3_SCAFFOLD_STANDARD ? `<span class="badge b-warn" title="This backbone carries an F+E scaffold, not the standard one — the transcript differs from the default assembly">F+E scaffold</span>` : '',
       v.guide_processing && v.guide_processing !== 'none' ? `<span class="badge" style="background:rgba(196,181,253,.14);color:var(--purple);border:1px solid rgba(196,181,253,.3)" title="How the guide is released from the primary transcript">${v.guide_processing} processing</span>` : '',
       v.golden_gate_not_published ? `<span class="badge" style="background:rgba(248,113,113,.13);color:#f87171;border:1px solid rgba(248,113,113,.35)" title="The published protocol linearises with BsaI and HindIII and joins by exonuclease one-step cloning, not Golden Gate">Not Golden Gate</span>` : '',
     ].join('');
@@ -21444,7 +21618,7 @@ function m3_acceptorPanel(v, spSeq, rtSeq, pbsSeq) {
   }
 
   var mism = '';
-  if (v.scaffold_seq && v.scaffold_seq !== M3_SCAFFOLD) {
+  if (v.scaffold_seq && v.scaffold_seq !== M3_SCAFFOLD_STANDARD) {
     mism = '<div style="background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.40);' +
       'border-radius:7px;padding:9px 12px;margin:9px 0;font-size:11px;color:#fbbf24;line-height:1.55">' +
       '⚠ <strong>This backbone carries an F+E scaffold, not the standard one.</strong> ' +
@@ -21737,7 +21911,7 @@ function renderPegRNAAssemblyStep() {
   var pbs      = pbsObj.seq   || '';
   var rt       = rtObj.seq    || '';
   var isPE2max = ['PE2max','ePPE','PPE','ePPE3'].includes(pe);  // tevo-using systems only (NOT PE4/PE5 — they use PE3-style PolyT)
-  var SCAF     = M3_SCAFFOLD;
+  var SCAF     = M3_SCAFFOLD;           // the getter: standard, or Direct Assembly's
   // Always use the linker that was finalised in Module 2 (sequence-specific ΔG-optimised).
   // m2Data.linker is set from the M2 handoff (m2_computedLinker); m3_linker is the same value
   // but may lag if M3 was already open. Prefer m2Data.linker, fall back to m3_linker, then default.
@@ -25372,7 +25546,7 @@ function runPrimerDesign() {
   // ══════════════════════════════════════════════════════════════════
   var MC_OH5  = v.overhang_5 || 'ACCG';
   var MC_OH3  = v.overhang_3 || 'AAAC';
-  var MC_SCAF = M3_SCAFFOLD;
+  var MC_SCAF = M3_SCAFFOLD;            // the getter: standard, or Direct Assembly's
   var MC_SF20 = MC_SCAF.slice(0, 20);   // scaffold first 20 nt
   var MC_SL15 = MC_SCAF.slice(-15);     // scaffold last 15 nt
   var MC_polyT = POLY_T_TERM;
@@ -28201,13 +28375,17 @@ function _confirmReset(type) {
   } else if (type === 'da_clear') {
     // Clear Direct Assembly fields only
     ['m3-da-spacer','m3-da-rt','m3-da-pbs','m3-da-nick',
-     'm3-da-sp2','m3-da-rt2','m3-da-pbs2'].forEach(function(id) {
+     'm3-da-sp2','m3-da-rt2','m3-da-pbs2','m3-da-scaf'].forEach(function(id) {
       var el = document.getElementById(id); if (el) { el.value = ''; el.style.borderColor = ''; }
     });
     ['m3-da-spacer-len','m3-da-rt-len','m3-da-pbs-len','m3-da-nick-len',
-     'm3-da-sp2-len','m3-da-rt2-len','m3-da-pbs2-len'].forEach(function(id) {
+     'm3-da-sp2-len','m3-da-rt2-len','m3-da-pbs2-len','m3-da-scaf-len'].forEach(function(id) {
       var el = document.getElementById(id); if (el) el.textContent = '';
     });
+    // and the scaffold itself, or a cleared form silently keeps building from the old one
+    if (typeof _m3DirectScaffold !== 'undefined') window._m3DirectScaffold = '';
+    var scafNote = document.getElementById('m3-da-scaf-note');
+    if (scafNote) { scafNote.style.display = 'none'; scafNote.innerHTML = ''; }
     // Deselect PE system
     if (typeof _m3DirectPE !== 'undefined') {
       if (_m3DirectPE) {

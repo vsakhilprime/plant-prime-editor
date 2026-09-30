@@ -92,14 +92,6 @@ Each produces one result in the paper:
 | `check_module3_primers.js` | asks the only questions worth asking of a cloning primer, for every vector and for both second-cassette paths: does its 3′ terminus occur in the template it has to prime, is the annealing region it declares the region it actually has, do the primers the file calls identical come out identical, do the two primers of a pair carry the same enzyme, does every route stop where the vector's own 3′ end begins, is PBS2 the reverse complement of the RT1 block adjacent to the nick, does the annealing temperature follow the rule the card states, and does the Golden Gate clamp setting leave the default untouched. It found both cassette-2 paths unable to prime at all — PPE's P9/P10/P11 and twinPE's PT1/PT2/PT3, the same three faults in each — `P_BsmBI_Rev` repeating all three faults `FIX P3-ORIENTATION` had fixed for P3, `P_Esp3I_Rev` never rebuilt despite three places claiming it is identical to the BsmBI primer, PT1 carrying a BsaI site on a BsmBI vector while PT3 carried the vector's own, the gBlock putting a Pol III terminator in front of the backbone's own pseudoknot on three acceptors, PBS2 taken from the far end of RT1 at six inline copies of one expression, four primers exporting a Tm of −25.7 °C, and a single stray `0x01` byte that had silently switched off the spacer homopolymer check |
 | `check_vector_claims.py` | the vector catalogue's structural invariants: every record states whether it is a deposited plasmid or a design you build yourself, a design advertises no Addgene number, every enzyme's recognition site and cut offset match NEB, and the count Figure 5D prints is the count of orderable plasmids. Written after the 25 September 2026 literature audit, which found four constructed designs counted as deposited vectors and a BbsI record carrying a BsaI cut offset |
 | `check_export_transcript_length.js` | one pegRNA, one length. It renders Module 2's assembly panel and the paired-pegRNA panel through the tool's own code and compares what they PRINT against the export collector (JSON/CSV/HTML report), the FASTA records and `worked_example.json`. It found three places that omitted the poly-T terminator — the exports, the block headed "Full pegRNA sequence", and the paired panel's length box — each reading 6 nt short of the transcript stated beside it |
-| `check_supplementary_rest.py` | the supplementary tables the other checker does not reach — S8 against the header row of `data/benchmark_scored.csv`, S4's fixed weights against the percentage it states and its range against an adversarial search rather than a random sample, S9 against `all_tools.json`, S10 against `pridict_vs_measured.json` with a per-column contract (a published measurement exact, a model score correctly rounded), and reference integrity in both documents. It found Table S8 — the key to the benchmark file — specifying nine column names the file does not contain, four of them with no counterpart at all; Table S4's PAM row unmarked while its own 62% note already counted it as fixed; and two Table S10 cells rendering a 3-decimal measurement at 2 decimals inconsistently, 0.275 rounded up to 0.28 while 0.075 was truncated to 0.07. Its reference check exists because an earlier ad-hoc pass used a pattern whose character class excluded the full stop in "et al.", reported Li 2023 and Xu 2020 as cited nowhere, and was wrong — both were cited in the Supplementary. Its S8 check now runs in BOTH directions, and the second one found the corrected table describing 19 of the file's 60 columns — silent on `genomic_seq`, `published_spacer`, `status`, every individual score term and the `edit_from_top` / `edit_to_top` pair — while passing, because every name it did give was real. It also re-computes the row counts S8 quotes, per study, per species, per scoring pass and per melting-temperature band |
-| `benchmark_columns.py` | the rows of Table S8, each meaning read out of the code that writes the column rather than inferred from its name |
-| `check_supplementary_tables.py` | checks the supplementary tables three ways — the Word copy against the Excel copy, and both against the engine. It found an overhang pair in Table S7 that belongs to no vector, and 82 stale cells in Table S11 |
-| `check_supplementary_s13.py` | Supplementary Table S13 — the index of every analysis in the Results against the file it reads, the command that regenerates it and the figure or table it appears in — checked against the deposit rather than against the list that wrote it: every path resolves, every interpreter matches its script's extension, every figure and table reference exists, and the Word and Excel copies agree cell for cell. `--run` executes all 29 commands and requires each to exit 0, which is how two of them were found unrunnable: `rank_analysis.js` threw ENOENT on its first iteration, and `merge_benchmark.py` is a pipeline stage whose output is half-built until `score_batch_v2.js` has scored it. It skips that one rebuild by name rather than running it, because running it is what breaks the benchmark |
-| `analysis_index_rows.py` | the rows of Table S13 — the index of every analysis in the Results against the file it reads, the command that regenerates it and where the result appears — kept in one place so the table and this deposit cannot describe different things |
-| `reference_format.py` | the one description of what a reference entry looks like, shared by everything that writes or reads a reference entry: the ten-authors-then-`et al.` rule the manuscript already follows in 27 of its 28 entries, the Cell Press journal abbreviations, and the published author count and last author behind every DOI either document cites, resolved from Crossref on 29 September 2026 and frozen so the checker needs no network |
-| `check_reference_format.py` | the two lists are one format and neither misrepresents an author list. It found five supplementary entries printing an incomplete author list as though complete — `…, Sahin, M., and Osborn, M.J. (2021)` for a paper with fourteen authors whose last author is Liu — and one manuscript entry, Zhao et al. 2025, writing out all eighteen where the other twelve long entries stop at ten. It also checks the runs, not only the characters: an entry that is bold throughout reads as correct in plain text and is not |
-| `check_manuscript_citations.py` | every reference in the manuscript's list is cited in the manuscript and every citation is listed, in both directions — the companion to `check_supplementary_table_citations.py`. The two things in the text that look like citations and are not, `ECMAScript 2020` and the filing date `30 March 2026`, are excluded by name with the reason, and an exclusion that stops matching anything is itself a failure |
 | `check_figure2_panelD.py` | panel D of the finalised Figure 2 against `analysis/weight_sensitivity.json`, which is what draws it — all 224 cells, the 32 rotated labels paired to columns **by rank**, the heading's count, and the set of designs that move with the weight. Nothing compared the two until 29 September 2026, and three deletion columns turned out to still carry their pre-rebuild lengths while the other 203 cells agreed. Reading the grid is the hard part: three leftover cells sit at the back of the z-order, off the lattice and hidden behind the cells drawn over them, and a first pass that collected them reported a design as moving with the weight when it does not |
 | `lib/figure2_paneld.py` | one reader for panel D's grid and labels, the one reader for panel D's grid and labels, so nothing that inspects the panel can disagree with anything else about which cell is which. It carries the lattice geometry, the rule that the last-drawn shape wins where two land in one place, and the row window that keeps panel E's `10 nt` / `8nt` / `37 nt` component labels out of the grid |
 | `build_target_sites.py` | derives `target_sites.json`, the registry of distinct target SITES, from the protospacers in the data — and refuses to write if a protospacer turns out to occupy two genomic windows. `--check` fails if the committed registry has drifted from the data |
@@ -175,51 +167,11 @@ The vector sources the analyses write stay with the data they came from:
 `data/feature_matrix.json`. The five scripts that READ a deck take its path as their first
 argument rather than assuming one.
 
-### `CHANGES_19Aug2026.md` — the correction record
-
-Twenty-eight dated addenda covering every correction made to the tool and the paper between
-19 and 22 August 2026, including all six fingerprint moves and what each one changed. The
-source comments in `plant_prime_editor_v1.0.html` point here. Read it if you want to know why
-a parameter is attributed the way it is; most of that file is a citation audit in which every
-source was read and several long-standing attributions turned out to be wrong.
-
-### `DataS1/` — 4 files
-
-Supplementary Data S1: the four export formats, produced by running the shipped exporters
-against the worked example rather than written by hand. Regenerate with
-`node analysis/make_data_s1.js`, which fails rather than writes if the geometry no longer
-matches the published example (PBS 10 nt, RT template 17 nt, 11 nt homology).
-
-**Scripts that need something beyond the deposit.** Everything else runs from an unpacked
-copy with no arguments and no particular working directory. Each of these prints what it
-wants and exits without writing anything:
-
-| script | needs |
-|---|---|
-| `build_editable_figures.py`, `build_figure5D_blocks.py`, `build_figure6_editable.py`, `check_figure_overlaps.py`, `place_figureS3_slide.py`, `check_figure2_panelD.py` | a PowerPoint figure deck, which this deposit does not carry — the authors supply the published figures to the journal directly. Pass one as the first argument (`--pptx` for `check_figure2_panelD.py`). Without one each prints `analysis/lib/need_deck.py`'s sentence and exits 0. The README promised that for weeks and five of the six exited 1 instead, which nothing caught while the decks were still shipped; `check_deposit_integrity.py` now runs all six and requires status 0 |
-| `assemble_figureS3.py`, `place_figureS3_slide.py` | `FigureS3_capture_kit/` and its `HOW_TO_CAPTURE.md` — screenshots of the live interface, not part of this deposit |
-| `parse_competitors.py` | raw exports from the competing tools (`*PEG FINDER*.txt`, `*PE_Designer_result*.xlsx`), not part of this deposit; `data/all_tools.json` is its output and is shipped |
-| `build_figure_legends.js` | the npm package `docx` (`npm install docx`), plus three paths: `legends.json`, `filemap.json` and the output `.docx` |
-| `score_batch_v2.js` | a benchmark CSV as its first argument |
-| `check_deposit_integrity.py` | nothing — it checks the archive itself: that every path the README names exists, that no cache or compiled file is staged, that every Python, JavaScript and JSON file parses, that no runnable analysis depends on a path inside someone's home directory, that the licence and citation record agree with the README, and that the README does not contradict the archive about the figures. Run it last, after `find . -name __pycache__ -exec rm -rf {} +`, since running the Python analyses recreates those caches |
-| `check_supplementary_tables.py`, `check_supplementary_rest.py`, `check_supplementary_s13.py`, `check_site_counts_in_text.py`, `check_spacer_recovery.py`, `check_benchmark_correlations.py`, `check_edits_are_published.py`, `check_reference_format.py`, `check_manuscript_citations.py` | the submitted documents — `Manuscript_PlantPrimeEditor.docx`, `Supplementary_Data.docx`, `Figure_Legends.docx`, `Supplementary_Tables_v1.0.xlsx` — which are not part of this deposit. Set `PPE_DOCS` to the folder holding them, or pass `--dir` / `--docx`. Without them each says so and exits 0; before 28 September 2026 five raised a traceback and one reported "FAIL 3 disagree", which is a missing file reported as a wrong deposit |
 
 ## Reproducing the paper
 
-Six of the commands below read the submitted manuscript, supplementary or tables file, which
-this deposit does not carry. Point them at those files once and they all work:
-
-```bash
-export PPE_DOCS=/path/to/the/submitted/documents
-```
-
 ```bash
 python3 analysis/verify_manuscript_numbers.py     # 96 checks, 0 disagree — needs no documents
-python3 analysis/check_supplementary_tables.py    # docx vs xlsx vs engine
-python3 analysis/check_supplementary_rest.py      # S1,S3,S4,S5,S8,S9,S10 and the reference lists
-python3 analysis/check_supplementary_s13.py --run # the analysis index, and every command in it
-python3 analysis/check_reference_format.py        # both reference lists, one format
-python3 analysis/check_manuscript_citations.py    # cited and listed, both directions
 python3 analysis/check_figure2_panelD.py          # Figure 2D vs the sweep that draws it
 python3 analysis/check_deposit_integrity.py       # the archive itself, before you upload it
 node    analysis/build_figure3_editable.js        # Figure 3, worked example derived

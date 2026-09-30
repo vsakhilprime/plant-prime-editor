@@ -168,7 +168,7 @@
   "p3fold": "6 bp stem (5 G:C), 3 nt loop",
   "dTm": 16.9
  },
- "build": "9e8d276b",
+ "build": "98b8c5c6",
  "locus": "OsALS-T2 (Lin 2021)",
  "pe_system": "PE2",
  "edit": "G to T at position 301",

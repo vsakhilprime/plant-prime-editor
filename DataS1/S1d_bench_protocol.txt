@@ -1,6 +1,6 @@
 PLANT PRIME EDITOR V1.0 — COMPLETE CLONING PROTOCOL
 ============================================================
-Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 9e8d276b)
+Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 98b8c5c6)
 Quote the parameter fingerprint when reporting a design: two designs made under
 identical rules carry the same fingerprint, whatever the version number says.
 ============================================================

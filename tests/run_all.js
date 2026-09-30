@@ -36,6 +36,7 @@ const SUITE = [
   ['test_organism_detection.js',   'species detection from FASTA headers',      /^13 passed, 0 failed/m],
   ['test_same_codon_variants.js',  'two changes in one codon',                  /^\d+ passed, 0 failed/m],
   ['test_acceptor_overhangs.js',   'acceptor overhangs match the deposited sequences', /^\d+ checks passed, 0 failed/m],
+  ['test_da_custom_scaffold.js',   'Direct Assembly builds from a user-supplied scaffold', /^\d+ passed, 0 failed/m],
   ['test_vector_records.js',       'vector records are internally consistent',        /^\d+ checks passed, 0 failed/m],
   ['test_colony_anchors.js',       'colony anchors occur once in the real plasmid',   /^\d+ passed, 0 failed/m],
   ['test_alignment_panel.js',      'alignment panel and species note render sanely',             /^\d+ passed, 0 failed/m],

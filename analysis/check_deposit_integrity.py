@@ -50,10 +50,34 @@ for m in re.finditer(r'`((?:analysis|tests|data|docs|DataS1)/[A-Za-z0-9_./*-]+|'
     if '*' in tok or tok.endswith('/'):
         continue
     named.add(tok)
-absent = sorted(t for t in named
-                if not os.path.exists(os.path.join(ROOT, t)) and '/' in t)
-ck('every path the README names in a code span exists', not absent,
-   '%d paths' % len(named) if not absent else 'absent: ' + ', '.join(absent[:8]))
+# A bare filename used to be exempt, because the test required a '/' in the token. Fourteen
+# files were deleted on 30 September and the README went on describing every one of them,
+# with this check passing. A name in a code span is now resolved against the archive
+# wherever it lives.
+def _exists(tok):
+    if os.path.exists(os.path.join(ROOT, tok)):
+        return True
+    if '/' in tok:
+        return False
+    return any(os.path.exists(os.path.join(ROOT, d, tok))
+               for d in ('analysis', 'analysis/lib', 'tests', 'tests/lib', 'data', 'docs'))
+
+
+# A name the README introduces as something a script WRITES is an output, and an output that
+# is not shipped is absent by design rather than missing. The exemption is narrow: the word
+# has to appear on the same line as the name, so it cannot quietly cover a real omission.
+def _is_declared_output(tok):
+    for line in README.split('\n'):
+        if '`' + tok + '`' in line:
+            low = line.lower()
+            if 'writes' in low or 'generated' in low or 'produces' in low:
+                return True
+    return False
+
+
+absent = sorted(t for t in named if not _exists(t) and not _is_declared_output(t))
+ck('every file the README names in a code span exists', not absent,
+   '%d names' % len(named) if not absent else 'absent: ' + ', '.join(absent[:8]))
 
 # ── 2. nothing that must not be published ───────────────────────────────────
 junk, empty, big = [], [], []
@@ -214,22 +238,31 @@ if os.path.exists(tool):
 runner = os.path.join(ROOT, 'tests', 'run_all.js')
 ck('the test runner is present', os.path.exists(runner))
 
-# ── 8. the scripts that need the documents say so rather than crashing ──────
-needs_docs = ['check_supplementary_tables.py', 'check_supplementary_rest.py',
-              'check_supplementary_s13.py', 'check_site_counts_in_text.py',
-              'check_spacer_recovery.py', 'check_benchmark_correlations.py',
-              'check_edits_are_published.py', 'check_reference_format.py',
-              'check_manuscript_citations.py']
-nowhere = os.path.join(ROOT, 'analysis', 'lib', 'need_documents.py')
-ck('the shared "needs the documents" message exists', os.path.exists(nowhere))
-missing_guard = [f for f in needs_docs
-                 if os.path.exists(os.path.join(HERE, f))
-                 and 'need_documents import require' not in
-                 open(os.path.join(HERE, f), encoding='utf8').read()]
-ck('every document-dependent checker exits cleanly without them', not missing_guard,
-   '%d checkers' % len(needs_docs) if not missing_guard else ', '.join(missing_guard))
-ck('the README lists them as needing something beyond the deposit',
-   'PPE_DOCS' in README, 'PPE_DOCS documented' if 'PPE_DOCS' in README else 'NOT DOCUMENTED')
+# ── 8. nothing in the archive reads the submitted documents ─────────────────
+# Until 30 September 2026 nine checkers read the manuscript, the supplementary tables or the
+# figure legends, and a shared helper explained their absence. Those documents go to the
+# journal, not into a code deposit, so the checkers that read them have gone with them and
+# PPE_DOCS is no longer part of this archive. What remains re-derives the paper's numbers
+# from the deposited data alone.
+#
+# THIS IS CHECKED RATHER THAN ASSUMED because the previous version of this section listed the
+# nine by name and skipped any that were absent — so when they were deleted it went on
+# reporting "9 checkers, 0 disagree" while guarding nothing at all.
+doc_readers = []
+for f in sorted(os.listdir(HERE)):
+    if not f.endswith(('.py', '.js')):
+        continue
+    txt = open(os.path.join(HERE, f), encoding='utf8', errors='ignore').read()
+    if 'need_documents' in txt and f != 'check_deposit_integrity.py':
+        doc_readers.append(f)
+ck('no script still expects the submitted documents', not doc_readers,
+   '%d scripts checked' % len([f for f in os.listdir(HERE) if f.endswith(('.py', '.js'))])
+   if not doc_readers else ', '.join(doc_readers))
+ck('the helper that explained their absence is gone too',
+   not os.path.exists(os.path.join(ROOT, 'analysis', 'lib', 'need_documents.py')),
+   'removed with them')
+ck('the README no longer sends a reader to PPE_DOCS', 'PPE_DOCS' not in README,
+   'not mentioned' if 'PPE_DOCS' not in README else 'still documented')
 
 # ── 9. no figure deck ships at all ──────────────────────────────────────────
 # The invariant changed on 29 September 2026. The deposit used to carry the two finalised
