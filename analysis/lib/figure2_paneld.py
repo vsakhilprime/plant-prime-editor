@@ -36,8 +36,8 @@ ON_ROW = ON_COL = 0.03          # inches a shape may sit off its row or its colu
 
 # Nothing should sit off the lattice. Three leftover cells did until 29 September 2026, hidden
 # behind the opaque cells drawn over them, contradicting the grid and costing a first pass at
-# the checker a false finding; analysis/patch_finalfig2_panelD_remove_leftovers.py deleted them
-# after a render at 300 dpi proved the figure pixel-identical without them. Anything off the
+# the checker a false finding. They were deleted after a render at 300 dpi proved the
+# figure pixel-identical with and without them. Anything off the
 # lattice now is new and unexplained.
 KNOWN_LEFTOVERS = 0
 

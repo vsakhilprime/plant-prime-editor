@@ -1761,7 +1761,7 @@ table.ctable{width:100%;border-collapse:collapse;font-size:12px}
      Esp3I’s identity (it reads CGTCTC and substitutes for BsmBI, not BsaI), the BsmBI
      swap primer tails, the internal-site scan (ten enzymes, not four), the count of
      selectable cloning routes, and the spacer score’s name and reachable range.
-     See analysis/patch_home_page.py for what each one said and what it now says. -->
+     Each of the six is listed above beside the claim it replaced. -->
 <!-- ══ HOME PAGE ════════════════════════════════════════════════ -->
 <div id="home-page">
 <!-- NAV -->
@@ -9321,8 +9321,9 @@ const _CFD_PAM = { 'NGG':1.0,'NAG':0.259,'NGA':0.068,'NAA':0.013,'NAT':0.013,
 // varies with the sequence would need the mean rather than the maximum mismatch weight
 // per position, and re-validation; that is future work, not a silent change.
 //
-// This is NOT a genome-wide off-target search and is not offered as one. Figure 5D
-// records that capability as absent, with a one-click handoff to CRISPOR / CRISPR-P.
+// This is NOT a genome-wide off-target search and is not offered as one. Figure 7
+// records that capability as delegated, with a one-click handoff to CRISPOR / CRISPR-P.
+// (It was panel 5D until the submitted version promoted the matrix to a figure of its own.)
 // FIX M2-AUDIT-SEP27: pamMotif is the setting the user chose (NGG, NG, NRN, NYN, NNGRRT); pam is the
 // concrete base triplet findSpacers read out of the sequence. _CFD_PAM is an SpCas9 table, so
 // the motif is what may be looked up in it — keying on the read re-interpreted other
@@ -9630,8 +9631,20 @@ function computeSpacerSpecificity(spacer, pam, pamMotif) {
 // The genetic code was checked codon by codon against an independently written table and the
 // aligner was round-tripped: both are correct. analysis/check_module1_calls.js is the guard and
 // fails 5 of its 15 assertions on the build before. The landing page was corrected in the same
-// pass -- see analysis/patch_home_page.py for the six claims it was making that the engine did
-// not support, the worst of them telling a reader that Esp3I substitutes for BsaI.
+// pass -- six claims it was making that the engine did not support, the worst of them
+// telling a reader that Esp3I substitutes for BsaI. All six are listed, each beside the
+// claim it replaced, in the FIX HOME-SEP27 comment above the home-page markup below.
+// Then to 98b8c5c6 on 30 September 2026, when Direct Assembly gained a field for a
+// user-supplied sgRNA scaffold. This move is the mildest in the list and the note says so
+// rather than letting the reader assume otherwise: the sixteen hashed inputs were compared
+// between the two builds and exactly one differs, runPrimerDesign's source text, by 57
+// characters -- and the whole of that difference is one comment, on the line that reads the
+// scaffold. The scaffold constant, the vector records, the melting bands and all nine other
+// hashed functions are byte-identical. M3_SCAFFOLD became an accessor rather than a constant
+// so that the eighty-odd places that read it resolve to whatever Direct Assembly holds, and
+// with that field empty it returns M3_SCAFFOLD_STANDARD, which is M2_SCAFFOLD -- so the
+// engine computes what 9e8d276b computed. tests/test_da_custom_scaffold.js is the guard;
+// six of its assertions fail on the build before the accessor.
 // analysis/build_equivalence.js runs the whole design
 // surface on the 572c4104 release build and on this one — 100,547 computed fields
 // across 411 cases, zero differences; 155 cases differ on advisory text only.

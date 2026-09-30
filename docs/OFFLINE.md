@@ -63,7 +63,7 @@ fallback produces identical design output, would be a poor trade.
 Every export carries a build stamp:
 
 ```
-Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 96e270bb)
+Plant Prime Editor v1.0 (build 2026-08-19, live since 2026-03-26, parameters 98b8c5c6)
 ```
 
 The last field is a fingerprint over the parameters that actually determine a design. It

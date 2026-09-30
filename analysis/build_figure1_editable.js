@@ -3,6 +3,15 @@
 // not eyeballed: every text box has a declared box and rows are laid on a fixed
 // pitch, so nothing can wrap into its neighbour.
 const pptxgen = require('pptxgenjs');
+// The build stamp is READ from the tool, not typed. It was typed until 30 September 2026
+// and said 96e270bb, a build that stopped existing on 23 August; build_figure2_editable.js
+// had always read it. A figure carrying a stamp its own tool disagrees with is worse than
+// a figure carrying none, because the stamp is what pins a panel to a build.
+process.env.PPE_HTML = process.env.PPE_HTML ||
+  (require('path').resolve(__dirname, '..') + '/plant_prime_editor_v1.0.html');
+const FP = require('vm').runInContext(
+  '(typeof PPE_BUILD!=="undefined"&&PPE_BUILD.fingerprint)||"unknown"',
+  require(require('path').resolve(__dirname, '..') + '/tests/lib/load_tool.js').ctx);
 
 const C = {
   ink:'1A1A1A', mid:'4A4A4A', soft:'8A8A8A', rule:'D8D8D8', hair:'E8EAEC',
@@ -203,7 +212,7 @@ T([{text:'Figure 1.  ', options:{fontSize:13.5, bold:true}},
   0.55, 0.24, 12.4, 0.28);
 T([{text:'Three chained modules with automatic state hand-off. No external analysis service is called at any stage; the eight genome resources are consulted only to retrieve sequence.',
    options:{fontSize:9.5, color:C.mid}}], 0.55, 0.57, 12.4, 0.22);
-T([{text:'Plant Prime Editor v1.0 · build 96e270bb · every element is a native, editable PowerPoint object',
+T([{text:`Plant Prime Editor v1.0 · build ${FP} · every element is a native, editable PowerPoint object`,
    options:{fontSize:8, color:'AAAAAA'}}], 0.55, 7.20, 12.4, 0.18);
 
 s.addNotes('Figure 1. Three chained modules with automatic state hand-off. Module 1 calls variants by banded Needleman-Wunsch with affine (Gotoh) gap penalties and maps them to genomic coordinates by Smith-Waterman. Module 2 scans both strands for PAMs, scores spacers, and returns the PBS free-energy landscape over three scored channels with PBS-to-RT reported alongside. Module 3 ranks 15 profiled binary vectors, scans the insert for internal sites of the vector enzyme and nine backbone enzymes, and builds overlap-extension primers. Dashed path: Direct Assembly mode, Module 3 alone. Six targeted reset points, each preserving the data it is not resetting.');

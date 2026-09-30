@@ -33,7 +33,7 @@ console.log(q('JSON.stringify(VECTORS.map(function(v){return {' +
   'enzyme:v.enzyme,recog:v.enzyme_recog,off:v.enzyme_cut_offset,' +
   'oh5:v.overhang_5,oh3:v.overhang_3,sel:v.selection,peg:v.pegRNA_promoter,' +
   'acceptor_verified:!!v.acceptor_verified,acceptor_source:v.acceptor_source||null,' +
-  'stuffer:v.stuffer_bp||null' +
+  'stuffer:v.stuffer_bp||null,plant:v.plant||null' +
   '};}))'));
 """
 
@@ -133,17 +133,39 @@ def main():
     for v in V:
         ck('%s cites a paper' % v['id'], bool(v['paper']), '')
 
-    # 9. the count Figure 5D prints is the count of deposited plasmids
+    # 9. the count Figure 7 prints, and what its label is allowed to claim alongside it
+    #
+    # UNTIL 30 SEPTEMBER 2026 these required the printed count to equal the DEPOSITED plasmids
+    # (11) and forbade the word "binary" in the label. That was right for the matrix as it then
+    # read -- "Plant vector library (deposited, orderable plasmids)" -- because the 25 September
+    # literature audit had found four constructed designs counted as deposited vectors, and
+    # printing 15 beside that label would have advertised four plasmids nobody can order.
+    #
+    # The submitted Figure 7 states the whole profiled library instead: "Plant binary vector
+    # library suitable for both monocot and dicot pegRNA designs", 15. It makes no claim about
+    # orderability, so the count it must match is 15, not 11.
+    #
+    # The guard survives as the SECOND check, which is the one that mattered: the label may not
+    # say deposited or orderable while the cell prints the full 15. The third check is new, for
+    # the claim the new label does make -- a library spanning monocots and dicots.
     fm = json.load(open(os.path.join(ROOT, 'data', 'feature_matrix.json'), encoding='utf8'))
-    row = [r for r in fm if 'vector library' in r[0]]
-    ck('Figure 5D has exactly one vector-library row', len(row) == 1, len(row))
+    row = [r for r in fm if 'vector library' in r[0].lower()]
+    ck('Figure 7 has exactly one vector-library row', len(row) == 1, len(row))
     if row:
-        m = re.search(r'\((\d+)\)', row[0][1])
-        ck('Figure 5D vector count == deposited plasmids',
-           bool(m) and int(m.group(1)) == len(deposited),
-           '%s vs %d deposited' % (row[0][1], len(deposited)))
-        ck('Figure 5D does not call them all binary',
-           'binary' not in row[0][0].lower(), row[0][0])
+        label, cell = row[0][0], row[0][1]
+        m = re.search(r'(\d+)', cell)
+        ck('Figure 7 vector count == vectors profiled',
+           bool(m) and int(m.group(1)) == len(V),
+           '%s vs %d profiled (%d deposited + %d you build)'
+           % (cell, len(V), len(deposited), len(designs)))
+        claims = [w for w in ('deposited', 'orderable') if w in label.lower()]
+        ck('Figure 7 does not call all %d of them deposited or orderable' % len(V),
+           not claims, ', '.join(claims) if claims else 'makes no orderability claim')
+        if 'monocot' in label.lower() and 'dicot' in label.lower():
+            mono = [v for v in V if v.get('plant') == 'monocot']
+            di = [v for v in V if v.get('plant') == 'dicot']
+            ck('Figure 7 says monocot and dicot, and the library covers both',
+               bool(mono) and bool(di), '%d monocot, %d dicot' % (len(mono), len(di)))
 
     print('\n%d deposited, %d constructed designs' % (len(deposited), len(designs)))
     print('%d checks, %d disagree' % (P + F, F))

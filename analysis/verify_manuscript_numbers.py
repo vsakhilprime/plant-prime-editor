@@ -227,9 +227,21 @@ chk('recovery: median is the 92.3rd percentile', 92.3, round(st.median(pcts), 1)
     'stated in the text as "top 7.7%"; 100-92.3 = 7.7 exactly')
 
 # ── Figure 4 Gaussian fit — added 14 Aug 2026 ─────────────────────────────
-# These sit in the Methods and the Figure 4 legend and were NOT covered by the
-# original 38 checks; the manuscript said 29.4 C / R2 0.46 while the seeded,
-# deterministic fit gives 29.3 C / R2 0.448 on the 72-point normalised cohort. Locked so they cannot drift.
+# These sit in the Methods and the Figure 4 legend and were NOT covered by the original 38
+# checks. When the check was added the manuscript still said 29.4 C / R2 0.46 against a fit
+# of 29.6 C / R2 0.446, and this comment recorded that gap instead of resolving it -- which
+# left the one check in this file that asserts the CODE's value rather than the paper's.
+#
+# Both have moved since and they now agree. On 29 September 2026 fit_tm_optimum.py stopped
+# counting targets with a single measurement in the within-target normalisation: such a
+# target normalises to 1.0 by construction, carries no information about where the optimum
+# lies, and contributes a free maximum to whatever bin it lands in -- and the figure legend
+# already claimed they were excluded. Dropping OsIPA1-T1 took the cohort from 73 points to
+# 72 and moved the fit to 29.3 C / R2 0.448.
+#
+# The submitted Figure 4 states 29.3 C, sigma 9.2 C, R2 0.45 and a 95% CI of 27.7-31.7 C
+# over n = 72 and 13 targets -- every one of them analysis/fig4data.json rounded -- and the
+# manuscript text states 29.3 as well. Locked so they cannot drift.
 try:
     import subprocess as _sp, os as _os, re as _re2
     _out = _sp.run(['python3', _os.path.join(HERE, 'fit_tm_optimum.py')],

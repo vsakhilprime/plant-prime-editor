@@ -5,8 +5,15 @@ Plant Prime Editor — benchmark analysis
     python3 analyse_benchmark.py benchmark_scored.csv
 
 Reads the output of score_batch.js and prints every number the Results section
-needs, then writes Figure4_benchmark.svg. Sentences are printed pre-written so
-they can be pasted straight into the manuscript.
+needs, then writes benchmark_figure.svg.
+
+The file was called Figure4_benchmark.svg until 30 September 2026, which was a leftover
+from an earlier numbering and actively misleading: Figure 4 of the paper is the melting-
+temperature recalibration, written by fit_tm_optimum.py. Nothing here is a display item.
+This is the uncollapsed, within-and-between-site pass over the 49 rows carrying a measured
+efficiency; the paper reports the collapsed between-site analysis (score_vs_efficiency.py,
+n = 15) and a recovery statistic over all 135 scored rows. Section 2 below repeats that
+warning where the number is printed.
 
 Requires: pandas, scipy, matplotlib   (pip install pandas scipy matplotlib)
 """
@@ -24,7 +31,7 @@ _DATA = _os.path.join(_HERE, '..', 'data')
 # Written beside the data rather than into the working directory: running this
 # from the repository root used to drop a second, diverging copy of the figure
 # at the top level while the canonical one sat in data/.
-_OUT_SVG = _os.path.join(_DATA, 'Figure4_benchmark.svg')
+_OUT_SVG = _os.path.join(_DATA, 'benchmark_figure.svg')
 
 warnings.filterwarnings('ignore')
 
@@ -289,7 +296,7 @@ ax = fig.add_subplot(gs[1,2])
 ax.axis('off')
 
 fig.savefig(_OUT_SVG,format='svg',bbox_inches='tight')
-print('  wrote Figure4_benchmark.svg')
+print('  wrote benchmark_figure.svg')
 
 rule('DONE')
 print('  Nothing here is a manuscript sentence. Numbers the paper states are checked by')

@@ -9,7 +9,7 @@ deposited data, so the figures stay editable and stay tied to the numbers.
   Figure 5A   primer-binding-site length chosen by each tool, seven targets   tool_comparison.csv
   Figure 5B   the same choices as Wallace melting temperature                 tool_comparison.csv
   Figure 5C   mean absolute pairwise difference in length, five tools         all_tools.json
-  Figure 5D   capability matrix, 29 features x 7 tools                        feature_matrix.json
+  Figure 7    capability matrix, 29 features x 7 tools (was panel 5D)         feature_matrix.json
   Figure S4A  best measured length against the leave-one-out optimum          loto.json
   Figure S4B  out-of-sample Spearman correlation per target                   loto.json
 
@@ -615,7 +615,7 @@ def main():
          size=7.6, colour=MUTED)
     panel_C(s1, 8.28, 1.02, 4.78, 5.90, at, A_TOOLS)
 
-    # ── slide: Figure 5, panel D ────────────────────────────────────────────
+    # ── slide: the capability matrix — Figure 7 (was panel 5D) ──────────────
     s2 = blank_slide(prs)
     text(s2, 0.42, 0.30, 12.4, 0.32,
          'Figure 5   Comparison with existing pegRNA design tools (panel D)',

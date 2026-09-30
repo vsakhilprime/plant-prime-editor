@@ -15,14 +15,16 @@ differing strings, so the change can be read rather than guessed at.
 
 ORDER MATTERS, and getting it wrong is silent. analysis/worked_example_run.js and
 analysis/case_studies.js copy their build stamp out of figure3_editable_data.json, so they
-must run AFTER the figure builders and BEFORE analysis/stamp_build_ids.py. Run them the
-other way round and the Supplementary's worked-example section is labelled with the
-previous build; stamp_build_ids.py will report the stamp as unaccounted for rather than
-guessing, which is how this was caught on 27 September 2026:
+must run AFTER the figure builders. Run them before, and the worked-example record is
+labelled with the previous build -- which is how this was caught on 27 September 2026,
+when the legend stamper reported a stamp it could not account for instead of guessing:
 
     python3 analysis/rebuild_all_figures.py --keep
     node analysis/worked_example_run.js && node analysis/case_studies.js
-    python3 analysis/stamp_build_ids.py
+
+The legend stamper itself is not part of this archive. It wrote build stamps into the
+figure legends and the supplementary tables, which go to the journal rather than into a
+code archive, so it went with them.
 
 Exit status is non-zero if a rebuild fails. A figure that CHANGED is not a failure — it is a
 result, and the rebuilt file is left in place for inspection.

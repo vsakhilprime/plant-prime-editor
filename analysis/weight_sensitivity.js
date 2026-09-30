@@ -41,7 +41,7 @@ const HEAD = parseCSV(csv[0]), col = n => HEAD.indexOf(n);
 // the ALS pair registered still did: OsGAPDH and OsGAPDH-T1 are one protospacer, one edit
 // (C>A at 303) and one window, so this sweep designed them twice and the panel carried 32
 // rows for 31 designs. Both copies then changed at weight 2.5, which is where "the largest
-// change anywhere is two of 32" came from — it is one of 31. See analysis/target_sites.js
+// change anywhere is two of 32" came from — it is one of 31. See analysis/lib/target_site.js
 // and analysis/build_target_sites.py.
 const { siteOfRow } = require(require('path').join(__dirname, 'lib', 'target_site.js'));
 

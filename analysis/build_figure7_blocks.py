@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-build_figure5D_blocks.py — redraw Figure 5 panel D as a block matrix with tick and cross marks.
+build_figure7_blocks.py — redraw the capability matrix as a block matrix with tick and cross
+marks. The matrix is Figure 7 in the submitted version; it was panel 5D when this was written.
 
 The panel previously used filled and open circles. A reader had to consult the key to learn
 which ring meant absent, and at print size an open circle and a faint filled one are easy to
@@ -18,7 +19,7 @@ Two things are fixed while rebuilding. The matrix occupied 9.6 in of a 12.3 in p
 columns are widened; and feature labels were being truncated at 58 characters with an ellipsis
 when the longest is 62, which the wider label column now shows in full.
 
-    python3 analysis/build_figure5D_blocks.py [path/to/Figures.pptx]
+    python3 analysis/build_figure7_blocks.py [path/to/Figures.pptx]
 """
 import json, os, sys
 

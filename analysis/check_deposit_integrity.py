@@ -289,7 +289,7 @@ ck('the README states that the figures are not redistributed', claims_absent,
 # Every script that reads a deck must survive not being given one, or a reviewer running the
 # suite against this archive meets a traceback for a file the archive is not meant to hold.
 DECK_READERS = ['check_figure2_panelD.py', 'check_figure_overlaps.py',
-                'build_editable_figures.py', 'build_figure5D_blocks.py',
+                'build_editable_figures.py', 'build_figure7_blocks.py',
                 'build_figure6_editable.py', 'place_figureS3_slide.py']
 present = [f for f in DECK_READERS if os.path.exists(os.path.join(HERE, f))]
 rough = []
@@ -300,6 +300,88 @@ for f in present:
         rough.append('%s exits %d' % (f, r.returncode))
 ck('every script that reads a figure deck exits cleanly without one', not rough,
    '%d scripts' % len(present) if not rough else '; '.join(rough))
+
+# ── the build stamp the archive states about itself ─────────────────────────
+# Added 30 September 2026. README.md line 9 said `96e270bb`; the tool computed 98b8c5c6 and had
+# since 27 September. A reader comparing the front page with the program's own footer found two
+# different builds in one archive, and the fingerprint exists precisely so a result can be
+# pinned to a build. Nothing checked it, because nothing ran the tool and asked.
+#
+# Only the CURRENT claim is checked. 96e270bb still appears in README.md and in
+# build_equivalence.js as the endpoint of the August citation audit, which is what it was, and
+# analysis/figure2_panels.json carries it because that file IS the 96e270bb data.
+m = re.search(r'design-parameter fingerprint `([0-9a-f]{8})`', README)
+r = subprocess.run(
+    ['node', '-e',
+     'const vm=require("vm");'
+     'const {ctx}=require(process.env.PPE_ROOT+"/tests/lib/load_tool.js");'
+     'console.log("@@FP@@"+vm.runInContext("PPE_BUILD.fingerprint",ctx));'],
+    capture_output=True, text=True, cwd=ROOT, timeout=180,
+    env=dict(os.environ, PPE_ROOT=ROOT,
+             PPE_HTML=os.path.join(ROOT, 'plant_prime_editor_v1.0.html')))
+live = ''.join(ln[6:].strip() for ln in r.stdout.split('\n') if ln.startswith('@@FP@@'))
+ck('the README states the fingerprint the tool computes',
+   bool(m) and bool(live) and m.group(1) == live,
+   ('README %s == tool %s' % (m.group(1), live)) if (m and live and m.group(1) == live)
+   else ('README %s, tool %s' % (m.group(1) if m else '<not stated>', live or '<could not read>')))
+
+# Every export the tool writes carries the stamp, and docs/OFFLINE.md quotes one as an example.
+# It quoted the 96e270bb stamp for five weeks. A quoted example that no run can reproduce is a
+# worked example that lies.
+OFFLINE = open(os.path.join(ROOT, 'docs', 'OFFLINE.md'), encoding='utf8').read()
+stamps = set(re.findall(r'parameters ([0-9a-f]{8})\)', OFFLINE))
+ck('every build stamp quoted in docs/OFFLINE.md is the current one',
+   bool(live) and stamps == {live},
+   'quotes %s' % (', '.join(sorted(stamps)) or 'none') if stamps != {live} else live)
+
+# ── the numbers the README quotes about the analyses ────────────────────────
+# Added 30 September 2026. README.md advertised `fit_tm_optimum.py  # Figure 4, optimum
+# 29.6 °C Wallace`. That was the value until 29 September, when single-measurement targets
+# stopped entering the within-target normalisation and the cohort went from 73 points to 72;
+# the fit moved to 29.3 and verify_manuscript_numbers.py was updated, but the README was not.
+# The manuscript and the submitted figure both say 29.3, so the README was the only place in
+# the archive still quoting a number the archive cannot reproduce.
+#
+# Checked against analysis/fig4data.json rather than by re-running the fit: the JSON is what
+# the fit writes and is deterministic, and running fit_tm_optimum.py here would rewrite
+# data/Figure_TmRecalibration.svg as a side effect — a checker must not dirty what it checks.
+try:
+    _f4 = json.load(open(os.path.join(HERE, 'fig4data.json')))
+    _mu = round(float(_f4['A']['mu']), 1)
+    _m = re.search(r'optimum ([\d.]+) ?°C Wallace', README)
+    ck('the README quotes the Wallace optimum the fit produces',
+       bool(_m) and float(_m.group(1)) == _mu,
+       ('README %s == fig4data %s' % (_m.group(1), _mu)) if (_m and float(_m.group(1)) == _mu)
+       else ('README %s, fig4data %s' % (_m.group(1) if _m else '<not quoted>', _mu)))
+except Exception as _e:
+    ck('the README quotes the Wallace optimum the fit produces', False, 'could not check: %s' % _e)
+
+# ── nothing points at a script the archive does not contain ─────────────────
+# Added the same day. Fourteen scripts were removed on 30 September and six references to five
+# of them stayed behind, in a JSON comment, two .js comments, a .py docstring and the tool's own
+# HTML twice. analysis/rebuild_all_figures.py printed one of them as a step to run. The README
+# check above could not see any of these: it reads code spans in README.md alone.
+SKIP_DIRS = {'.git', 'node_modules', '__pycache__', '.ipynb_checkpoints', '.pytest_cache'}
+TEXT_EXT = {'.py', '.js', '.md', '.json', '.html', '.txt', '.csv', '.cff', '.yml', '.yaml'}
+SCRIPT_REF = re.compile(r'\b((?:analysis|tests)/(?:lib/)?[A-Za-z0-9_-]+\.(?:py|js))\b')
+dead = {}
+for dirpath, dirnames, filenames in os.walk(ROOT):
+    dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+    for fn in filenames:
+        if os.path.splitext(fn)[1].lower() not in TEXT_EXT:
+            continue
+        fp = os.path.join(dirpath, fn)
+        try:
+            body = open(fp, encoding='utf8', errors='replace').read()
+        except OSError:
+            continue
+        for ref in set(SCRIPT_REF.findall(body)):
+            if not os.path.exists(os.path.join(ROOT, ref)):
+                dead.setdefault(ref, set()).add(os.path.relpath(fp, ROOT))
+ck('no file in the archive names a script the archive does not contain', not dead,
+   'checked every text file' if not dead else
+   '; '.join('%s (in %s)' % (k, ', '.join(sorted(v))) for k, v in sorted(dead.items())))
+
 
 # ── report ──────────────────────────────────────────────────────────────────
 for w, g in OK:

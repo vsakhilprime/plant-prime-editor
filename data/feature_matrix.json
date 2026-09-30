@@ -2,15 +2,15 @@
  [
   "Feature",
   "Plant Prime Editor",
-  "PlantPeg-Designer",
-  "Prime-Design",
-  "peg-Finder",
+  "PlantPegDesigner",
+  "PrimeDesign",
+  "pegFinder",
   "PE-Designer",
   "Easy-Prime",
   "PRIDICT2.0"
  ],
  [
-  "Entry point is allele comparison (WT vs reference CDS)",
+  "Finding allelic variants in the input sequence",
   "Yes",
   "No",
   "No",
@@ -40,9 +40,9 @@
   "No"
  ],
  [
-  "Plant-calibrated PBS Tm and length rules",
+  "Plant-calibrated and salt-adjusted PBS Tm vis-à-vis length",
   "Yes",
-  "Yes",
+  "No",
   "No",
   "No",
   "No",
@@ -110,7 +110,7 @@
   "No"
  ],
  [
-  "Multi-channel PBS free-energy landscape (3 scored channels)",
+  "PBS thermodynamic profiling (PBS self-folding, PBS-Spacer, PBS-scaffold binding)",
   "Yes",
   "No",
   "No",
@@ -120,7 +120,7 @@
   "No"
  ],
  [
-  "Free-energy-selected 3′ linker from a candidate pool",
+  "Most efficient 3′ linker selection from 19 candidate pools",
   "Yes",
   "No",
   "No",
@@ -140,8 +140,8 @@
   "No"
  ],
  [
-  "Plant vector library (deposited, orderable plasmids)",
-  "Yes (11)",
+  "Plant binary vector library suitable for both monocot and dicot pegRNA designs",
+  "Yes (15)",
   "No",
   "No",
   "No",
@@ -160,7 +160,7 @@
   "No"
  ],
  [
-  "Multiple assembly chemistries with strategy switching",
+  "Multiple cloning methods with automatic strategy switching",
   "Yes (6)",
   "No",
   "No",
@@ -172,7 +172,7 @@
  [
   "Cloning primers with per-primer thermodynamic QC",
   "Yes",
-  "No",
+  "Partial",
   "No",
   "No",
   "No",
@@ -180,7 +180,7 @@
   "No"
  ],
  [
-  "PCR cycling conditions from actual primer Tm",
+  "PCR protocol support for complete assembly of pegRNA",
   "Yes",
   "No",
   "No",
@@ -190,7 +190,7 @@
   "No"
  ],
  [
-  "Bench protocol export",
+  "Output support of complete cloning protocol in four exportable file format",
   "Yes",
   "No",
   "No",
@@ -200,7 +200,7 @@
   "No"
  ],
  [
-  "Synthesis-vendor order file export",
+  "Flexibility for inclusion of modified gRNA scaffold sequence by users",
   "Yes",
   "No",
   "No",
@@ -210,7 +210,7 @@
   "No"
  ],
  [
-  "Reports PBS Tm on both nearest-neighbour and Wallace scales",
+  "Flexibility of choosing PBS Tm derived from nearest-neighbour or Wallace rule",
   "Yes",
   "No",
   "No",
@@ -231,7 +231,7 @@
  ],
  [
   "Genome-wide off-target search",
-  "No (one-click handoff to CRISPOR / CRISPR-P)",
+  "No (linked to CRISPOR, CRISPR-P)",
   "No",
   "No",
   "No",
@@ -240,17 +240,7 @@
   "No"
  ],
  [
-  "Design record can be re-imported and re-verified",
-  "Yes",
-  "No",
-  "No",
-  "No",
-  "No",
-  "No",
-  "No"
- ],
- [
-  "Published automated test suite against known designs",
+  "Designed pegRNA can be re-imported and re-verified",
   "Yes",
   "No",
   "No",
@@ -260,7 +250,7 @@
   "No"
  ],
  [
-  "Complete design record export (all candidates, all sub-scores)",
+  "Automated validation against published PE designs",
   "Yes",
   "No",
   "No",
@@ -270,17 +260,27 @@
   "No"
  ],
  [
-  "Spacer candidates returned per target (this study, n = 7)",
+  "Complete pegRNA design record export for all shortlisted candidates",
+  "Yes",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No",
+  "No"
+ ],
+ [
+  "Spacer candidates returned per target",
   "20",
-  "1 ranked",
-  "—",
+  "1st ranked",
+  "Partial",
   "3–4",
   "1–5",
-  "—",
+  "Partial",
   "3–8"
  ],
  [
-  "All computation client-side; sequences never uploaded",
+  "All computation done by user, sequences never exported to outside server",
   "Yes",
   "No",
   "No",

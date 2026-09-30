@@ -10,7 +10,7 @@ case — and five of the six raised SystemExit with a MESSAGE but a non-zero STA
 
     check_figure_overlaps.py     exits 1
     build_editable_figures.py    exits 1
-    build_figure5D_blocks.py     exits 1
+    build_figure7_blocks.py      exits 1
     build_figure6_editable.py    exits 1
     place_figureS3_slide.py      exits 1
 

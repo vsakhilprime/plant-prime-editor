@@ -6,7 +6,7 @@ no sequence leaves the browser.
 
 **Live server:** https://akprimeedit.com — no login, registration or email address
 **Source:** https://github.com/vsakhilprime/plant-prime-editor
-**Build:** 2026-08-19 · public at akprimeedit.com since 2026-03-26 · design-parameter fingerprint `96e270bb`
+**Build:** 2026-08-19 · public at akprimeedit.com since 2026-03-26 · design-parameter fingerprint `98b8c5c6`
 **Archive:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22076360.svg)](https://doi.org/10.5281/zenodo.22076360)
 
 ---
@@ -90,7 +90,7 @@ Each produces one result in the paper:
 | `check_module1_calls.js` | Module 1's two outputs, checked against their sources rather than against themselves: all 64 codons against an independently written standard genetic code; the conservative/non-conservative grouping against BLOSUM62's own off-diagonal positive pairs, computed in the checker from the matrix; the JavaScript and Python copies of that grouping asserted equal; 240 applied edits round-tripped, with a deletion judged by whether the reported placement describes the SAME ALLELE rather than by position, since an indel in a repeat is legitimately placeable at more than one; and a frameshift required to be named. It found two pairs the matrix scores zero — H↔Q and N↔Q — reported as Conservative in both language copies, under a comment stating the rule as "score > 0" and the provenance as "generated from the BLOSUM62 matrix", and a frameshift reported as up to 75 independent amino-acid substitutions with no advisory and nothing distinguishing it from an in-frame indel's two |
 | `check_module2_design.js` | the design surface, asked mechanically: 464 designs across both strands and all four edit classes compared against an independent reference implementation of the edited template and its homology; a multi-base edit straddling the nick refused on both strands; a malformed edit refused rather than yielding wild type; the CFD PAM table keyed on the nuclease chosen rather than the bases read; nick-to-nick measured between the two cuts; no ambiguous spacer offered; every off-target field present at every spacer length the interface allows; all twelve dinucleotide repeat classes screened; a widened template range declared on the candidates a user sees. It found an insertion and a deletion in one template deleting the wrong genomic base, `homologyBeyondEdit` frozen at `len − 1` for every deletion so the 5 nt flap rule was unenforced for that whole class, the same figure overstated by `altLen − 1` for plus-strand multi-base substitutions, the minus strand installing part of a straddling MNP at top rank, SpCas9-NG scored as specific as canonical NGG, nick-to-nick off by one in opposite directions either side of the pegRNA nick, `(AG)10` scored 100 of 100 with no warning, and the `m2_pairCheck` result computed and read by nothing |
 | `check_module3_primers.js` | asks the only questions worth asking of a cloning primer, for every vector and for both second-cassette paths: does its 3′ terminus occur in the template it has to prime, is the annealing region it declares the region it actually has, do the primers the file calls identical come out identical, do the two primers of a pair carry the same enzyme, does every route stop where the vector's own 3′ end begins, is PBS2 the reverse complement of the RT1 block adjacent to the nick, does the annealing temperature follow the rule the card states, and does the Golden Gate clamp setting leave the default untouched. It found both cassette-2 paths unable to prime at all — PPE's P9/P10/P11 and twinPE's PT1/PT2/PT3, the same three faults in each — `P_BsmBI_Rev` repeating all three faults `FIX P3-ORIENTATION` had fixed for P3, `P_Esp3I_Rev` never rebuilt despite three places claiming it is identical to the BsmBI primer, PT1 carrying a BsaI site on a BsmBI vector while PT3 carried the vector's own, the gBlock putting a Pol III terminator in front of the backbone's own pseudoknot on three acceptors, PBS2 taken from the far end of RT1 at six inline copies of one expression, four primers exporting a Tm of −25.7 °C, and a single stray `0x01` byte that had silently switched off the spacer homopolymer check |
-| `check_vector_claims.py` | the vector catalogue's structural invariants: every record states whether it is a deposited plasmid or a design you build yourself, a design advertises no Addgene number, every enzyme's recognition site and cut offset match NEB, and the count Figure 5D prints is the count of orderable plasmids. Written after the 25 September 2026 literature audit, which found four constructed designs counted as deposited vectors and a BbsI record carrying a BsaI cut offset |
+| `check_vector_claims.py` | the vector catalogue's structural invariants: every record states whether it is a deposited plasmid or a design you build yourself, a design advertises no Addgene number, every enzyme's recognition site and cut offset match NEB, and the count Figure 7 prints is the count of vector records profiled, with its label barred from calling all fifteen deposited or orderable — four are designs you build. Written after the 25 September 2026 literature audit, which found four constructed designs counted as deposited vectors and a BbsI record carrying a BsaI cut offset |
 | `check_export_transcript_length.js` | one pegRNA, one length. It renders Module 2's assembly panel and the paired-pegRNA panel through the tool's own code and compares what they PRINT against the export collector (JSON/CSV/HTML report), the FASTA records and `worked_example.json`. It found three places that omitted the poly-T terminator — the exports, the block headed "Full pegRNA sequence", and the paired panel's length box — each reading 6 nt short of the transcript stated beside it |
 | `check_figure2_panelD.py` | panel D of the finalised Figure 2 against `analysis/weight_sensitivity.json`, which is what draws it — all 224 cells, the 32 rotated labels paired to columns **by rank**, the heading's count, and the set of designs that move with the weight. Nothing compared the two until 29 September 2026, and three deletion columns turned out to still carry their pre-rebuild lengths while the other 203 cells agreed. Reading the grid is the hard part: three leftover cells sit at the back of the z-order, off the lattice and hidden behind the cells drawn over them, and a first pass that collected them reported a design as moving with the weight when it does not |
 | `lib/figure2_paneld.py` | one reader for panel D's grid and labels, the one reader for panel D's grid and labels, so nothing that inspects the panel can disagree with anything else about which cell is which. It carries the lattice geometry, the rule that the last-drawn shape wins where two land in one place, and the row window that keeps panel E's `10 nt` / `8nt` / `37 nt` component labels out of the grid |
@@ -160,12 +160,25 @@ not given one. The published layout was composed by hand from these outputs, so 
 reproduces the artwork byte for byte; re-running a figure builder regenerates its own version
 beside the data, which is a derivation and not the figure the paper shows.
 
-The vector sources the analyses write stay with the data they came from:
-`fit_tm_optimum.py` writes `data/Figure_TmRecalibration.svg` (Figure 4),
-`analyse_benchmark.py` writes `data/Figure4_benchmark.svg`, and
-`make_figure5d_feature_matrix.py` writes `data/Figure5D_FeatureMatrix.svg` from
-`data/feature_matrix.json`. The five scripts that READ a deck take its path as their first
-argument rather than assuming one.
+Two of the analyses keep a vector source beside the data it came from:
+`fit_tm_optimum.py` writes `data/Figure_TmRecalibration.svg` (Figure 4) and
+`analyse_benchmark.py` writes `data/benchmark_figure.svg`.
+
+`make_figure7_feature_matrix.py` and `build_figure2A_plot.py` draw panels too — the
+capability matrix from `data/feature_matrix.json`, and the spacer-score decomposition from
+`analysis/figure2_panels.json` — but their output is not kept here. The published figures go
+to the journal; what this archive owes a reader is the code and the data that regenerate
+them, and running either script does. The five scripts that READ a deck take its path as
+their first argument rather than assuming one.
+
+`benchmark_figure.svg` is a diagnostic rather than a display item, and was called
+Figure4_benchmark.svg until 30 September 2026 — a leftover from an earlier numbering,
+and misleading, because Figure 4 is the melting-temperature recalibration named above.
+It runs over the 49 benchmark rows carrying a measured efficiency WITHOUT collapsing the
+near-identical designs within a target, so its correlation counts the same design many
+times. The paper reports the collapsed between-site analysis from `score_vs_efficiency.py`
+(n = 15) and a recovery statistic over all 135 scored rows. The script says so in its own
+output, which ends `Nothing here is a manuscript sentence.`
 
 
 ## Reproducing the paper
@@ -190,7 +203,7 @@ node    analysis/homology_falsifiability.js       # the 5 nt homology rule, made
 node    analysis/build_figure2_editable.js        # Figure 2, all six panels
 node    analysis/build_figure2_panels.js          # the ORIGINAL 2A and 2B (rice OsALS-T2), historical audit
 node    analysis/build_equivalence.js old.html    # two builds, field by field
-python3 analysis/fit_tm_optimum.py                # Figure 4, optimum 29.6 °C Wallace
+python3 analysis/fit_tm_optimum.py                # Figure 4, optimum 29.3 °C Wallace
 ```
 
 Python 3 with NumPy, SciPy and pandas; Node.js for the JavaScript harnesses. Verified on

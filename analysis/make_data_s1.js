@@ -17,8 +17,8 @@
   and went stale when the worked example moved to the top-ranked spacer on 14 September 2026:
   it still said "GGGTATGGTGGTGCAATGGG — the published one" and "RT template 17 nt, 11 nt
   homology", which is the design the file no longer produces. The values here are now a
-  description of what the run returns, and analysis/check_supplementary_tables.py checks them
-  against the record rather than trusting the comment.
+  description of what the run returns rather than a restatement that can go stale: run the
+  script and read DataS1/, which is the record.
 
       node analysis/make_data_s1.js [outdir]      default: DataS1/
 */

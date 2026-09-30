@@ -238,8 +238,8 @@ const out = {build:FP, generated_by:'analysis/build_figure2_editable.js',
     architectures:11, tevoSystems:TEVO_SYSTEMS, seg:segC}};
 // FIX DATA-PATH (13 Sep 2026). This wrote to the CURRENT WORKING DIRECTORY, so a run from
 // the repository root left analysis/figure2_editable_data.json untouched at whatever it was
-// last time someone ran the builder from inside analysis/. analysis/stamp_build_ids.py read
-// that stale copy and stamped the Figure 2 legend with a build that no longer existed. The
+// last time someone ran the builder from inside analysis/. The legend stamper read that
+// stale copy and stamped the Figure 2 legend with a build that no longer existed. The
 // same defect was fixed in build_figure3_editable.js in August and missed here.
 fs.writeFileSync(require('path').join(__dirname, 'figure2_editable_data.json'),
                  JSON.stringify(out,null,1));

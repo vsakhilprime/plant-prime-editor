@@ -1,4 +1,13 @@
 const pptxgen=require('pptxgenjs'), fs=require('fs');
+// The build stamp is READ from the tool, not typed. It was typed until 30 September 2026
+// and said 96e270bb, a build that stopped existing on 23 August; build_figure2_editable.js
+// had always read it. A figure carrying a stamp its own tool disagrees with is worse than
+// a figure carrying none, because the stamp is what pins a panel to a build.
+process.env.PPE_HTML = process.env.PPE_HTML ||
+  (require('path').resolve(__dirname, '..') + '/plant_prime_editor_v1.0.html');
+const FP = require('vm').runInContext(
+  '(typeof PPE_BUILD!=="undefined"&&PPE_BUILD.fingerprint)||"unknown"',
+  require(require('path').resolve(__dirname, '..') + '/tests/lib/load_tool.js').ctx);
 // FIX DATA-PATH (13 Sep 2026). This read from the CURRENT WORKING DIRECTORY while its
 // writer, analysis/fit_tm_optimum.py, correctly writes analysis/fig4data.json — so the
 // figure could only be built from inside analysis/, and a stray copy at the repository
@@ -131,7 +140,7 @@ T([{text:'Figure 4.  ',options:{fontSize:13.5,bold:true}},
   0.55,0.24,12.4,0.28);
 T([{text:`${D.n} of 73 analysed primer-binding-site variants, at ${D.targets} of 14 rice target sites (Lin et al. 2021, Figure 1b); efficiency is normalised within each target to that target's maximum.`,
    options:{fontSize:9.5,color:C.mid}}],0.55,0.57,12.4,0.22);
-T([{text:'Plant Prime Editor v1.0 · build 96e270bb · every element is a native, editable PowerPoint object',
+T([{text:`Plant Prime Editor v1.0 · build ${FP} · every element is a native, editable PowerPoint object`,
    options:{fontSize:8,color:'AAAAAA'}}],0.55,7.20,12.4,0.18);
 s.addNotes('Figure 4A-C. A: Wallace scale, Gaussian fit (this work, solid orange) against the fit published by Lin et al. 2021 (dashed green); shaded band, 95% CI for the fitted centre; dotted line, published 30 C optimum. B: same measurements, nearest-neighbour scale; no curve fitted; orange, binned means with SEM; shaded band, peak bin 14-20 C. C: the two scales against one another, least-squares fit and identity line.');
 /* ── layout audit ────────────────────────────────────────────────────────── */

@@ -16,3 +16,12 @@ __pycache__/
 # to the journal directly rather than into this archive, so no .pptx belongs here at all.
 # analysis/check_deposit_integrity.py fails if one is staged.
 *.pptx
+
+# Figure outputs the builders regenerate. The published figures go to the journal, so these are
+# derivations rather than deposit content, and three of them were removed on 30 September 2026.
+# Without these lines a single run of a builder puts them straight back into the working tree,
+# where they read as new files to commit.
+data/Figure7_FeatureMatrix.svg
+data/Figure5D_FeatureMatrix.svg
+data/Figure2A_panel.pdf
+data/Figure2A_panel.png
