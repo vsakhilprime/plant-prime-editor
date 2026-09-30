@@ -3,7 +3,7 @@ message: "If you use Plant Prime Editor, please cite the software and the paper.
 copyright: "Copyright (c) 2026 V. S. Akhil, T. K. Dutta and Chanumolu H G K, and ICAR-Indian Agricultural Research Institute, New Delhi, India. All rights reserved."
 title: "Plant Prime Editor"
 version: "1.0.1"
-date-released: "2026-08-19"
+date-released: "2026-09-30"
 type: software
 abstract: >-
   A browser-based platform for plant prime editing that carries a design from
@@ -32,8 +32,8 @@ identifiers:
     value: "10.5281/zenodo.22076360"
     description: "Concept DOI — resolves to the most recent version"
   - type: doi
-    value: "10.5281/zenodo.22076361"
-    description: "Version DOI — v1.0.0, the archive released 24 August 2026. Each release carries its own version DOI; the concept DOI above always resolves to the newest."
+    value: "10.5281/zenodo.23060917"
+    description: "Version DOI — v1.0.1, released 30 September 2026. Each release carries its own version DOI and is permanently bound to that snapshot; the concept DOI above always resolves to the newest. v1.0.0 remains at 10.5281/zenodo.22076361."
 keywords:
   - prime editing
   - pegRNA design

@@ -308,6 +308,7 @@ See `CITATION.cff`. Please cite both the software and the paper.
 The archived deposit carries a concept DOI, **10.5281/zenodo.22076360**, which always resolves
 to the most recent version. Cite that one unless you need to pin the exact build you used, in
 which case cite the version DOI printed on the Zenodo record for that release —
-10.5281/zenodo.22076361 for v1.0. Quote the fingerprint alongside it: two builds with the same
+10.5281/zenodo.23060917 for v1.0.1, 10.5281/zenodo.22076361 for v1.0. Quote the fingerprint
+alongside it: two builds with the same
 fingerprint rank designs identically, and that is the claim a reader needs to reproduce a
 result.
